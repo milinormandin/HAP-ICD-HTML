@@ -1,0 +1,97 @@
+﻿Table,Order,Column Name,Description,Data Type,Length
+V3_Addresses,1,HB_NUMBER,Subscriber's Unique Identifier,varchar,15
+V3_Addresses,2,ADDRESS_1,Address Line 1,varchar,100
+V3_Addresses,3,ADDRESS_2,Address Line 2,varchar,100
+V3_Addresses,4,CITY,City of the address,varchar,50
+V3_Addresses,5,STATE,State of the address,varchar,50
+V3_Addresses,6,ZIP_CODE,Zip Code of the address,varchar,9
+V3_Addresses,7,POSTAL_CODE,Postal Code of the address,varchar,50
+V3_Addresses,8,COUNTRY,Country of the address,varchar,50
+V3_Addresses,9,ADDRESS_TYPE,Type of address,varchar,1
+V3_Addresses,10,START_DATE,Subscriber's start date,varchar,10
+V3_Addresses,11,STOP_DATE,Subscriber's stop date,varchar,10
+V3_Dependent,1,HB_NUMBER,Subscriber's Unique Identifier,varchar,15
+V3_Dependent,2,DEPENDENT_HBN,Unique ID for a dependent,varchar,15
+V3_Dependent,3,DEPENDENT_SSN,Dependent's Social Security Number,varchar,15
+V3_Dependent,4,DEPENDENT_SEQ_NO,Sequence number for a dependent,varchar,15
+V3_Dependent,5,DEPENDENT_FIRST_NAME,First name of a dependent,varchar,100
+V3_Dependent,6,DEPENDENT_MIDDLE_NAME,Middle name of a dependent,varchar,100
+V3_Dependent,7,DEPENDENT_LAST_NAME,Last name of a dependent,varchar,100
+V3_Dependent,8,DEPENDENT_SUFFIX,Suffix for a dependent's name,varchar,50
+V3_Dependent,9,DEPENDENT_BIRTH_DATE,Dependent's date of birth,varchar,10
+V3_Dependent,10,DEPENDENT_DEATH_DATE,Dependent's date of death,varchar,10
+V3_Dependent,11,DEPENDENT_RELATIONSHIP,Relationship with the subscriber,varchar,10
+V3_Dependent,12,DEPENDENT_GENDER,Gender of a dependent,varchar,10
+V3_Dependent,13,DEPENDENT_DISABLED_INDICATOR,Indicator of dependent's disability,varchar,10
+V3_Dependent,14,STUDENT_INDICATOR,Indicator if the dependent is a student,varchar,10
+V3_Dependent,15,STUDENT_INDICATOR_EFF_DATE,Effective date of student status,varchar,10
+V3_Dependent,16,STUDENT_INDICATOR_END_DATE,End date of student status,varchar,10
+V3_Dependent,17,IRS_FLAG,Indicating if the dependent is an IRS qualified dependent.,varchar,10
+V3_Dependent,18,IRS_FLAG_START_DATE,Effective Date of Qualification,varchar,10
+V3_Dependent,19,IRS_FLAG_STOP_DATE,End Date of Qualification ,varchar,10
+V3_Disabled,1,HB_NUMBER,Unique ID for the disabled subscriber,varchar,15
+V3_Disabled,2,DISABLED_INDICATOR,Indicator of subscriber's disability,varchar,1
+V3_Disabled,3,START_DATE,Start date of the disability status,varchar,10
+V3_Employment,1,HB_NUMBER,Unique ID for the employment record,varchar,15
+V3_Employment,2,EMPLOYER_ID,ID for the subscriber's employer,varchar,15
+V3_Employment,3,EMPLOYMENT_KEY,Key for employment status,varchar,15
+V3_Employment,4,BILLING_LOCATION_CODE,Code for billing location,varchar,15
+V3_Employment,5,UNION_CODE,Code for labor union affiliation,varchar,2
+V3_Employment,6,BARGAINING_UNIT,Subscriber's Bargaining Unit,varchar,2
+V3_Employment,7,AGREEMENT_CODE,Code for employment agreement,varchar,10
+V3_Employment,8,EMPLOYMENT_START_DATE,Start date of employment,varchar,10
+V3_Employment,9,EMPLOYMENT_STOP_DATE,End date of employment,varchar,10
+V3_Enroll_DEP,1,HB_NUMBER,Unique ID for the dependent enrollment,varchar,15
+V3_Enroll_DEP,2,EMPLOYER_ID,ID for the dependent's employer,varchar,15
+V3_Enroll_DEP,3,EMPLOYMENT_KEY,Key for dependent's employment status,varchar,15
+V3_Enroll_DEP,4,DEPENDENT_SSN,Dependent's Social Security Number,varchar,15
+V3_Enroll_DEP,5,DEPENDENT_SEQ_NO,Sequence number for a dependent,varchar,15
+V3_Enroll_DEP,6,FUND,Fund associated with dependent enrollment,varchar,15
+V3_Enroll_DEP,7,PLAN,Specific plan for dependent enrollment,varchar,15
+V3_Enroll_DEP,8,TIER,Level of coverage for dependent enrollment,varchar,15
+V3_Enroll_DEP,9,COVERAGE_EFFECTIVE_DATE,Effective date of coverage for the dependent ,varchar,10
+V3_Enroll_DEP,10,COVERAGE_TERM_DATE,Termination date of coverage for the dependent,varchar,10
+V3_Enroll_SUB,1,HB_NUMBER,Unique ID for the subscriber enrollment,varchar,15
+V3_Enroll_SUB,2,EMPLOYER_ID,ID for the subscriber's employer in enrollment,varchar,15
+V3_Enroll_SUB,3,EMPLOYMENT_KEY,Key for subscriber's employment status in enrollment,varchar,15
+V3_Enroll_SUB,4,FUND,Fund associated with subscriber enrollment,varchar,15
+V3_Enroll_SUB,5,PLAN,Specific plan for subscriber enrollment,varchar,15
+V3_Enroll_SUB,6,TIER,Level of coverage for subscriber enrollment,varchar,2
+V3_Enroll_SUB,7,START_DATE,Start date of enrollment,varchar,10
+V3_Enroll_SUB,8,END_DATE,End date of enrollment,varchar,10
+V3_Medicare,1,HB_NUMBER,Unique ID for the Medicare record,varchar,15
+V3_Medicare,2,START_DATE,Start date of Medicare coverage,varchar,10
+V3_Medicare,3,STOP_DATE,End date of Medicare coverage,varchar,10
+V3_Medicare,4,MBI,Medicare Beneficiary Identifier (MBI),varchar,50
+V3_Medicare,5,MEDICARE_TYPE_DESC,Description of Medicare type,varchar,15
+V3_RF_ADDRESS_TYPE,1,ADDRESS_TYPE,Type of address (Reference Data),varchar,5
+V3_RF_ADDRESS_TYPE,2,DESCRIPTION,Description of address type (Reference Data),varchar,20
+V3_RF_AGREEMENT_CODE,1,AGREEMENT_CODE,Code for employment agreement (Reference Data),varchar,5
+V3_RF_AGREEMENT_CODE,2,DESCRIPTION,Description of employment agreement (Reference Data),varchar,20
+V3_RF_BILLING_LOCATION_CODE,1,BILLING_LOCATION_CODE,Code for billing location (Reference Data),char,6
+V3_RF_BILLING_LOCATION_CODE,2,ACTIVE_BILLING_LOCATION_NAME,Active billing location name (Reference Data),varchar,50
+V3_RF_BILLING_LOCATION_CODE,3,RETIREE_BILLING_LOCATION_NAME,Retiree billing location name (Reference Data),varchar,50
+V3_RF_BILLING_LOCATION_CODE,4,PAYROLL_BILLING_LOCATION_NAME,Payroll billing location name (Reference Data),varchar,50
+V3_RF_DEPENDENT_RELATIONSHIP,1,DEPENDENT_RELATIONSHIP,Relationship with the subscriber (Reference Data),varchar,10
+V3_RF_DEPENDENT_RELATIONSHIP,2,DESCRIPTION,Description of dependent relationship (Reference Data),varchar,50
+V3_RF_EMPLOYER_ID,1,EMPLOYER_ID,ID for the employer (Reference Data),varchar,5
+V3_RF_EMPLOYER_ID,2,DESCRIPTION,Description of employer (Reference Data),varchar,50
+V3_RF_ENROLLMENT_FUND_PLAN,1,FUND,Fund associated with enrollment (Reference Data),varchar,20
+V3_RF_ENROLLMENT_FUND_PLAN,2,ENROLLMENT_PLAN,Enrollment plan (Reference Data),varchar,10
+V3_RF_ENROLLMENT_FUND_PLAN,3,PLAN_NAME,Name of the enrollment plan (Reference Data),varchar,100
+V3_RF_ENROLLMENT_TIER,1,TIER,Level of coverage within enrollment (Reference Data),varchar,5
+V3_RF_ENROLLMENT_TIER,2,DESCRIPTION,Description of enrollment tier (Reference Data),varchar,20
+V3_RF_GENDER,1,Gender,Gender (Reference Data),char,1
+V3_RF_GENDER,2,Description,Description of gender (Reference Data),varchar,20
+V3_RF_MARITAL_STATUS,1,MARITAL_STATUS,Marital status (Reference Data),char,1
+V3_RF_MARITAL_STATUS,2,DESCRIPTION,Description of marital status (Reference Data),varchar,20
+V3_Subscriber,1,HB_NUMBER,Unique ID for the subscriber enrollment,varchar,15
+V3_Subscriber,2,EMPLOYEE_SSN,Subscriber's Social Security Number,varchar,15
+V3_Subscriber,3,FIRST_NAME,Subscriber's first name,varchar,100
+V3_Subscriber,4,MIDDLE_NAME,Subscriber's middle name,varchar,100
+V3_Subscriber,5,LAST_NAME,Subscriber's last name,varchar,100
+V3_Subscriber,6,SUFFIX,Subscriber's name suffix,varchar,50
+V3_Subscriber,7,GENDER,Subscriber's gender,varchar,1
+V3_Subscriber,8,BIRTH_DATE,Subscriber's date of birth,varchar,10
+V3_Subscriber,9,DEATH_DATE,Subscriber's date of death,varchar,10
+V3_Subscriber,10,MARITAL_STATUS,Marital status of the subscriber,varchar,1

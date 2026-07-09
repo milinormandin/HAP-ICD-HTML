@@ -1,0 +1,11 @@
+﻿Data Element,Column Name,Data Type,Length,Note
+Application ID,APLCTN_SID,NUMBER,14,
+AHCCCS ID,IDNTFR,VARCHAR2,6,
+First Name,FIRST_NAME,VARCHAR2,20,
+Last Name,LAST_NAME,VARCHAR2,30,
+Start Date,FROM_DATE,DATE,,
+End Date,TO_DATE,DATE,,
+Created By,CREATED_BY,VARCHAR2,50,
+Created Date,CREATED_DATE,DATE,,
+Modified By,MODIFIED_BY,VARCHAR2,50,
+Modified Date,MODIFIED_DATE,DATE,,

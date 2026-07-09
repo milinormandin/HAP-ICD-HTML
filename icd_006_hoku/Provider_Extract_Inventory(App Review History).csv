@@ -1,0 +1,7 @@
+﻿Data Element ,Column Name,Data Type,Length,Note
+Application ID,APLCTN_SID,NUMBER,14,
+AHCCCS ID,IDNTFR,VARCHAR2,6,
+Application Status,STATUS_NAME,VARCHAR2,80,
+Remark,REMARK,VARCHAR2,4000,
+Created By,CREATED_BY,VARCHAR2,50,
+Created Date,CREATED_DATE,DATE,,
