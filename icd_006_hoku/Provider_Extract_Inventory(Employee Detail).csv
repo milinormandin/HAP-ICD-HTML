@@ -1,0 +1,12 @@
+﻿Data Element,Column Name,Data Type,Length,Note
+Application ID,APLCTN_SID,NUMBER,14,
+AHCCCS ID,IDNTFR,VARCHAR2,6,
+Employee Application ID,EMP_APP_ID,NUMBER,14,
+Employee SSN,TAX_IDNTFCTN_NMBR,VARCHAR2,9,
+Employee First Name,FIRST_NAME,VARCHAR2,20,
+Employee Last Name,LAST_NAME,VARCHAR2,30,
+Employee Gender,GENDER_LKPCD,VARCHAR2,1,
+Employment Start Date,FROM_DATE,DATE,,
+Employment End Date,TO_DATE,DATE,,
+Created By,CREATED_BY,VARCHAR2,50,
+Created Date,CREATED_DATE,DATE,,

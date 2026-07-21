@@ -1,0 +1,176 @@
+﻿MEASURE,FIELD,VARIABLE_NAME,INDICATOR,SPECIFICATION,COLUMN_START,COLUMN_END,COLUMN_LENGTH,VARIABLE_TYPE
+General Info,Health Plan NCQA HEDIS Submission ID,SubID,,The unique plan identifier assigned by NCQA for summary-level data submission. This must match the NCQA HEDIS submission ID used in the health plan's NCQA IDSS submission.,1,5,5,Character
+General Info,HAWI Client ID,MemID,,"Enter the Med-QUEST assigned member ID. For the member ID, use the member's Hawaii HAWI assigned client number, which contains 10 digits. Ensure that all 10 digits are reported, adding leading zeros, if necessary.",6,15,10,Character
+General Info,Subscriber Last Name,Lname,,Enter the member's last name. The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.,16,65,50,Character
+General Info,Subscriber First Name,Fname,,Enter the member's first name. The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.,66,115,50,Character
+General Info,Member Birth Date,DOB,,"The birth date must contain 8 digits with year, month, and day.
+Enter:
+CCYYMMDD (e.g., September 20, 1983 would be 19830920) 
+The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.",116,123,8,Character
+General Info,Gender,Gender,,"Enter:
+'F' if this member is female
+'M' if this member is male
+The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.",124,124,1,Character
+General Info,Race or Ethnicity,Race_Ethnic,,"Enter the race/ethnicity (White, Black or African American, Hispanic, Native Hawaiian, etc.) for the member based on your health plan's demographic information. If the only race/ethnicity information you have for the member is from the data provided by MQD in its 834 transaction file, please use that race/ethnicity information. Please provide a crosswalk of your health plan's race/ethnicity values with the submission of this PLD file.",125,174,50,Character
+General Info,Primary Language,Language,,"Enter the primary language (English, Spanish, Tagalog, Japanese, etc.) for the member based on your health plan's demographic information for this member. If the only primary language information you have for the member is from the data provided by MQD in its 834 transaction file, please use that primary language information. Please provide a crosswalk of your health plan's primary language values with the submission of this PLD file.",175,224,50,Character
+General Info,Subscriber Postal Zone or ZIP Code,ZIPCode,,"Enter the member's residence ZIP Code, using the nine-digit ZIP Code when available. The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.",225,233,9,Character
+General Info,Rate Code,RateCode,,This should match the rate code information contained in the Insured Group or Policy Number from the REF02 element in the Loop 2000 REF segment from the 834 transaction file.,234,243,10,Character
+General Info,Contract Type,ContractType,,This should match the contract type information contained in the Insured Group or Policy Number from the REF02 element in the Loop 2000 REF segment from the 834 transaction file.,244,253,10,Character
+General Info,Total months dually eligible,Dual_month,,Enter the number of months the member had Medicare and Medicaid with the same health plan.,254,255,2,Character
+General Info,Total months external primary insurance,Insur_month,,Enter the number of months the member had primary insurance other than Medicaid with a different company.,256,257,2,Character
+General Info,Type of external primary insurance,Insur_type,,"Enter:
+'0' if the member did not have primary insurance other than Medicaid
+'1' if the member had Medicare with another insurance company
+'2' if the member had Commercial insurance with another insurance company",258,258,1,Character
+AMM,Eligible population for AMM: Effective Acute Phase Treatment—Total,AMM1_Denom,Effective Acute Phase Treatment,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population",259,259,1,Numeric
+AMM,Numerator for AMM: Effective Acute Phase Treatment—Total,AMM1_Num,Effective Acute Phase Treatment,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",260,260,1,Numeric
+AMM,Eligible population for AMM: Effective Continuation Phase Treatment—Total,AMM2_Denom,Effective Continuation Phase Treatment,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population",261,261,1,Numeric
+AMM,Numerator for AMM: Effective Continuation Phase Treatment—Total,AMM2_Num,Effective Continuation Phase Treatment,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",262,262,1,Numeric
+BHA,Eligible population for BHA,BHA1_Denom,BHA Completion Within 14 Days of Enrollment (within standard),"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population",263,263,1,Numeric
+BHA,Numerator for BHA: Within 14 Days of Enrollment,BHA1_Num,BHA Completion Within 14 Days of Enrollment (within standard),"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",264,264,1,Numeric
+BHA,Numerator for BHA: Within 15-30 Days of Enrollment,BHA2_Num,BHA Completion Within 15-30 Days of Enrollment,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",265,265,1,Numeric
+BHA,Numerator for BHA: Within 31-60 Days of Enrollment,BHA3_Num,BHA Completion Within 31-60 Days of Enrollment,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",266,266,1,Numeric
+FUA,Eligible population for FUA: 7-Day Follow-Up—Total,FUA1_Denom,7 Days—Total,Enter the number of ED visits with a principal diagnosis of AOD abuse during the measurement period.,267,268,2,Numeric
+FUA,Numerator for FUA: 7-Day Follow-Up—Total,FUA1_Num,7 Days—Total,"Enter the number of ED visits with a principal diagnosis of AOD abuse that were followed up by a visit for AOD abuse during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUA: 7-Day Follow-Up—Total field.",269,270,2,Numeric
+FUA,Eligible population for FUA: 30-Day Follow-Up—Total,FUA2_Denom,30 Days—Total,Enter the number of ED visits with a principal diagnosis of AOD abuse during the measurement period.,271,272,2,Numeric
+FUA,Numerator for FUA: 30-Day Follow-Up—Total,FUA2_Num,30 Days—Total,"Enter the number of ED visits with a principal diagnosis of AOD abuse that were followed up by a visit for AOD abuse during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUA: 30-Day Follow-Up—Total field.",273,274,2,Numeric
+FUH,Eligible population for FUH: 7-Day Follow-Up—Total,FUH1_Denom,7-Day Follow-Up,Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm during the measurement period.,275,276,2,Numeric
+FUH,Numerator for FUH: 7-Day Follow-Up—Total,FUH1_Num,7-Day Follow-Up,"Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm that were followed up by a visit for mental illness during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUH: 7-Day Follow-Up—Total field.",277,278,2,Numeric
+FUH,Eligible population for FUH: 30-Day Follow-Up—Total,FUH2_Denom,30-Day Follow-Up,Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm during the measurement period.,279,280,2,Numeric
+FUH,Numerator for FUH: 30-Day Follow-Up—Total,FUH2_Num,30-Day Follow-Up,"Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm that were followed up by a visit for mental illness during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUH: 30-Day Follow-Up—Total field.",281,282,2,Numeric
+FUM,Eligible population for FUM: 7-Day Follow-Up—Total,FUM1_Denom,7-Day Follow-Up,Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm during the measurement period.,283,284,2,Numeric
+FUM,Numerator for FUM: 7-Day Follow-Up—Total,FUM1_Num,7-Day Follow-Up,"Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm that were followed up by a visit for mental during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUM: 7-Day Follow-Up—Total field",285,286,2,Numeric
+FUM,Eligible population for FUM: 30-Day Follow-Up—Total,FUM2_Denom,30-Day Follow-Up,Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm during the measurement period.,287,288,2,Numeric
+FUM,Numerator for FUM: 30-Day Follow-Up—Total,FUM2_Num,30-Day Follow-Up,"Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm that were followed up by a visit for mental during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUM: 30-Day Follow-Up—Total field",289,290,2,Numeric
+IET,Eligible population for IET: Initiation of AOD Treatment—Total,IET1_Denom,Initiation of AOD—Total—Total,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population",291,291,1,Numeric
+IET,Numerator for IET: Initiation of AOD Treatment—Total,IET1_Num,Initiation of AOD—Total—Total,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",292,292,1,Numeric
+IET,Eligible population for IET: Engagement of AOD Treatment—Total,IET2_Denom,Engagement of AOD—Total—Total,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population",293,293,1,Numeric
+IET,Numerator for IET: Engagement of AOD Treatment—Total,IET2_Num,Engagement of AOD—Total—Total,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",294,294,1,Numeric
+SAA,Eligible population for SAA,SAA_Denom,Adherence to Antipsychotic Medications for Individuals with Schizophrenia,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population",295,295,1,Numeric
+SAA,Numerator for SAA,SAA_Num,Adherence to Antipsychotic Medications for Individuals with Schizophrenia,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing",296,296,1,Numeric
+AMBA,Denominator for AMB: ED Visits—<1 Year-19 Years,AMB1_Denom,AMB: ED—< 1 Year-19 Years,Enter the number of member months for the member during the measurement period.,297,298,2,Numeric
+AMBA,Numerator for AMB: ED Visits—<1 Year-19 Years,AMB1_Num,AMB: ED—< 1 Year-19 Years,Enter the count of ED visits for the member during the measurement year.,299,301,3,Numeric
+AMBA,Denominator for AMB: ED Visits—20+ Years,AMB2_Denom,AMB: ED— 20+ Years,Enter the number of member months for the member during the measurement period.,302,303,2,Numeric
+AMBA,Numerator for AMB: ED Visits—20+ Years,AMB2_Num,AMB: ED— 20+ Years,Enter the count of ED visits for the member during the measurement year.,304,306,3,Numeric
+AMBA,Denominator for AMB: Outpatient Visits—Total,AMB3_Denom,Outpatient Visits—Total,Enter the number of member months for the member during the measurement period.,307,308,2,Numeric
+AMBA,Numerator for AMB: Outpatient Visits—Total,AMB3_Num,Outpatient Visits—Total,Enter the count of outpatient visits for the member during the measurement year.,309,311,3,Numeric
+ENPA,Member Months for ENPA: Total—Total,ENP_EP,Enr by Product Line Tot Tot,Enter the number of member months for the member during the measurement period.,312,313,2,Numeric
+MPTA,Member Months for MPTA: Any Service—Total—Total,MPT1_Denom,Any Service—Total—Total,Enter the number of member months for the member during the measurement period.,314,315,2,Numeric
+MPTA,Numerator of MPTA: Any Service—Total—Total,MPT1_Num,Any Service—Total—Total,"Enter:
+'1' if this member received any mental health service during the measurement year.
+'0' if this member did not receive any mental health service during the measurement year.",316,316,1,Numeric
+MPTA,Member Months for MPTA: Inpatient—Total—Total,MPT2_Denom,Inpatient—Total—Total,Enter the number of member months for the member during the measurement period.,317,318,2,Numeric
+MPTA,Numerator of MPTA: Inpatient—Total—Total,MPT2_Num,Inpatient—Total—Total,"Enter:
+'1' if this member received an inpatient mental health service during the measurement year.
+'0' if this member did not receive an inpatient mental health service during the measurement year.",319,319,1,Numeric
+MPTA,Member Months for MPTA: Intensive Outpatient or Partial Hospitalization—Total—Total,MPT3_Denom,Intensive Outpatient or Partial Hospitalization—Total—Total,Enter the number of member months for the member during the measurement period.,320,321,2,Numeric
+MPTA,Numerator of MPTA: Intensive Outpatient or Partial Hospitalization—Total—Total,MPT3_Num,Intensive Outpatient or Partial Hospitalization—Total—Total,"Enter:
+'1' if this member received an intensive outpatient or partial hospitalization mental health service during the measurement year.
+'0' if this member did not receive an intensive outpatient or partial hospitalization mental health service during the measurement year.",322,322,1,Numeric
+MPTA,Member Months for MPTA: Outpatient—Total—Total,MPT4_Denom,Outpatient—Total—Total,Enter the number of member months for the member during the measurement period.,323,324,2,Numeric
+MPTA,Numerator of MPTA: Outpatient—Total—Total,MPT4_Num,Outpatient—Total—Total,"Enter:
+'1' if this member received an outpatient mental health service during the measurement year.
+'0' if this member did not receive an outpatient mental health service during the measurement year.",325,325,1,Numeric
+MPTA,Member Months for MPTA: ED—Total—Total,MPT5_Denom,ED—Total—Total,Enter the number of member months for the member during the measurement period.,326,327,2,Numeric
+MPTA,Numerator of MPTA: ED—Total—Total,MPT5_Num,ED—Total—Total,"Enter:
+'1' if this member received an ED mental health service during the measurement year.
+'0' if this member did not receive an ED mental health service during the measurement year.",328,328,1,Numeric
+MPTA,Member Months for MPTA: Telehealth—Total—Total,MPT6_Denom,Telehealth—Total—Total,Enter the number of member months for the member during the measurement period.,329,330,2,Numeric
+MPTA,Numerator of MPTA: Telehealth—Total—Total,MPT6_Num,Telehealth—Total—Total,"Enter:
+'1' if this member received telehealth mental health service during the measurement year.
+'0' if this member did not receive a telehealth mental health service during the measurement year.",331,331,1,Numeric
+General Info,General Info,PLAN,,Enter the name of the health plan for the member.,332,348,17,Character
+General Info,General Info,POPULATION,,"Enter the name of the population for the member (i.e., 'QI' or 'CCS').",349,351,3,Character
+General Info,MQD Demographic Info,Race_MQD,,"Enter one of the following racial/ethnic group values:
+'American Indian/Alaskan Native'
+'Black'
+'Chinese'
+'Filipino'
+'Hawaiian (Include Part Hawaiian)'
+'Japanese'
+'Other'
+'Other Asian'
+'Other Pacific Islander'
+'Unknwn/Unspecif'
+'White'
+These demographics were provided by MQD and represent the most recent demographic record for the member.",352,383,32,Character
+General Info,MQD Demographic Info,Lang_MQD,,"Enter one of the following primary language group values:
+'Albanian'
+'Arabic'
+'Asian, Other'
+'Bisayan'
+'Cambodian'
+'Cebuano'
+'Chamorro'
+'Cherokee'
+'Chinese/Cantonese'
+'Chuukese'
+'English'
+'French'
+'Gujarati'
+'Hawaiian'
+'Hebrew'
+'Ilocano'
+'Japanese'
+'Korean'
+'Kosraean'
+'Malay'
+'Maltese'
+'Mandarin'
+'Marathi'
+'Marshallese'
+'Nepali'
+'Other'
+'Other Specified N'
+'Palauan'
+'Pohnpeian'
+'Portuguese'
+'Russian'
+'Samoan'
+'Sign Language'
+'Sinhalese'
+'South Pacific, Ot'
+'Spanish'
+'Tagalog'
+'Thai'
+'Tongan'
+'Unknown'
+'Urdu'
+'Vietnamese'
+'Visayan'
+'Yapese'
+These demographics were provided by MQD and represent the most recent demographic record for the member.",384,400,17,Character

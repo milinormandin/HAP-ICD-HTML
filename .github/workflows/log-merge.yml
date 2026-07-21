@@ -1,0 +1,27 @@
+name: Log merges to main
+on:
+  push:
+    branches: [main]
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Append to log
+        run: |
+          if [ ! -f merge-log.csv ]; then
+            echo "Date,Commit,Message,Author" > merge-log.csv
+          fi
+          DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          SHA="${{ github.sha }}"
+          MSG='${{ github.event.head_commit.message }}'
+          ACTOR="${{ github.actor }}"
+          MSG_ESCAPED="${MSG//\"/\"\"}"
+          printf '"%s","%s","%s","%s"\n' "$DATE" "$SHA" "$MSG_ESCAPED" "$ACTOR" >> merge-log.csv
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add merge-log.csv
+          git commit -m "chore: log merge [skip ci]" || exit 0
+          git push

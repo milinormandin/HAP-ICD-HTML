@@ -1,0 +1,872 @@
+﻿TABLE_NAME,COLUMN_NAME,NEW_DATA_TYPE,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,BUSINESS NAME,DESCRIPTION
+DC,DC000,varchar(64),varchar,64,HHDC Beneficiary ID,Beneficiary ID defined and maintained by HHDC
+DC,DC000A,varchar(64),varchar,64,HHDC Beneficiary Hash ID,Hash of all of the data elements used for member matching
+DC,DC001,char(6),char,6,Submitter,Submitter ID. Report the SHPDA defined and maintained unique identifier. This must match the Submitter ID reported in HD002.
+DC,DC002,int,int,,Health Plan ID,"CMS Health Plan ID (HPID). Do not report any value here until HPID is fully implemented. This is a unique identifier as outlined by the Centers for Medicare and Medicaid Services (CMS) for Plans or Sub plans. When implemented, this must match the CMS Health Plan ID reported in HD003."
+DC,DC003,char(2),char,2,Insurance Type Code / Product,"Insurance Type / Product Identification Code. Report the code that defines the type of insurance under which this Member's claim line was processed.
+
+EXAMPLE: 17 = Dental Maintenance Organization.
+
+"
+DC,DC004,varchar(35),varchar,35,Payer Claim Control Number,Payer Claim Control Number. Report the unique identifier used internally by the Reporter to track the claim. This number must apply to the entire claim.
+DC,DC005,varchar(4),varchar,4,Line Counter,Service Line Number. Report the line number for this service within the claim. The Line Counter begins with 1 and is incremented by 1 for each additional service line of a claim. Do not start with 0 or include alphas or special characters.
+DC,DC005A,varchar(4),varchar,4,Version Number,Line Version Number. Report the version number of this claim service line. The version number begins with 0 and is incremented by 1 for each subsequent version of that service line.
+DC,DC006,varchar(30),varchar,30,Insured Group or Policy Number,Insured Group / Policy Number. Report the insured group or policy number associated with the group who has purchased the insurance. Do not report the number that uniquely identifies the Subscriber or Member.
+DC,DC007,int,int,,Subscriber SSN,Subscriber's Social Security Number. Report the Subscriber's 9-digit SSN here. Do not use hyphen.
+DC,DC008,varchar(30),varchar,30,Plan Specific Contract Number,Plan Specific Contract Number. Report the Reporter-assigned contract number for the Subscriber. Do not include values in this element that will distinguish one Member of the family from another. This should be the contract number for the Subscriber and all of the dependents.
+DC,DC009,varchar(20),varchar,20,Member Suffix or Sequence Number,Member's Sequence Number. Report the unique number of the Member within the contract.
+DC,DC010,int,int,,Member SSN,Member's Social Security Number. Report the Member's 9-digit SSN. Do not use hyphen.
+DC,DC011,char(2),char,2,Individual Relationship Code,Individual Relationship Code. Report the value that defines the Member's relationship to the Subscriber.
+DC,DC012,char(1),char,1,Member Gender,"Member's Gender. Report the Member's gender as found on the claim in alpha format.
+EXAMPLE: F = Female."
+DC,DC013,int,int,,Member Date of Birth,Member's Date of Birth. Report the date of birth of the Member in CCYYMMDD format.
+DC,DC014,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+DC,DC015,char(2),char,2,Member State,Member's State / Province. Report the State of the Member's residence using the two-character abbreviation as defined by the United States Postal Service. 
+DC,DC016,varchar(9),varchar,9,Member Zip Code,Member's Zip Code. Report the 5- or 9-digit Zip Code of the Member's residence as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+DC,DC017,int,int,,Date Service Approved (AP Date),"Date Service Approved by Payer. Report the date that the payer approved this claim line for payment in CCYYMMDD format. This element was designed to capture date other than the Paid Date. If Approved Date and Paid Date are the same, then the date here should match Paid Date reported in DC045."
+DC,DC018,varchar(30),varchar,30,Service Provider Number,"Service Provider's Identification Number. Report the Reporter assigned, unique Service Provider identification number used internally by the Reporter."
+DC,DC019,int,int,,Service Provider Tax ID Number,Service Provider's EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the Service Provider. Do not use hyphen or alpha prefix.
+DC,DC020,int,int,,Service Provider NPI,Service Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the Service Provider. 
+DC,DC021,int,int,,Service Provider Entity Type Qualifier,"Service Provider's Entity Type Qualifier Code. Report the value that defines the provider entity type. Individuals should be identified with a 1; facilities, professional groups, and clinic sites should all be identified with a 2.
+EXAMPLE: 1 = Person.
+"
+DC,DC022,varchar(25),varchar,25,Service Provider First Name,"Service Provider's First Name. Report the Service Provider's first name. If the Service Provider is a facility or organization, do not report any value here. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC023,varchar(25),varchar,25,Service Provider Middle Name,"Service Provider's Middle Name or Initial. Report the Service Provider's middle name or initial. If the Service Provider is a facility or organization, do not report any value here. If Service Provider's middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC024,varchar(60),varchar,60,Service Provider Last Name or Organization Name,"Service Provider's Last Name or Organization Name. Report the name of the organization or the Service Provider's last name. DC021 determines if an Organization or Service Provider's name is reported here. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC025,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+DC,DC025A,int,int,,Service Provider Suffix,"Service Provider's Name Suffix. Report the Service Provider's name-suffix when applicable here. Used to capture the generation of the individual clinician (e.g., Jr. Sr., III). Do not report degree acronyms here.
+
+EXAMPLE: 4 = Jr."
+DC,DC026,varchar(10),varchar,10,Service Provider Taxonomy,"Service Provider's Taxonomy Code. Report the taxonomy code that defines this provider for this line of service. Taxonomy values allow for the reporting of hygienists, assistants and laboratory technicians, where applicable, as well as Dentists, Orthodontists, etc. "
+DC,DC027,varchar(30),varchar,30,Service Provider City Name,Service Provider's City Name. Report the city name of the Service Provider's practice location.
+DC,DC028,char(2),char,2,Service Provider State,Service Provider's State / Province. Report the State of the Service Provider's practice location as location using the two-character abbreviation as defined by the United States Postal Service. 
+DC,DC029,varchar(9),varchar,9,Service Provider Zip Code,Service Provider's Zip Code. Report the 5- or 9-digit Zip Code of the Service Provider's practice location as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+DC,DC030,int,int,,Facility Type - Professional,Place of Service Code. Report the Place of Service Code that defines the location code where services were performed by the provider referenced on the claim. 
+DC,DC031,int,int,,Claim Status,"Claim Line Status Code. Report the Claim Status Code that defines the payment status of this claim line.
+EXAMPLE: 01 = Processed as Primary."
+DC,DC032,varchar(5),varchar,5,CDT Code,Code on Dental Procedures and Nomenclature (CDT) Code. Report the Code on Dental Procedures and Nomenclature here. 
+DC,DC033,char(2),char,2,Procedure Modifier - 1,Procedure Code Modifier. Report a valid Procedure modifier when a modifier clarifies / improves the reporting accuracy of the associated procedure code (DC032). 
+DC,DC034,char(2),char,2,Procedure Modifier - 2,Procedure Code Modifier. Report a valid Procedure modifier when a modifier clarifies / improves the reporting accuracy of the associated procedure code (DC032). 
+DC,DC034A,char(2),char,2,Procedure Modifier - 3,Procedure Code Modifier. Report a valid Procedure modifier when a modifier clarifies / improves the reporting accuracy of the associated procedure code (DC032). 
+DC,DC034B,char(2),char,2,Procedure Modifier - 4,Procedure Code Modifier. Report a valid Procedure modifier when a modifier clarifies / improves the reporting accuracy of the associated procedure code (DC032). 
+DC,DC035,int,int,,Date of Service - From,Date of Service - From. Report the first date of service for the claim line in CCYYMMDD format.
+DC,DC036,int,int,,Date of Service - Thru,Date of Service - Thru. Report the last date of service for the claim line in CCYYMMDD format. This equals DC035 when a single date of service is reported.
+DC,DC037,varchar(10),varchar,10,Charge Amount,"Total Charges for the Claim Line. Report the total amount the provider billed the insurance carrier for this claim line service. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+DC,DC038,varchar(10),varchar,10,Paid Amount,"Total Paid for the Claim Line. Report the total amount paid for the claim line. Report 0 if line is paid as part of another procedure / claim line. Do not report any value if the line is denied. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+DC,DC039,varchar(10),varchar,10,Copay Amount,"Member Copay Amount. Report the Copay amount that the Member is responsible to pay. Copay is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Copay applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+DC,DC040,varchar(10),varchar,10,Coinsurance Amount,"Member Coinsurance Amount. Report the Coinsurance amount that the Member is responsible to pay. Coinsurance is a calculated percentage amount for this claim line service that the Member is responsible to pay. Report 0 if no Coinsurance applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+DC,DC041,varchar(10),varchar,10,Deductible Amount,"Member Deductible Amount. Report the Deductible amount that the Member is responsible to pay. Deductible is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Deductible applies to service. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+DC,DC042,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+DC,DC043,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+DC,DC044,int,int,,Billing Provider Tax ID Number,Billing Provider's EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the Billing Provider. Do not use hyphen or alpha prefix.
+DC,DC045,int,int,,Paid Date,Paid Date of the Claim Line. Report the date that appears on the check and / or remit and/or explanation of benefits and corresponds to any and all types of payment in CCYYMMDD format. This can be the same date as AP Date (DC017).
+DC,DC046,varchar(10),varchar,10,Allowed Amount,"Allowed Amount. Report the maximum amount contractually allowed, and that a carrier will pay to a provider for a particular procedure or service. This will vary by provider contract and most often it is less than or equal to the fee charged by the provider. Report 0 when the claim line is denied. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+DC,DC047,varchar(2),varchar,2,Tooth Number/Letter,Tooth Number or Letter Identification. Report the Tooth Number or Letter Identification when DC032 is within the given range. This should be in accordance with the Universal National Tooth Designation System. 
+DC,DC048,int,int,,Dental Quadrant - 1,"Dental Quadrant. Report the fifth standard Dental Quadrant identifier. Provides further detail on procedure(s). 
+EXAMPLE: 00 = Entire Oral Cavity"
+DC,DC048A,int,int,,Dental Quadrant - 2,"Dental Quadrant. Report the fifth standard Dental Quadrant identifier. Provides further detail on procedure(s). 
+EXAMPLE: 00 = Entire Oral Cavity"
+DC,DC048B,int,int,,Dental Quadrant - 3,"Dental Quadrant. Report the fifth standard Dental Quadrant identifier. Provides further detail on procedure(s). 
+EXAMPLE: 00 = Entire Oral Cavity"
+DC,DC048C,int,int,,Dental Quadrant - 4,"Dental Quadrant. Report the fifth standard Dental Quadrant identifier. Provides further detail on procedure(s). 
+EXAMPLE: 00 = Entire Oral Cavity"
+DC,DC048D,int,int,,Dental Quadrant - 5,"Dental Quadrant. Report the fifth standard Dental Quadrant identifier. Provides further detail on procedure(s). 
+EXAMPLE: 00 = Entire Oral Cavity"
+DC,DC049,char(1),char,1,Tooth Surface Code - 1,"Tooth Surface Code. Report the fifth Tooth Surface Code that this service relates to. 
+EXAMPLE: D = Distal"
+DC,DC049A,char(1),char,1,Tooth Surface Code - 2,"Tooth Surface Code. Report the fifth Tooth Surface Code that this service relates to. 
+EXAMPLE: D = Distal"
+DC,DC049B,char(1),char,1,Tooth Surface Code - 3,"Tooth Surface Code. Report the fifth Tooth Surface Code that this service relates to. 
+EXAMPLE: D = Distal"
+DC,DC049C,char(1),char,1,Tooth Surface Code - 4,"Tooth Surface Code. Report the fifth Tooth Surface Code that this service relates to. 
+EXAMPLE: D = Distal"
+DC,DC049D,char(1),char,1,Tooth Surface Code - 5,"Tooth Surface Code. Report the fifth Tooth Surface Code that this service relates to. 
+EXAMPLE: D = Distal"
+DC,DC050,varchar(60),varchar,60,Subscriber Last Name,"Subscriber’s Last Name. Report the Subscriber’s last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC051,varchar(35),varchar,35,Subscriber First Name,"Subscriber’s First Name. Report the Subscriber’s first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC052,varchar(25),varchar,25,Subscriber Middle Name,"Subscriber’s Middle Name or Initial. Report the Subscriber’s middle name or initial. If Subscriber’s middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC053,varchar(60),varchar,60,Member Last Name,"Member’s Last Name. Report the Member’s last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC054,varchar(40),varchar,40,Member First Name,"Member’s First Name. Report the Member’s first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC055,varchar(25),varchar,25,Member Middle Name,"Member’s Middle Name or Initial. Report the Member’s middle name or initial. If Member’s middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+DC,DC056,varchar(50),varchar,50,Carrier Specific Unique Member ID,Member's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Member.
+DC,DC057,varchar(50),varchar,50,Carrier Specific Unique Subscriber ID,Subscriber's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Subscriber.
+DC,DC058,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+DC,DC059,char(1),char,1,Claim Line Type,"Claim Line Type Code. Report the Claim Line Type Code that defines the claim line status in terms of adjudication.
+"
+DC,DC060,varchar(35),varchar,35,Former Claim Number,"Previous Claim Number. Report the Claim Control Number (DC004) that was originally sent in a prior filing that this line corresponds to. When reported, this data cannot equal its own DC004."
+DC,DC061,varchar(7),varchar,7,Principal Diagnosis Code,Principal ICD Diagnosis Code. Report the Principal ICD Diagnosis Code when applicable. 
+DC,DC061A,varchar(7),varchar,7,Other Diagnosis Code - 1,Other ICD Diagnosis Code - 1. Report the Other ICD Diagnosis Code - 1 when applicable. 
+DC,DC061B,varchar(7),varchar,7,Other Diagnosis Code - 2,Other ICD Diagnosis Code - 2. Report the Other ICD Diagnosis Code - 2 when applicable. 
+DC,DC061C,varchar(7),varchar,7,Other Diagnosis Code - 3,Other ICD Diagnosis Code - 3. Report the Other ICD Diagnosis Code - 3 when applicable. 
+DC,DC062,int,int,,ICD Indicator,International Classification of Diseases (ICD) Version Indicator. Report the value that defines whether the diagnoses on claim are ICD-9 or ICD-10.
+DC,DC062A,varchar(4),varchar,4,Diagnostic Code Pointer,"Diagnostic Pointer Number. Report the placement number of the diagnosis(es) a procedure is related to for a professional claim. Can report up to four diagnostic positions within the first nine diagnoses that can be reported. Do not separate multiple mappings with spaces, zeros, or special characters. Do not zero fill."
+DC,DC062B,varchar(15),varchar,15,Quantity,"Count of Services. Report the count of services / units of the procedure performed in DC032.
+
+EXAMPLE: 01 = One procedure performed."
+DC,DC063,int,int,,Denied Flag,Denied Claim Line Indicator. Report the denial status of the claim line.
+DC,DC064,varchar(20),varchar,20,Denial Reason,"Denial Reason Code. Report the code that defines the reason for denial of the claim line. Either report the Claim Adjustment Reason Code or Carrier-defined Denial Reason Code. If Carrier-defined Reason Code is submitted, Carrier must submit all Denial Reason Codes in separate table to SHPDA. "
+DC,DC065,int,int,,Payment Arrangement Type,Payment Arrangement Type. Report the value that defines the contracted payment methodology for this claim line.
+DC,DC066,char(15),char,15,EUTF HB Number,EUTF HB Member Number. Report the EUTF HB Member Identification number as provided to Reporters. All numbers should start with HB and end with 7-digits. If not applicable do not report any value here.
+DC,DC067,int,int,,APCD ID Code,Member Enrollment Type. Report the value that describes the member's / subscriber's enrollment into one of the predefined categories; aligns enrollment to appropriate editing and thresholds.
+DC,DC068,int,int,,Claim Line Paid Flag,Claim Line Paid Indicator. Report the paid status of the claim line.
+DC,DC069,varchar(20),varchar,20,Medicaid ID,Medicaid-Assigned Member ID. Report the unique ID that Medicaid uses to identify a member. This ID must be on all lines of eligibility for Med-QUEST and Medicaid MCOs. This element is required for Med-QUEST carriers only. Non-Med-QUEST carriers should not report any value here.
+DC,DC899,char(2),char,2,Record Type,File Type Identifier. Report DC here. This validates the type of file and the data contained within the file. This must match HD004.
+DC,DC999,bigint,bigint,,File ID,HHDC assigned ID of the file submitted by the payer.
+MC,MC000,varchar(64),varchar,64,HHDC Beneficiary ID,Beneficiary ID defined and maintained by HHDC
+MC,MC000A,varchar(64),varchar,64,HHDC Beneficiary Hash ID,Hash of all of the data elements used for member matching
+MC,MC001,char(6),char,6,Submitter,Submitter ID. Report the SHPDA defined and maintained unique identifier. This must match the Submitter ID reported in HD002.
+MC,MC002,int,int,,Health Plan ID,"CMS Health Plan ID (HPID). Do not report any value here until HPID is fully implemented. This is a unique identifier as outlined by the Centers for Medicare and Medicaid Services (CMS) for Plans or Sub plans. When implemented, this must match the CMS Health Plan ID reported in HD003."
+MC,MC003,char(2),char,2,Insurance Type Code / Product,Insurance Type / Product Identification Code. Report the code that defines the type of insurance under which this Member's claim line was processed.
+MC,MC004,varchar(35),varchar,35,Payer Claim Control Number,Payer Claim Control Number. Report the unique identifier used internally by the Reporter to track the claim. This number must apply to the entire claim.
+MC,MC005,varchar(4),varchar,4,Line Counter,Service Line Number. Report the line number for this service within the claim. The Line Counter begins with 1 and is incremented by 1 for each additional service line of a claim. Do not start with 0 or include alphas or special characters.
+MC,MC005A,varchar(4),varchar,4,Version Number,Line Version Number. Report the version number of this claim service line. The version number begins with 0 and is incremented by 1 for each subsequent version of that service line.
+MC,MC006,varchar(30),varchar,30,Insured Group or Policy Number,Insured Group / Policy Number. Report the insured group or policy number associated with the group who has purchased the insurance. Do not report the number that uniquely identifies the Subscriber or Member.
+MC,MC007,int,int,,Subscriber SSN,Subscriber's Social Security Number. Report the Subscriber's 9-digit SSN here. Do not use hyphen.
+MC,MC008,varchar(30),varchar,30,Plan Specific Contract Number,Plan Specific Contract Number. Report the Reporter assigned contract number for the Subscriber. Do not include values in this element that will distinguish one Member of the family from another. This should be the contract number for the Subscriber and all of the dependents.
+MC,MC009,varchar(20),varchar,20,Member Suffix or Sequence Number,Member's Sequence Number. Report the unique number of the Member within the contract.
+MC,MC010,int,int,,Member SSN,Member's Social Security Number. Report the Member's 9-digit SSN. Do not use hyphen.
+MC,MC011,char(2),char,2,Individual Relationship Code,Individual Relationship Code. Report the value that defines the Member's relationship to the Subscriber. EXAMPLE: 18 = Self.
+MC,MC012,char(1),char,1,Member Gender,Member's Gender. Report the Member's gender as found on the claim in alpha format. EXAMPLE: F = Female.
+MC,MC013,int,int,,Member Date of Birth,Member's Date of Birth. Report the date of birth of the Member in CCYYMMDD format.
+MC,MC014,varchar(50),varchar,50,Filler,SHPDA reserves this field for future use. Do not populate this field with any data.
+MC,MC015,char(2),char,2,Member State,Member's State / Province. Report the State of the Member's residence using the two-character abbreviation as defined by the United States Postal Service. 
+MC,MC016,varchar(9),varchar,9,Member Zip Code,Member's Zip Code. Report the 5- or 9-digit Zip Code of the Member's residence as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+MC,MC017,int,int,,Date Service Approved (AP Date),"Date Service Approved by Payer. Report the date that the payer approved this claim line for payment in CCYYMMDD format. This element was designed to capture date other than the Paid Date. If Approved Date and Paid Date are the same, then the date here should match Paid Date reported in MC089."
+MC,MC018,int,int,,Admission Date,Inpatient Admit Date. Report the date of admission to a facility in CCYYMMDD Format. Only applies to institutional claims were Type of Bill (MC036) = an inpatient setting.
+MC,MC019,int,int,,Admission Hour,"Admission Time. Report the Admission Time in HHMM Format. Only applies to institutional claims where Type of Bill (MC036) = an inpatient setting. Time is expressed in military time. If only the hour is known, code the minutes as 00."
+MC,MC020,int,int,,Admission Type,Priority (Type) of Admission or Visit. Report Admission Type Code as it applies to institutional claims where Type of Bill (MC036) = an inpatient setting. This code indicates the type of admission into an inpatient setting. 
+MC,MC021,char(5),char,5,Admission Source,Point of Origin for Admission or Visit. Report the Admission Source Code as it applies to institutional claims where Type of Bill (MC036) = an inpatient setting. This code indicates how the patient was referred into an inpatient setting at the facility. 
+MC,MC022,int,int,,Discharge Hour,"Discharge Time. Report the Discharge Time in HHMM Format. Only applies to institutional claims where Type of Bill (MC036) = an inpatient setting. Time is expressed in military time. If only the hour is known, code the minutes as 00.
+
+EXAMPLE: 5 AM = 0500; 5 PM = 1700."
+MC,MC023,int,int,,Discharge Status,Inpatient Discharge Status Code. Report the appropriate Discharge Status Code of the Member. 
+MC,MC024,varchar(30),varchar,30,Service Provider Number,"Service Provider's Identification Number. Report the Reporter assigned, unique Service Provider identification number used internally by the Reporter."
+MC,MC025,int,int,,Service Provider Tax ID Number,Service Provider's EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the Service Provider. Do not use hyphen or alpha prefix.
+MC,MC026,int,int,,Service Provider NPI,Service Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the Service Provider. 
+MC,MC027,int,int,,Service Provider Entity Type Qualifier,"Service Provider's Entity Type Qualifier Code. Report the value that defines the provider entity type. Only individuals should be identified with a 1; facilities, professional groups, and clinic sites should all be identified with a 2."
+MC,MC028,varchar(25),varchar,25,Service Provider First Name,"Service Provider's First Name. Report the Service Provider's first name. If the Service Provider is a facility or organization, do not report any value here. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ?okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC029,varchar(25),varchar,25,Service Provider Middle Name,"Service Provider's Middle Name or Initial. Report the Service Provider's middle name or initial here. If provider is a facility or organization, do not report any value here. If Service Provider's Middle Name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ?okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC030,varchar(100),varchar,100,Service Provider Last Name or Organization Name,"Service Provider's Last Name or Organization Name. Report the name of the organization or the Service Provider's last name. MC027 determines if an Organization or Service Provider's name is reported here. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ?okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC031,int,int,,Service Provider Suffix,"Service Provider's Name Suffix. Report the individual's name-suffix when applicable here. Used to capture the generation of the individual clinician (e.g., Jr. Sr., III). Do not report degree acronyms here. EXAMPLE: 0 = Unknown / Not Applicable"
+MC,MC032,varchar(10),varchar,10,Service Provider Taxonomy,"Service Provider's Taxonomy Code. Report the taxonomy code that defines this provider for this line of service. Taxonomy values allow for the reporting of nurses, assistants and laboratory technicians, where applicable, as well as physicians, medical groups, facilities, etc. "
+MC,MC033,varchar(30),varchar,30,Service Provider City Name,Service Provider's City Name. Report the city name of the Service Provider's practice location.
+MC,MC034,char(15),char,15,Service Provider State,Service Provider's State / Province. Report the State of the Service Provider's practice location using the two-character abbreviation as defined by the United States Postal Service. 
+MC,MC035,varchar(9),varchar,9,Service Provider Zip Code,Service Provider's Zip Code. Report the 5- or 9-digit Zip Code of the Service Provider's practice location as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+MC,MC036,int,int,,Type of Bill - Institutional,Type of Bill. Report the Type of Bill Code that defines the Type of Bill on an institutional claim. Do not report leading zero.  http://www.nubc.org/
+MC,MC037,int,int,,Place of Service - Professional,Place of Service Code. Report the Place of Service Code that defines the location code where services were performed by the provider referenced on the claim. 
+MC,MC038,int,int,,Claim Status,Claim Line Status Code. Report the Claim Line Status Code that defines the payment status of this claim line.
+MC,MC039,varchar(7),varchar,7,Admitting Diagnosis,Admitting ICD Diagnosis Code. Report the Admitting Diagnosis Code assigned by provider that supported admission into the inpatient setting. 
+MC,MC040,varchar(7),varchar,7,External Injury Code,ICD Diagnostic External Injury Code. Report the External Injury Code when appropriate to the claim. 
+MC,MC041,varchar(7),varchar,7,Principal Diagnosis,Principal ICD Diagnosis Code. Report the Principal ICD Diagnosis Code. Do not code decimal point. 
+MC,MC042,varchar(7),varchar,7,Other Diagnosis - 1,Other ICD Diagnosis Code - 1. Report the first secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC043,varchar(7),varchar,7,Other Diagnosis - 2,Other ICD Diagnosis Code - 2. Report the second secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC044,varchar(7),varchar,7,Other Diagnosis - 3,Other ICD Diagnosis Code - 3. Report the third secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC045,varchar(7),varchar,7,Other Diagnosis - 4,Other ICD Diagnosis Code - 4. Report the fourth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC046,varchar(7),varchar,7,Other Diagnosis - 5,Other ICD Diagnosis Code - 5. Report the fifth secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC047,varchar(7),varchar,7,Other Diagnosis - 6,Other ICD Diagnosis Code - 6. Report the sixth secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC048,varchar(7),varchar,7,Other Diagnosis - 7,Other ICD Diagnosis Code - 7. Report the seventh secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC049,varchar(7),varchar,7,Other Diagnosis - 8,Other ICD Diagnosis Code - 8. Report the eighth secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC050,varchar(7),varchar,7,Other Diagnosis - 9,Other ICD Diagnosis Code - 9. Report the ninth secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC051,varchar(7),varchar,7,Other Diagnosis - 10,Other ICD Diagnosis Code - 10. Report the tenth secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC052,varchar(7),varchar,7,Other Diagnosis - 11,Other ICD Diagnosis Code - 11. Report the eleventh secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC053,varchar(7),varchar,7,Other Diagnosis - 12,Other ICD Diagnosis Code - 12. Report the twelfth secondary ICD Diagnosis Code. If not applicable do not report any value here. Do not code decimal point. 
+MC,MC054,int,int,,Revenue Code,"Revenue Code. Report the valid National Uniform Billing Committee Revenue Code. Code using leading zeroes, left-justified, and four digits. "
+MC,MC055,varchar(5),varchar,5,Procedure Code,HCPCS / CPT Code. Report a valid Procedure code for the claim line as defined by MC130. 
+MC,MC056,char(10),char,10,Procedure Modifier - 1,HCPCS / CPT Code Modifier - 1. Report a valid procedure modifier indicating that a service or procedure (MC055) has been altered by some specific circumstance but has not been changed in its definition or code. 
+MC,MC057,char(2),char,2,Procedure Modifier - 2,HCPCS / CPT Code Modifier - 2. Report a valid procedure modifier indicating that a service or procedure (MC055) has been altered by some specific circumstance but has not been changed in its definition or code. 
+MC,MC058,varchar(7),varchar,7,ICD Principal Procedure Code,ICD Principal Procedure Code. Report the Principal ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC059,int,int,,Date of Service - From,Date of Service - From. Report the first date of service for the claim line in CCYYMMDD format.
+MC,MC060,int,int,,Date of Service - Thru,"Date of Service - Thru. Report the last date of service for the claim line in CCYYMMDD format. For inpatient claims, the room and board line may or may not be equal to the discharge date. Procedures delivered during a visit should indicate which date they occurred."
+MC,MC061,varchar(15),varchar,15,Quantity,Count of Services. Report the count of services / units performed. Use decimals when appropriate.
+MC,MC062,varchar(10),varchar,10,Charge Amount,"Total Charges for the Claim Line. Report the total amount the provider billed the insurance carrier for this claim line service. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC063,varchar(10),varchar,10,Paid Amount,"Total Paid for the Claim Line. Report the total amount paid for the claim line. Report 0 if line is paid as part of another procedure / claim line. Do not report any value if the line is denied. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC064,varchar(10),varchar,10,Fee-for-Service Equivalent,"Member Copay Amount. Report the Copay amount that the Member is responsible to pay. Copay is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Copay applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC065,varchar(10),varchar,10,Copay Amount,"Member Copay Amount. Report the Copay amount that the Member is responsible to pay. Copay is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Copay applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC066,varchar(10),varchar,10,Coinsurance Amount,"Member Coinsurance Amount. Report the Coinsurance amount that the Member is responsible to pay. Coinsurance is a calculated percentage amount for this claim line service that the Member is responsible to pay. Report 0 if no Coinsurance applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC067,varchar(10),varchar,10,Deductible Amount,"Member Deductible Amount. Report the Deductible amount that the Member is responsible to pay. Deductible is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Deductible applies to service. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC068,varchar(40),varchar,40,Patient Control Number,Patient Control Number. Report the provider assigned encounter / visit number to identify Member treatment. Also known as the Patient Account Number.
+MC,MC069,int,int,,Discharge Date,Discharge Date. Report the date the Member was discharged from the facility in CCYYMMDD format.
+MC,MC070,char(3),char,3,Service Provider Country Code,Country Name of the Service Provider. Report the three-character country code as defined by ISO. 
+MC,MC071,varchar(7),varchar,7,DRG Code,Diagnostic Related Group Code. Report the DRG number applied to this claim on every line to which it's applicable. Code using the CMS methodology. 
+MC,MC072,char(2),char,2,DRG Version,"Diagnostic Related Group Version Number. Report the version of the DRG used.
+
+EXAMPLE: 26 = Version 26 of the MS-DRG is used."
+MC,MC073,char(4),char,4,APC,"Ambulatory Payment Classification Number. Report the APC number applied to this claim line, with the leading zero(s) when applicable. Code using the CMS methodology. "
+MC,MC074,char(2),char,2,APC Version,Ambulatory Payment Classification Version. Report the version of the APC used.
+MC,MC075,char(50),char,50,Drug Code,"National Drug Code (NDC). Report the NDC Code as defined by the FDA in 11-digit format (5-4-2) without hyphenation. Report the NDC code used only when a medication is paid for as part of a medical claim or when a DME device has an NDC code. J codes should be submitted under procedure code (MC055), and have a procedure code type of 'HCPCS'. "
+MC,MC076,varchar(30),varchar,30,Billing Provider Number,"Billing Provider's Identification Number. Report the Reporter assigned, unique Billing Provider identification number used internally by the Reporter."
+MC,MC077,int,int,,Billing Provider NPI,Billing Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the Billing Provider. 
+MC,MC078,varchar(100),varchar,100,Billing Provider Last Name or Organization Name,"Billing Provider's Last Name or Organization Name. Report the name of the organization or the Billing Provider's last name. MC027 determines if an Organization or Billing Provider's name is reported here. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ?okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC079,varchar(50),varchar,50,Filler,SHPDA reserves this field for future use. Do not populate this field with any data.
+MC,MC080,varchar(10),varchar,10,Payment Reason,"Payment Reason Code. Report the code that defines the reason for payment of the claim line. Either report the Claim Adjustment Reason Code or Carrier-defined Payment Reason Code. If Carrier-defined Payment Code is submitted, Carrier must submit all Payment Reason Codes in separate table to SHPDA. "
+MC,MC081,int,int,,Capitated Encounter Flag,Capitation Payment Indicator. Report if the encounter was paid under a capitated arrangement.
+MC,MC082,varchar(50),varchar,50,Filler,SHPDA reserves this field for future use. Do not populate this field with any data.
+MC,MC083,varchar(7),varchar,7,Other ICD Procedure Code - 1,Other ICD Procedure Code - 1. Report the second ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC084,varchar(7),varchar,7,Other ICD Procedure Code - 2,Other ICD Procedure Code - 2. Report the third ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC085,varchar(7),varchar,7,Other ICD Procedure Code - 3,Other ICD Procedure Code - 3. Report the fourth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC086,varchar(7),varchar,7,Other ICD Procedure Code - 4,Other ICD Procedure Code - 4. Report the fifth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC087,varchar(7),varchar,7,Other ICD Procedure Code - 5,Other ICD Procedure Code - 5. Report the sixth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088,varchar(7),varchar,7,Other ICD Procedure Code - 6,Other ICD Procedure Code - 6. Report the seventh ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088A,varchar(7),varchar,7,Other ICD Procedure Code - 7,Other ICD Procedure Code - 7. Report the eighth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088B,varchar(7),varchar,7,Other ICD Procedure Code - 8,Other ICD Procedure Code - 8. Report the ninth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088C,varchar(7),varchar,7,Other ICD Procedure Code - 9,Other ICD Procedure Code - 9. Report the tenth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088D,varchar(7),varchar,7,Other ICD Procedure Code - 10,Other ICD Procedure Code - 10. Report the eleventh ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088E,varchar(7),varchar,7,Other ICD Procedure Code - 11,Other ICD Procedure Code - 11. Report the twelfth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC088F,varchar(7),varchar,7,Other ICD Procedure Code - 12,Other ICD Procedure Code - 12. Report the thirteenth ICD Procedure Code for inpatient claims. Repeat this code on all lines of the inpatient claim it is applicable to. Do not code decimal point. 
+MC,MC089,int,int,,Paid Date,Paid Date of the Claim Line. Report the date that appears on the check and/or remit and/or explanation of benefits and corresponds to any and all types of payment in CCYYMMDD format. This can be the same date as AP Date (MC017).
+MC,MC090,varchar(7),varchar,7,LOINC Code,Logical Observation Identifiers Names and Codes (LOINC). Report the LOINC code when applicable and available. Do not report any value if not applicable. 
+MC,MC091,varchar(15),varchar,15,Coinsurance Days,Covered Coinsurance Days. Report the number of partially covered days the Member incurred during this admission. Report 0 if all days were covered and/or Noncovered days.
+MC,MC092,varchar(4),varchar,4,Covered Days or Visits Count,Covered Inpatient Days. Report the number of covered days the Member incurred during this admission. Report 0 if days were Noncovered or partially covered under Coinsurance Days.
+MC,MC093,varchar(4),varchar,4,Noncovered Days,Noncovered Inpatient Days. Report the number of Noncovered days the Member incurred during this admission. Report 0 if all days were covered.
+MC,MC094,char(3),char,3,Type of Claim,Type of Claim Indicator. Report the type of claim submitted for payment.
+MC,MC095,varchar(10),varchar,10,Coordination of Benefits/TPL Liability Amount,"Amount Due from a Secondary Carrier. Report the amount that another carrier is liable for after submitting carrier has processed this claim line. Report 0 if there is no COB / TPL amount. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC096,varchar(10),varchar,10,Other Insurance Paid Amount,"Amount Paid by a Primary Carrier. Report the amount that a prior carrier has paid for this claim line. Indicates the submitting carrier is 'secondary' to the prior carrier. Only report 0 if the prior carrier paid 0 towards this claim line. If prior carrier did not pay towards this claim line, do not report any value. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC097,varchar(10),varchar,10,Medicare Paid Amount,"Amount Paid by Medicare. Report the amount Medicare paid for this claim line. Only report 0 here if Medicare paid 0. If Medicare did not pay towards this claim line, do not report any value. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC098,varchar(10),varchar,10,Allowed Amount,"Allowed Amount. Report the maximum amount contractually allowed, and that a carrier will pay to a provider for a particular procedure or service. This will vary by provider contract and most often it is less than or equal to the fee charged by the provider. Report 0 when the claim line is denied. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC099,varchar(10),varchar,10,Non-Covered Amount,"Non-Covered Amount. Report the amount that was charged on a claim that is not reimbursable due to eligibility limitations or provider requirements. Report 0 if all charges are covered. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC100,varchar(50),varchar,50,Filler,SHPDA reserves this field for future use. Do not populate this field with any data.
+MC,MC101,varchar(60),varchar,60,Subscriber Last Name,"Subscriber’s Last Name. Report the Subscriber’s last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC102,varchar(30),varchar,30,Subscriber First Name,"Subscriber’s First Name. Report the Subscriber’s first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC103,varchar(25),varchar,25,Subscriber Middle Name,"Subscriber’s Middle Name or Initial. Report the Subscriber’s middle name or initial. If Subscriber’s middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC104,varchar(60),varchar,60,Member Last Name,"Member’s Last Name. Report the Member’s last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC105,varchar(25),varchar,25,Member First Name,"Member’s First Name. Report the Member’s first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC106,varchar(25),varchar,25,Member Middle Name,"Member’s Middle Name or Initial. Report the Member’s middle name or initial. If Member’s middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahak?s, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+MC,MC107,int,int,,ICD Indicator,"International Classification of Diseases (ICD) Version Indicator. Report the value that defines whether the diagnoses on claim are ICD-9 or ICD-10.
+
+
+EXAMPLE: 9 = ICD-9.
+
+9 - ICD-9
+0 - ICD-10"
+MC,MC108,char(5),char,5,Procedure Modifier - 3,HCPCS / CPT Code Modifier - 3. Report a valid procedure modifier indicating that a service or procedure (MC055) has been altered by some specific circumstance but has not been changed in its definition or code. 
+MC,MC109,char(2),char,2,Procedure Modifier - 4,HCPCS / CPT Code Modifier - 4. Report a valid procedure modifier indicating that a service or procedure (MC055) has been altered by some specific circumstance but has not been changed in its definition or code. 
+MC,MC110,int,int,,Claim Processed Date,"Claim Processed Date. Report the date the claim was processed by the Reporter in CCYYMMDD format. This date can be equal to Paid Date (MC089), but cannot be after Paid Date."
+MC,MC111,varchar(20),varchar,20,Diagnostic Code Pointer,"Diagnostic Pointer Number. Report the placement number of the diagnosis(es) a procedure is related to for a professional claim. Can report up to four diagnostic positions within the first nine diagnoses that can be reported. Do not separate multiple mappings with spaces, zeros, or special characters. Do not zero fill.
+
+EXAMPLE: Procedure related to diagnoses 1, 4, and 5 = 145."
+MC,MC112,int,int,,Referring Provider NPI,Referring Provider National Provider Identifier. Report the National Provider Identifier (NPI) of the Referring Provider that submitted the referral for the service or ordered the test that is on the claim (if applicable). 
+MC,MC113,int,int,,Payment Arrangement Type,Payment Arrangement Type. Report the value that defines the contracted payment methodology for this claim line.
+MC,MC114,varchar(10),varchar,10,Excluded Expenses,"Excluded Expenses. Report the amount that the patient has incurred towards covered but over-utilized services. Report 0 if there are no Excluded Expenses. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC115,int,int,,Medicare Flag,Medicare Payment Indicator. Report the value that defines if Medicare paid for part or all of the services.
+MC,MC116,varchar(10),varchar,10,Withhold Amount,"Amount to be Paid for Performance Guarantees. Report the amount paid to the provider for this claim line if the provider qualified / met performance guarantees. Report 0 if the provider has the agreement but did not satisfy the measure, else do not report any value. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC117,int,int,,Pre-Authorization Flag,Pre-Authorization Indicator. Report the value that defines if the service required pre-authorization.
+MC,MC118,int,int,,Referral Flag,Referral Indicator. Report the value that defines if the service was preceded by a referral.
+MC,MC119,int,int,,PCP Flag,PCP Indicator. Report the value that defines if the service was performed by the Member's PCP.
+MC,MC120,int,int,,DRG Level,Diagnostic Related Group Code Severity Level. Report the level used for severity adjustment when applicable.
+MC,MC121,varchar(10),varchar,10,Member Total Out of Pocket Amount,"Total Member Out of Pocket Amount. Report the total amount the Member is responsible to pay to the provider as part of their costs for services. This is the sum of copay, coinsurance, deductible, and other charges the Member is responsible for. Report 0 if there are no out of pocket expenses. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC122,int,int,,Global Payment Flag,Global Payment Indicator. Report if the claim line was paid under a global payment arrangement.
+MC,MC123,int,int,,Denied Flag,Denied Claim Line Indicator. Report if the claim line was denied.
+MC,MC124,varchar(30),varchar,30,Denial Reason,"Denial Reason Code. Report the code that defines the reason for denial of the claim line. Either report the Claim Adjustment Reason Code or Carrier-defined Denial Reason Code. If Carrier-defined Reason Code is submitted, Carrier must submit all Denial Reason Codes in separate table to SHPDA. "
+MC,MC125,int,int,,Attending Provider NPI,Attending Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the Attending Provider that provided general oversight of the Member's care. This individual may or may not be the Servicing or Rendering provider. 
+MC,MC126,int,int,,Accident Flag,Accident Indicator. Report the value that defines if the claim line is accident-related.
+MC,MC127,int,int,,Family Planning Flag,Family Planning Indicator. Report the value that defines if family planning services were provided.
+MC,MC128,int,int,,Employment Related Flag,Employment Related Indicator. Report the value that defines if the claim line was related to an employment accident.
+MC,MC129,int,int,,EPSDT Flag,"Early Periodic Screening, Diagnosis and Treatment (EPSDT) Indicator. Report if the claim line was related to EPSDT and the type of EPSDT service, such as 'screening', 'treatment' or ‘referral’."
+MC,MC130,int,int,,Procedure Code Type,Claim Line Procedure Code Type Identifier. Report the type of Procedure Code expected in MC055.
+MC,MC131,int,int,,Network Flag,Network Indicator. Report the value that defines if the claim line was paid at an in-network rate.
+MC,MC132,varchar(50),varchar,50,Filler,SHPDA reserves this filed for future use. Do not populate this field with any data.
+MC,MC133,int,int,,Type of Bill Frequency Code,"Type of Bill Frequency Code. Report the valid frequency code of the claim to indicate version, credit/debit activity, and/or settling of claim. "
+MC,MC134,int,int,,Organizational Provider NPI,Organizational Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the organization with which the service/rendering/attending provider directly providing the service is associated. 
+MC,MC135,varchar(80),varchar,80,Provider Location Address,"Address of the Rendering Provider. Report the address which identifies the location / site of the service provided by the Rendering Provider identified in MC242.
+
+EXAMPLE: Dr. Smith Pediatrics, 123 Main Street"
+MC,MC135A,varchar(60),varchar,60,Provider Location Address 2,"Address of the Rendering Provider 2. Report the street address that may contain office number, suite, or other secondary information besides the street which identifies the location / site of the service provided by the Rendering Provider identified in MC242."
+MC,MC135B,varchar(30),varchar,30,Provider Location City,Rendering Provider's City Name. Report the city name of the Rendering Provider's location / site of the service.
+MC,MC135C,char(2),char,2,Provider Location State,Rendering Provider's State / Province. Report the State of the Rendering Provider's location / site of the service using the two-character abbreviation as defined by the United States Postal Service. 
+MC,MC135D,varchar(9),varchar,9,Provider Location Zip Code,Rendering Provider's Zip Code. Report the 5- or 9-digit Zip Code of the Rendering Provider's location / site of the service as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+MC,MC136,varchar(7),varchar,7,Discharge Diagnosis,Discharge ICD Diagnosis Code. Report the Discharge ICD Diagnosis Code as applied to the Member upon discharge. This may or may not be the same as the primary diagnosis or admitting diagnosis. 
+MC,MC137,varchar(50),varchar,50,Carrier Specific Unique Member ID,Member's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Member.
+MC,MC138,char(1),char,1,Claim Line Type,Claim Line Type Code. Report the Claim Line Type Code that defines the claim line status in terms of adjudication.
+MC,MC139,varchar(35),varchar,35,Former Claim Number,"Previous Claim Number. Report the Claim Control Number (MC004) that was originally sent in a prior filing that this line corresponds to. When reported, this data cannot equal its own MC004."
+MC,MC140,varchar(50),varchar,50,Filler,SHPDA reserves this field for future use. Do not populate this field with any data.
+MC,MC141,varchar(50),varchar,50,Carrier Specific Unique Subscriber ID,Subscriber's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Subscriber.
+MC,MC142,varchar(7),varchar,7,Other Diagnosis Code - 13,Other ICD Diagnosis Code - 13. Report the thirteenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC143,varchar(7),varchar,7,Other Diagnosis Code - 14,Other ICD Diagnosis Code - 14. Report the fourteenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC144,varchar(7),varchar,7,Other Diagnosis Code - 15,Other ICD Diagnosis Code - 15. Report the fifteenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC145,varchar(7),varchar,7,Other Diagnosis Code - 16,Other ICD Diagnosis Code - 16. Report the sixteenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC146,varchar(7),varchar,7,Other Diagnosis Code - 17,Other ICD Diagnosis Code - 17. Report the seventeenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC147,varchar(7),varchar,7,Other Diagnosis Code - 18,Other ICD Diagnosis Code - 18. Report the eighteenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC148,varchar(7),varchar,7,Other Diagnosis Code - 19,Other ICD Diagnosis Code - 19. Report the nineteenth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC149,varchar(7),varchar,7,Other Diagnosis Code - 20,Other ICD Diagnosis Code - 20. Report the twentieth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC150,varchar(7),varchar,7,Other Diagnosis Code - 21,Other ICD Diagnosis Code - 21. Report the twenty-first secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC151,varchar(7),varchar,7,Other Diagnosis Code - 22,Other ICD Diagnosis Code - 22. Report the twenty-second secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC152,varchar(7),varchar,7,Other Diagnosis Code - 23,Other ICD Diagnosis Code - 23. Report the twenty-third secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC153,varchar(7),varchar,7,Other Diagnosis Code - 24,Other ICD Diagnosis Code - 24. Report the twenty-fourth secondary ICD Diagnosis Code. If not applicable do not report any value here. 
+MC,MC154,char(1),char,1,Present on Admission (POA) Indicator - 1,Present on Admission (POA) Indicator for Principal Diagnosis. Report the code indicating if the principal diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC155,char(1),char,1,Present on Admission (POA) Indicator - 2,Present on Admission (POA) Indicator for Other Diagnosis - 1. Report the code indicating if the first secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC156,char(1),char,1,Present on Admission (POA) Indicator - 3,Present on Admission (POA) Indicator for Other Diagnosis - 2. Report the code indicating if the second secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC157,char(1),char,1,Present on Admission (POA) Indicator - 4,Present on Admission (POA) Indicator for Other Diagnosis - 3. Report the code indicating if the third secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC158,char(1),char,1,Present on Admission (POA) Indicator - 5,Present on Admission (POA) Indicator for Other Diagnosis - 4. Report the code indicating if the fourth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC159,char(1),char,1,Present on Admission (POA) Indicator - 6,Present on Admission (POA) Indicator for Other Diagnosis - 5. Report the code indicating if the fifth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC160,char(1),char,1,Present on Admission (POA) Indicator - 7,Present on Admission (POA) Indicator for Other Diagnosis - 6. Report the code indicating if the sixth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC161,char(1),char,1,Present on Admission (POA) Indicator - 8,Present on Admission (POA) Indicator for Other Diagnosis - 7. Report the code indicating if the seventh secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC162,char(1),char,1,Present on Admission (POA) Indicator - 9,Present on Admission (POA) Indicator for Other Diagnosis - 8. Report the code indicating if the eighth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC163,char(1),char,1,Present on Admission (POA) Indicator - 10,Present on Admission (POA) Indicator for Other Diagnosis - 9. Report the code indicating if the ninth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC164,char(1),char,1,Present on Admission (POA) Indicator - 11,Present on Admission (POA) Indicator for Other Diagnosis - 10. Report the code indicating if the tenth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC165,char(1),char,1,Present on Admission (POA) Indicator - 12,Present on Admission (POA) Indicator for Other Diagnosis - 11. Report the code indicating if the eleventh secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC166,char(1),char,1,Present on Admission (POA) Indicator - 13,Present on Admission (POA) Indicator for Other Diagnosis - 12. Report the code indicating if the twelfth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC167,char(1),char,1,Present on Admission (POA) Indicator - 14,Present on Admission (POA) Indicator for Other Diagnosis - 13. Report the code indicating if the thirteenth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC168,char(1),char,1,Present on Admission (POA) Indicator - 15,Present on Admission (POA) Indicator for Other Diagnosis - 14. Report the code indicating if the fourteenth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC169,char(1),char,1,Present on Admission (POA) Indicator - 16,Present on Admission (POA) Indicator for Other Diagnosis - 15. Report the code indicating if the fifteenth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC170,char(1),char,1,Present on Admission (POA) Indicator - 17,Present on Admission (POA) Indicator for Other Diagnosis - 16. Report the code indicating if the sixteenth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC171,char(1),char,1,Present on Admission (POA) Indicator - 18,Present on Admission (POA) Indicator for Other Diagnosis - 17. Report the code indicating if the seventeenth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC172,char(1),char,1,Present on Admission (POA) Indicator - 19,Present on Admission (POA) Indicator for Other Diagnosis - 18. Report the code indicating if the eighteenth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC173,char(1),char,1,Present on Admission (POA) Indicator - 20,Present on Admission (POA) Indicator for Other Diagnosis - 19. Report the code indicating if the nineteenth secondary diagnosis was present at the time of admission into the inpatient setting.
+MC,MC174,char(1),char,1,Present on Admission (POA) Indicator - 21,Present on Admission (POA) Indicator for Other Diagnosis - 20. Report the code indicating if the twentieth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC175,char(1),char,1,Present on Admission (POA) Indicator - 22,Present on Admission (POA) Indicator for Other Diagnosis - 21. Report the code indicating if the twenty-first secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC176,char(1),char,1,Present on Admission (POA) Indicator - 23,Present on Admission (POA) Indicator for Other Diagnosis - 22. Report the code indicating if the twenty-second secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC177,char(1),char,1,Present on Admission (POA) Indicator - 24,Present on Admission (POA) Indicator for Other Diagnosis - 23. Report the code indicating if the twenty-third secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC178,char(1),char,1,Present on Admission (POA) Indicator - 25,Present on Admission (POA) Indicator for Other Diagnosis - 24. Report the code indicating if the twenty-fourth secondary diagnosis was present at the time of admission into the inpatient setting. 
+MC,MC179,char(5),char,5,Condition Code - 1,Condition Code - 1. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC180,char(5),char,5,Condition Code - 2,Condition Code - 2. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC181,char(5),char,5,Condition Code - 3,Condition Code - 3. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC182,char(5),char,5,Condition Code - 4,Condition Code - 4. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC183,char(2),char,2,Condition Code - 5,Condition Code - 5. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC184,char(2),char,2,Condition Code - 6,Condition Code - 6. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC185,char(2),char,2,Condition Code - 7,Condition Code - 7. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC186,char(2),char,2,Condition Code - 8,Condition Code - 8. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC187,char(2),char,2,Condition Code - 9,Condition Code - 9. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC188,char(2),char,2,Condition Code - 10,Condition Code - 10. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC189,char(2),char,2,Condition Code - 11,Condition Code - 11. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC190,char(2),char,2,Condition Code - 12,Condition Code - 12. Report the Condition Code that indicates a condition relating to a claim. If not applicable do not report any value here. 
+MC,MC191,char(2),char,2,Value Code - 1,Value Code - 1. Report the first Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC192,varchar(10),varchar,10,Value Code Amount - 1,"Value Code Amount - 1. Report the appropriate amount that corresponds to the first Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC193,char(2),char,2,Value Code - 2,Value Code - 2. Report the second Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC194,varchar(10),varchar,10,Value Code Amount - 2,"Value Code Amount - 2. Report the appropriate amount that corresponds to the second Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC195,char(2),char,2,Value Code - 3,Value Code - 3. Report the third Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC196,varchar(10),varchar,10,Value Code Amount - 3,"Value Code Amount - 3. Report the appropriate amount that corresponds to the third Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC197,char(2),char,2,Value Code - 4,Value Code - 4. Report the fourth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC198,varchar(10),varchar,10,Value Code Amount - 4,"Value Code Amount - 4. Report the appropriate amount that corresponds to the fourth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC199,char(2),char,2,Value Code - 5,Value Code - 5. Report the fifth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC200,varchar(10),varchar,10,Value Code Amount - 5,"Value Code Amount - 5. Report the appropriate amount that corresponds to the fifth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC201,char(5),char,5,Value Code - 6,Value Code - 6. Report the sixth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC202,varchar(10),varchar,10,Value Code Amount - 6,"Value Code Amount - 6. Report the appropriate amount that corresponds to the sixth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC203,char(2),char,2,Value Code - 7,Value Code - 7. Report the seventh Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC204,varchar(10),varchar,10,Value Code Amount - 7,"Value Code Amount - 7. Report the appropriate amount that corresponds to the seventh Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC205,char(2),char,2,Value Code - 8,Value Code - 8. Report the eighth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC206,varchar(10),varchar,10,Value Code Amount - 8,"Value Code Amount - 8. Report the appropriate amount that corresponds to the eighth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC207,char(2),char,2,Value Code - 9,Value Code - 9. Report the ninth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC208,varchar(10),varchar,10,Value Code Amount - 9,"Value Code Amount - 9. Report the appropriate amount that corresponds to the ninth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC209,char(2),char,2,Value Code - 10,Value Code - 10. Report the tenth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC210,varchar(10),varchar,10,Value Code Amount - 10,"Value Code Amount - 10. Report the appropriate amount that corresponds to the tenth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC211,char(2),char,2,Value Code - 11,Value Code - 11. Report the eleventh Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC212,varchar(10),varchar,10,Value Code Amount - 11,"Value Code Amount - 11. Report the appropriate amount that corresponds to the eleventh Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC213,char(2),char,2,Value Code - 12,Value Code - 12. Report the twelfth Value Code that defines a value category of the claim. If not applicable do not report any value here. 
+MC,MC214,varchar(10),varchar,10,Value Code Amount - 12,"Value Code Amount - 12. Report the appropriate amount that corresponds to the twelfth Value Code. Only code 0 when 0 is an applicable amount for the Value Code Set. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+MC,MC215,char(2),char,2,Occurrence Code - 1,Occurrence Code - 1. Report the first Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC216,int,int,,Occurrence Date - 1,Occurrence Code Date - 1. Report the date that corresponds to the first Occurrence Code in CCYYMMDD format.
+MC,MC217,char(2),char,2,Occurrence Code - 2,Occurrence Code - 2. Report the second Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC218,int,int,,Occurrence Date - 2,Occurrence Code Date - 2. Report the date that corresponds to the second Occurrence Code in CCYYMMDD format.
+MC,MC219,char(2),char,2,Occurrence Code - 3,Occurrence Code - 3. Report the third Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC220,int,int,,Occurrence Date - 3,Occurrence Code Date - 3. Report the date that corresponds to the third Occurrence Code in CCYYMMDD format.
+MC,MC221,char(2),char,2,Occurrence Code - 4,Occurrence Code - 4. Report the fourth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC222,int,int,,Occurrence Date - 4,Occurrence Code Date - 4. Report the date that corresponds to the fourth Occurrence Code in CCYYMMDD format.
+MC,MC223,char(2),char,2,Occurrence Code - 5,Occurrence Code - 5. Report the fifth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224,int,int,,Occurrence Date - 5,Occurrence Code Date - 5. Report the date that corresponds to the fifth Occurrence Code in CCYYMMDD format.
+MC,MC224A,char(2),char,2,Occurrence Code - 6,Occurrence Code - 6. Report the sixth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224B,int,int,,Occurrence Date - 6,Occurrence Code Date - 6. Report the date that corresponds to the sixth Occurrence Code in CCYYMMDD format.
+MC,MC224C,char(2),char,2,Occurrence Code - 7,Occurrence Code - 7. Report the seventh Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224D,int,int,,Occurrence Date - 7,Occurrence Code Date - 7. Report the date that corresponds to the seventh Occurrence Code in CCYYMMDD format.
+MC,MC224E,char(2),char,2,Occurrence Code - 8,Occurrence Code - 8. Report the eighth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224F,int,int,,Occurrence Date - 8,Occurrence Code Date - 8. Report the date that corresponds to the eighth Occurrence Code in CCYYMMDD format.
+MC,MC224G,char(2),char,2,Occurrence Code - 9,Occurrence Code - 9. Report the ninth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224H,int,int,,Occurrence Date - 9,Occurrence Code Date - 9. Report the date that corresponds to the ninth Occurrence Code in CCYYMMDD format.
+MC,MC224I,char(2),char,2,Occurrence Code - 10,Occurrence Code - 10. Report the tenth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224J,int,int,,Occurrence Date - 10,Occurrence Code Date - 10. Report the date that corresponds to the tenth Occurrence Code in CCYYMMDD format.
+MC,MC224K,char(2),char,2,Occurrence Code - 11,Occurrence Code - 11. Report the eleventh Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224L,int,int,,Occurrence Date - 11,Occurrence Code Date - 11. Report the date that corresponds to the eleventh Occurrence Code in CCYYMMDD format.
+MC,MC224M,char(2),char,2,Occurrence Code - 12,Occurrence Code - 12. Report the twelfth Occurrence Code that defines the occurrence category for the claim. If not applicable do not report any value here. 
+MC,MC224N,int,int,,Occurrence Date - 12,Occurrence Code Date - 12. Report the date that corresponds to the twelfth Occurrence Code in CCYYMMDD format.
+MC,MC225,char(2),char,2,Occurrence Span Code - 1,Occurrence Span Code - 1. Report the first Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC226,int,int,,Occurrence Span Start Date - 1,Occurrence Span Code Start Date - 1. Report the start date that corresponds to the first Occurrence Span Code in CCYYMMDD format.
+MC,MC227,int,int,,Occurrence Span End Date - 1,Occurrence Span Code End Date - 1. Report the end date that corresponds to the first Occurrence Span Code in CCYYMMDD format.
+MC,MC228,char(2),char,2,Occurrence Span Code - 2,Occurrence Span Code - 2. Report the second Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC229,int,int,,Occurrence Span Start Date - 2,Occurrence Span Code Start Date - 2. Report the start date that corresponds to the second Occurrence Span Code in CCYYMMDD format.
+MC,MC230,int,int,,Occurrence Span End Date - 2,Occurrence Span Code End Date - 2. Report the end date that corresponds to the second Occurrence Span Code in CCYYMMDD format.
+MC,MC231,char(2),char,2,Occurrence Span Code - 3,Occurrence Span Code - 3. Report the third Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC232,int,int,,Occurrence Span Start Date - 3,Occurrence Span Code Start Date - 3. Report the start date that corresponds to the third Occurrence Span Code in CCYYMMDD format.
+MC,MC233,int,int,,Occurrence Span End Date - 3,Occurrence Span Code End Date - 3. Report the end date that corresponds to the third Occurrence Span Code in CCYYMMDD format.
+MC,MC234,char(2),char,2,Occurrence Span Code - 4,Occurrence Span Code - 4. Report the fourth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC235,int,int,,Occurrence Span Start Date - 4,Occurrence Span Code Start Date - 4. Report the start date that corresponds to the fourth Occurrence Span Code in CCYYMMDD format.
+MC,MC236,int,int,,Occurrence Span End Date - 4,Occurrence Span Code End Date - 4. Report the end date that corresponds to the fourth Occurrence Span Code in CCYYMMDD format.
+MC,MC237,char(2),char,2,Occurrence Span Code - 5,Occurrence Span Code - 5. Report the fifth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC238,int,int,,Occurrence Span Start Date - 5,Occurrence Span Code Start Date - 5. Report the start date that corresponds to the fifth Occurrence Span Code in CCYYMMDD format.
+MC,MC239,int,int,,Occurrence Span End Date - 5,Occurrence Span Code End Date - 5. Report the end date that corresponds to the fifth Occurrence Span Code in CCYYMMDD format.
+MC,MC239A,char(2),char,2,Occurrence Span Code - 6,Occurrence Span Code - 6. Report the sixth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239B,int,int,,Occurrence Span Start Date - 6,Occurrence Span Code Start Date - 6. Report the start date that corresponds to the sixth Occurrence Span Code in CCYYMMDD format.
+MC,MC239C,int,int,,Occurrence Span End Date - 6,Occurrence Span Code End Date - 6. Report the end date that corresponds to the sixth Occurrence Span Code in CCYYMMDD format.
+MC,MC239D,char(2),char,2,Occurrence Span Code - 7,Occurrence Span Code - 7. Report the seventh Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239E,int,int,,Occurrence Span Start Date - 7,Occurrence Span Code Start Date - 7. Report the start date that corresponds to the seventh Occurrence Span Code in CCYYMMDD format.
+MC,MC239F,int,int,,Occurrence Span End Date - 7,Occurrence Span Code End Date - 7. Report the end date that corresponds to the seventh Occurrence Span Code in CCYYMMDD format.
+MC,MC239G,char(2),char,2,Occurrence Span Code - 8,Occurrence Span Code - 8. Report the eighth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239H,int,int,,Occurrence Span Start Date - 8,Occurrence Span Code Start Date - 8. Report the start date that corresponds to the eighth Occurrence Span Code in CCYYMMDD format.
+MC,MC239I,int,int,,Occurrence Span End Date - 8,Occurrence Span Code End Date - 8. Report the end date that corresponds to the eighth Occurrence Span Code in CCYYMMDD format.
+MC,MC239J,char(2),char,2,Occurrence Span Code - 9,Occurrence Span Code - 9. Report the ninth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239K,int,int,,Occurrence Span Start Date - 9,Occurrence Span Code Start Date - 9. Report the start date that corresponds to the ninth Occurrence Span Code in CCYYMMDD format.
+MC,MC239L,int,int,,Occurrence Span End Date - 9,Occurrence Span Code End Date - 9. Report the end date that corresponds to the ninth Occurrence Span Code in CCYYMMDD format.
+MC,MC239M,char(2),char,2,Occurrence Span Code - 10,Occurrence Span Code - 10. Report the tenth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239N,int,int,,Occurrence Span Start Date - 10,Occurrence Span Code Start Date - 10. Report the start date that corresponds to the tenth Occurrence Span Code in CCYYMMDD format.
+MC,MC239O,int,int,,Occurrence Span End Date - 10,Occurrence Span Code End Date - 10. Report the end date that corresponds to the tenth Occurrence Span Code in CCYYMMDD format.
+MC,MC239P,char(2),char,2,Occurrence Span Code - 11,Occurrence Span Code - 11. Report the eleventh Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239Q,int,int,,Occurrence Span Start Date - 11,Occurrence Span Code Start Date - 11. Report the start date that corresponds to the eleventh Occurrence Span Code in CCYYMMDD format.
+MC,MC239R,int,int,,Occurrence Span End Date - 11,Occurrence Span Code End Date - 11. Report the end date that corresponds to the eleventh Occurrence Span Code in CCYYMMDD format.
+MC,MC239S,char(2),char,2,Occurrence Span Code - 12,Occurrence Span Code - 12. Report the twelfth Occurrence Span Code that defines an occurrence span category of the claim. If not applicable do not report any value here. 
+MC,MC239T,int,int,,Occurrence Span Start Date - 12,Occurrence Span Code Start Date - 12. Report the start date that corresponds to the twelfth Occurrence Span Code in CCYYMMDD format.
+MC,MC239U,int,int,,Occurrence Span End Date - 12,Occurrence Span Code End Date - 12. Report the end date that corresponds to the twelfth Occurrence Span Code in CCYYMMDD format.
+MC,MC240,char(9),char,9,EUTF HB Number,EUTF HB Member Number. Report the EUTF HB Member Identification number as provided to Reporters. All numbers should start with HB and end with 7-digits. If not applicable do not report any value here.
+MC,MC241,int,int,,APCD ID Code,Member Enrollment Type. Report the value that describes the member's / subscriber's enrollment into one of the predefined categories; aligns enrollment to appropriate editing and thresholds.
+MC,MC242,int,int,,Rendering Provider NPI,Rendering Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the Rendering Provider. 
+MC,MC243,varchar(50),varchar,50,Filler,SHPDA reserves this field for future use. Do not populate this field with any data.
+MC,MC244,int,int,,Claim Line Paid Flag,Claim Line Paid Indicator. Report the value that defines the element.
+MC,MC245,int,int,,Type of Facility Flag,Type of Facility Indicator. Report the value that defines the type of facility setting for this claim.
+MC,MC246,varchar(20),varchar,20,Medicaid ID,Medicaid-Assigned Member ID. Report the unique ID that Medicaid uses to uniquely identify a Member. This ID must be on all lines of eligibility for Med-QUEST and Medicaid MCOs. This element is required for Med-QUEST carriers only. Non-Med-QUEST carriers should not report any value here.
+MC,MC899,char(2),char,2,Record Type,File Type Identifier. Report MC here. This validates the type of file and the data contained within the file. This must match HD004.
+MC,MC999,bigint,bigint,,File ID,HHDC assigned ID of the file submitted by the payer.
+ME,ME000,varchar(64),varchar,64,HHDC Beneficiary ID,Beneficiary ID defined and maintained by HHDC
+ME,ME000A,varchar(64),varchar,64,HHDC Beneficiary Hash ID,Hash of all of the data elements used for member matching
+ME,ME001,char(6),char,6,Submitter,Submitter ID. Report the SHPDA defined and maintained unique identifier. This must match the Submitter ID reported in HD002.
+ME,ME002,varchar(10),int,,Health Plan ID,"CMS Health Plan ID (HPID). Do not report any value here until HPID is fully implemented. This is a unique identifier as outlined by the Centers for Medicare and Medicaid Services (CMS) for Plans or Sub plans. When implemented, this must match the CMS Health Plan ID reported in HD003."
+ME,ME003,char(2),char,2,Insurance Type Code / Product,"Insurance Type / Product Identification Code. Report the code that defines the type of insurance under which this Member's is enrolled.
+EXAMPLE: HM = Health Maintenance Organization.
+"
+ME,ME004,varchar(4),int,,Year,"Eligibility Year. Report the year for which eligibility is reported in this submission in CCYY format. If reporting previous year's data, the year reported here will not match current year. Do not report a future year here."
+ME,ME005,varchar(2),int,,Quarter,"Reporting Quarter of Eligibility. Report the quarter for which eligibility is reported in this submission. Note: ME005 is not required for initial historical submissions for years 2009-2017.
+EXAMPLE: 01 = First Quarter"
+ME,ME006,varchar(30),varchar,30,Insured Group or Policy Number,Insured Group / Policy Number. Report the insured group or policy number. Do not report the number that uniquely identifies the Subscriber or Member.
+ME,ME007,char(3),char,3,Coverage Level Code,Benefit Coverage Level Code. Report the Benefit Coverage Level Code that defines the dependent coverage. EXAMPLE: FAM = Family
+ME,ME008,varchar(9),int,,Subscriber SSN,Subscriber's Social Security Number. Report the Subscriber's 9-digit SSN here. Do not use hyphen.
+ME,ME009,varchar(30),varchar,30,Plan Specific Contract Number,Plan Specific Contract Number. Report the Reporter-assigned contract number for the Subscriber. Do not include values in this element that will distinguish one Member of the family from another. This should be the contract number for the Subscriber and all of the dependents.
+ME,ME010,varchar(20),varchar,20,Member Suffix or Sequence Number,Member's Sequence Number. Report the unique number of the Member within the contract.
+ME,ME011,varchar(9),int,,Member SSN,Member's Social Security Number. Report the Member's 9-digit SSN. Do not use hyphen.
+ME,ME012,char(2),char,2,Individual Relationship Code,"Individual Relationship Code. Report the value that defines the Member's relationship to the Subscriber.
+EXAMPLE: 18 = Self."
+ME,ME013,char(1),char,1,Member Gender,"Member's Gender. Report the Member's gender as found on the claim in alpha format.
+EXAMPLE: F = Female."
+ME,ME014,int,int,,Member Date of Birth,Member's Date of Birth. Report the date of birth of the Member in CCYYMMDD format.
+ME,ME015,varchar(30),varchar,30,Member City Name,Member's City Name. Report the city name of the Member's residence.
+ME,ME016,char(2),char,2,Member State,Member's State / Province. Report the State of the Member's residence using the two-character abbreviation as defined by the United States Postal Service. 
+ME,ME017,varchar(9),varchar,9,Member Zip Code,Member's Zip Code. Report the 5- or 9-digit Zip Code of the Member's residence as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+ME,ME018,int,int,,Medical Coverage,"Medical Coverage Indicator. Report the value that defines if the Member has medical coverage.
+EXAMPLE: 1 = Yes, there is Medical Coverage.
+"
+ME,ME019,int,int,,Prescription Drug Coverage,"Prescription Drug Coverage Indicator. Report the value that defines if the Member has prescription drug coverage.
+EXAMPLE: 1 = Yes, there is Prescription Coverage.
+"
+ME,ME020,int,int,,Dental Coverage,"Dental Coverage Indicator. Report the value that defines if the Member has dental coverage. EXAMPLE: 1 = Yes, there is Dental Coverage."
+ME,ME021,varchar(6),varchar,6,Race 1,Member’s Primary Race. Report the Member-identified primary race here. Do not report any value here if data has not been collected. Report only collected data. 
+ME,ME022,varchar(6),varchar,6,Race 2,Member's Secondary Race. Report the Member-identified secondary race here. Do not report any value here if data has not been collected. Report only collected data. See External Code Source
+ME,ME023,varchar(15),varchar,15,Other Race,Member's Other Race. Report the Member's self-disclosed race when ME021 or ME022 is entered as 2131-1 Other Race. Do not report any value here if data has not been collected. Report only collected data.
+ME,ME024,int,int,,Hispanic Indicator,"Hispanic Status Indicator. Report the value that defines if the Member has indicated Hispanic Status. The code value “3” for unknown, should be used ONLY when member answers unknown, or refuses to answer. Do not report any value here if the data has not been collected. Report only collected data.
+EXAMPLE: 1 = Yes, Member has indicated Hispanic status."
+ME,ME025,varchar(6),varchar,6,Ethnicity 1,Member’s Primary Ethnicity. Report the Member-identified primary ethnicity here. Do not report any value here if data has not been collected. Report only collected data. Report OTHER if Ethnicity not represented by any of the values in the External Code Source. 
+ME,ME026,varchar(6),varchar,6,Ethnicity 2,Member's Secondary Ethnicity Report the Member-identified secondary ethnicity here. Do not report any value here if data has not been collected. Report only collected data. Report OTHER if Ethnicity not represented by any of the values in the External Code Source. 
+ME,ME027,varchar(20),varchar,20,Other Ethnicity,Member's Other Ethnicity. Report the member's self-disclosed ethnicity when ME025 or ME026 is entered as OTHER. Do not report any value here if data has not been collected. Report only collected data.
+ME,ME028,int,int,,Primary Insurance Indicator,"Primary Insurance Coverage Indicator. Report the value that defines if this coverage is primary.
+EXAMPLE: 1 = Yes, Insurance is Primary (Products, Plans or Benefits that only cover Copays, Coinsurance and Deductibles [Gap Coverage] will answer 2 = No)."
+ME,ME029,char(3),char,3,Coverage Type,"Type of Coverage Code. Report the code that defines the type of insurance policy by which the enrollee is covered.
+EXAMPLE: UND = Plans underwritten by the insurer."
+ME,ME030,varchar(4),varchar,4,Market Category Code,"Market Category Code. Report the code that defines the market, by size and or association, to which the policy is directly sold and issued.
+EXAMPLE: GS3 = Employers having 10 thru 25 employees."
+ME,ME031,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME032,varchar(120),varchar,120,Group Name,Group Name. Report the group name that the policy is attached to. Report IND for individual policies. Do not report any value here if the data is not available.
+ME,ME033,int,int,,Member Language Preference,"Member's Verbal Language Preference. Report the code that defines the self-disclosed spoken language preference of the member. The code value 999 (Unknown / Not Specified), should only be used when member answers unknown or refuses to answer. Do not report any value here if the Reporter does not have the data. Report only collected data. "
+ME,ME034,varchar(20),varchar,20,Member Language Preference - Other,Member's Other Language Preference. Report the other language the member / subscriber has identified. Do not report any value If no other language identified.
+ME,ME035,int,int,,PCMH Assigned Flag,"Patient Centered Medical Home (PCMH) Assigned Indicator. Report the value that indicates if the Member has an approved PCMH for this coverage period.
+EXAMPLE: 1 = Yes, Member has an assigned approved patient centered medical home for this coverage period."
+ME,ME036,varchar(30),varchar,30,PCMH Number,Patient Centered Medical Home (PCMH) Identification Number. Report the Reporter-assigned PCMH Identification Number. Do not report any data here if not applicable.
+ME,ME037,int,int,,PCMH Tax ID Number,"Patient Centered Medical Home (PCMH) EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the PCMH. If there is not medical home to report, do not report any value. Do not use hyphen or alpha prefix."
+ME,ME038,int,int,,PCMH NPI,"Patient Centered Medical Home (PCMH) National Provider Identifier. Report the National Provider Identifier (NPI) number for the entity or individual serving as the medical home. If there is no medical home to report, do not report any value. "
+ME,ME039,varchar(60),varchar,60,PCMH Name,"Patient Centered Medical Home (PCMH) Name. Report the full name of the medical home. If the medical home is an individual, report in the format of Last name, first name and middle initial with no punctuation. If there is not medical home to report, do not report any value."
+ME,ME040,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME041,int,int,,Insurance / Product Enrollment Start Date,Insurance / Product Enrollment Start Date. Report the date the Member was enrolled in the product in CCYYMMDD format.
+ME,ME042,int,int,,Insurance / Product Enrollment End Date,"Insurance / Product Enrollment End Date. Report the date the member was disenrolled from the product in CCYYMMDD format. If the member was not disenrolled at the end of the current period, then do not fill with any value."
+ME,ME043,varchar(60),varchar,60,Member Street Address,Member's Street Address. Report the Member's street address.
+ME,ME044,varchar(60),varchar,60,Member Street Address 2,"Member's Street Address 2. Report the Member's street address that may contain office number, suite, or other secondary information besides the street."
+ME,ME045,int,int,,Health Insurance Exchange Flag,"Health Insurance Exchange Purchase Indicator. Report the value that defines if the policy for this eligibility was purchased through the Health Insurance Exchange.
+EXAMPLE: 1 = Yes, policy for this eligibility was purchased through the Health Insurance Exchange."
+ME,ME046,int,int,,Member PCP NPI,Member's PCP National Provider Identifier. Report the National Provider Identifier (NPI) of the Member's PCP. 
+ME,ME047,int,int,,Member PCP Effective Date,Member PCP Effective Date. Report the Member enrollment begin date with the PCP in CCYYMMDD format.
+ME,ME048,int,int,,Member PCP Termination Date,"Member PCP Termination Date. Report the Member termination date from the PCP in CCYYMMDD format. If the member is still active with their PCP at the end of the current month, then do not fill with any value."
+ME,ME049,varchar(10),varchar,10,Member Deductible,"Annual Maximum Member Deductible. Report the maximum amount of Member / Subscriber's annual deductible across all benefit types (Medical, pharmacy, vision, behavioral health, etc.) before certain services are covered. Report only In-Network Deductibles here if plan has an In and Out-of-Network Deductible. Report 0 when there is no deductible applied to all benefits for this eligibility. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050"
+ME,ME050,varchar(10),varchar,10,Member Deductible Used,"Member Deductible Amount Incurred. Report the amount to-date the Member / Subscriber has incurred towards the maximum deductible. Report 0 if no deductible has been incurred. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+ME,ME051,int,int,,Behavioral Health Benefit Flag,"Behavioral Health Benefit Indicator. Report the value that defines if the Member has Behavioral Health benefits coverage.
+EXAMPLE: 1 = Yes, Behavioral / Mental Health is a covered benefit."
+ME,ME052,int,int,,Laboratory Benefit Flag,"Laboratory Benefit Indicator. Report the value that defines if the Member has Laboratory benefits coverage.
+EXAMPLE: 1 = Yes, Lab is covered benefit."
+ME,ME053,int,int,,Disease Management Enrollee Flag,"Chronic Illness Management Indicator. Report the value that defines if the Member has Chronic Illness Management coverage.
+EXAMPLE: 1 = Yes, Member's chronic illness is being managed by plan or vendor of plan."
+ME,ME054,int,int,,Eligibility Determination Date,Eligibility Date. Report the date the member eligibility was determined in CCYYMMDD format.
+ME,ME055,int,int,,Business Type Code,Business Type. Report the value that defines the Reporter's line of business for this line of eligibility. EXAMPLE: 1 = Risk Holder of this line of eligibility.
+ME,ME056,int,int,,Last Activity Date,"Last Activity Date. Report the date of last activity / change on the Member enrollment file for this line of eligibility in CCYYMMDD format. This includes any/all life change updates, open enrollment changes, or benefit design changes by the Reporter."
+ME,ME057,int,int,,Date of Death,"Member's Date of Death. Report the Member's date of death in CCYYMMDD format. If still alive or date of death is unknown, do not report any value here."
+ME,ME058,varchar(60),varchar,60,Subscriber Street Address,Subscriber's Street Address. Report the Subscriber's street address.
+ME,ME058A,varchar(60),varchar,60,Subscriber Street Address 2,"Subscriber's Street Address 2. Report the Subscriber's street address that may contain office number, suite, or other secondary information besides the street."
+ME,ME059,int,int,,Disability Indicator Flag,"Disability Status Indicator. Report the value that defines if the Member has a disability.
+EXAMPLE: 1 = Yes, Member has a disability."
+ME,ME060,char(1),char,1,Employment Status,Employment Status Code. Report the code that defines the employment status of the Subscriber. EXAMPLE: A = Active.
+ME,ME061,int,int,,Student Status,"Student Status Indicator. Report the value that defines the if the Member is a student. Student status is defined as student under the age of 26 on their parent's plan.
+EXAMPLE: 1 = Yes, Member is a student."
+ME,ME062,char(1),char,1,Marital Status,"Marital Status Code. Report the member's marital status.
+EXAMPLE: M = Married."
+ME,ME063,char(1),char,1,Benefit Status,Benefit Status Code. Report the code that defines status of benefits for the Subscriber.
+ME,ME064,char(1),char,1,Employee Type,Employee Type Code. Report the code that defines the Subscribers employment.
+ME,ME065,int,int,,Date of Retirement,Member's date of Retirement. Report the date of the Subscriber's retirement in CCYYMMDD format.
+ME,ME066,int,int,,COBRA Status,"COBRA Status Indicator. Report the value that defines if the Member is covered using a COBRA benefit. EXAMPLE: 1 = Yes, Member is covered using COBRA benefit."
+ME,ME067,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME068,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME069,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME070,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME071,int,int,,Pool Indicator,"Pool Indicator Code. Report the value that defines one of the EUTF Risk Pools in which this member is enrolled. This element is required for EUTF Reporters only. Non-EUTF Reporters should not report any value here.
+EXAMPLE: 1 = State Employee - Active"
+ME,ME072,varchar(2),varchar,2,Family Size,Family Size Contracted. Report the number of individuals covered under the policy / contract (ME009) of the Subscriber. No alpha or special characters.
+ME,ME073,int,int,,Fully Insured Member,"Fully Insured identifier. Report the value that defines if the Member is fully insured under this contract.
+EXAMPLE: 1 = Yes, Member is fully insured."
+ME,ME074,int,int,,Interpreter,"Interpreter Indicator. Report the value that defines if the Member requires an interpreter.
+EXAMPLE: 1 = Yes, Member requires an interpreter."
+ME,ME075,varchar(20),varchar,20,Medicaid ID,Medicaid-Assigned Member ID. Report the unique ID that Medicaid uses to identify a member. This ID must be on all lines of eligibility for Med-QUEST and Medicaid MCOs.
+ME,ME076,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME077,varchar(6),varchar,6,Member NAICS / SIC Code,Member Standard NAIC or SIC Code. Report the standard code that describes the industry of the Subscriber / Member. This can be from either the NAICS 6-digit list or the SIC 4-digit list. 
+ME,ME078,varchar(9),varchar,9,Employer Zip Code,Zip Code of the Employer. Report the 5- or 9-digit Zip Code of the Employer of the Subscriber / Member as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+ME,ME079,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME080,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME081,int,int,,Medicare Code,Medicare Plan Indicator Code. Report the value that defines if and what type of Medicare coverage that applies to this line of eligibility. EXAMPLE: 1 = Part A Only.
+ME,ME082,varchar(100),varchar,100,Employer Name,Member's Employer Name. Report the name of the Subscriber's / Member's employer at time of enrollment.
+ME,ME083,int,int,,Employer EIN,Member's Employer EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the Member's employer. Do not use hyphen or alpha prefix.
+ME,ME101,varchar(60),varchar,60,Subscriber Last Name,"Subscriber's Last Name. Report the Subscriber's last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+ME,ME102,varchar(35),varchar,35,Subscriber First Name,"Subscriber's First Name. Report the Subscriber's first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+ME,ME103,varchar(25),varchar,25,Subscriber Middle Name,"Subscriber's Middle Name or Initial. Report the Subscriber's middle name or initial here. If Subscriber's middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+ME,ME104,varchar(60),varchar,60,Member Last Name,"Member's Last Name. Report the Member's last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+ME,ME105,varchar(40),varchar,40,Member First Name,"Member's First Name. Report the Member's first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+ME,ME106,varchar(25),varchar,25,Member Middle Name,"Member's Middle Name or Initial. Report the Member's middle name or initial here. If Member's middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+ME,ME107,varchar(50),varchar,50,Carrier Specific Unique Member ID,Member's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Member.
+ME,ME108,varchar(30),varchar,30,Subscriber City Name,Subscriber's City Name. Report the city name of the Subscriber's residence.
+ME,ME109,char(20),char,20,Subscriber State,Subscriber's State / Province. Report the State of the Subscriber's residence using the two-character abbreviation as defined by the United States Postal Service. 
+ME,ME110,varchar(9),varchar,9,Subscriber Zip Code,Subscriber's Zip Code. Report the 5- or 9-digit Zip Code of the Subscriber's residence as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+ME,ME111,varchar(10),varchar,10,Medical Deductible,Member's Maximum Medical Deductible. Report the maximum amount of the Member's deductible that is applied to medical services before certain services are covered. This is the base deductible for general services. Report 0 when there is no deductible for this benefit. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable. EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050.
+ME,ME112,varchar(10),varchar,10,Pharmacy Deductible,Member's Maximum Pharmacy Deductible. Report the maximum amount of the Member's deductible that is applied to pharmacy services before certain prescriptions are covered. Report 0 when there is no deductible for this benefit. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable. EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050.
+ME,ME113,varchar(10),varchar,10,Medical and Pharmacy Deductible,"Member's Maximum Medical and Pharmacy Deductible. Report the maximum amount of the Member's deductible that is applied to services before certain medical and / or prescriptions are covered. This element should be filled in when the deductible is not strictly based on medical or strictly on pharmacy out of pocket costs, but on the combination of the two. Report 0 when there is no deductible for this combined benefit. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+ME,ME114,varchar(10),varchar,10,Behavioral Health Deductible,"Member's Maximum Behavioral Health Deductible. Report the maximum amount of the Member's deductible that is applied to behavioral health services before certain behavioral health services are covered. Report 0 if there is no deductible. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+ME,ME115,varchar(10),varchar,10,Dental Deductible,"Member's Maximum Dental Deductible. Report the maximum amount of the Member's deductible that is applied to dental services before certain dental services are covered. Report 0 when there is no deductible for this benefit. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+ME,ME116,varchar(10),varchar,10,Vision Deductible,"Member's Maximum Vision Deductible. Report the maximum amount of the Member's deductible that is applied to vision services before certain vision services are covered. If deductible does not apply when vision benefits are available, submit as zero. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable. EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+ME,ME117,varchar(50),varchar,50,Carrier Specific Unique Subscriber ID,Subscriber's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Subscriber.
+ME,ME118,int,int,,Vision Benefit,"Vision Indicator. Report the value that defines if the Member has Vision coverage. EXAMPLE: 1 = Yes, Vision is a covered benefit.1 - Yes2 - No3 - Unknown"
+ME,ME119,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME120,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME121,int,int,,Metal Level,"Metal Level Tier. Report the Metal Level benefits that the member is associated to in this line of eligibility. EXAMPLE: 1 = Bronze Level.
+"
+ME,ME122,int,int,,Coinsurance Maximum %,"Member's Maximum Coinsurance Percentage. Report the value that defines the maximum coinsurance that the Member is responsible for when covered / approved services are rendered and link to this line of eligibility. EXAMPLE: 1 = 10% Maximum Coinsurance. If Maximum Coinsurance falls between two categories, then report it under the higher category. (e.g., 15% should be reported as 2 = 20%.)."
+ME,ME123,varchar(10),varchar,10,Monthly Premium,Expected Monthly Premium. Report the amount the Subscriber is responsible for on a monthly basis to maintain this line of eligibility. Report 0 only when the subscriber is contractually free of this obligation. Repeat the Subscriber’s premium on the Member’s record. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable. EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050.
+ME,ME124,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME125,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME126,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME127,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME128,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME129,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME130,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME131,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+ME,ME132,varchar(10),varchar,10,Total Monthly Premium,"Total Monthly Premium. Report the total Employer + Subscriber's total contribution to the monthly premium. Report 0 if no premium is charged. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+ME,ME133,char(15),char,15,EUTF HB Number,EUTF HB Member Number. Report the EUTF HB Member Identification number as provided to Reporters. All numbers should start with HB and end with 7-digits. If not applicable do not report any value here.
+ME,ME134,int,int,,APCD ID Code,Member Enrollment Type. Report the value that describes the member's / subscriber's enrollment into one of the predefined categories; aligns enrollment to appropriate editing and thresholds. EXAMPLE: 3 = EUTF Enrollee.
+ME,ME135,int,int,,Bargaining Unit,"Bargaining Unit of State and County Employees. Report the bargaining unit of all State and County employees or retirees whose health plan is under EUTF. EXAMPLE: 11 = Firefighters.
+"
+ME,ME899,char(2),char,2,Record Type,File Type Identifier. Report ME here. This validates the type of file and the data contained within the file. This must match HD004.
+ME,ME999,bigint,bigint,,File ID,HHDC assigned ID of the file submitted by the payer.
+PC,PC000,varchar(64),varchar,64,HHDC Beneficiary ID,Beneficiary ID defined and maintained by HHDC
+PC,PC000A,varchar(64),varchar,64,HHDC Beneficiary Hash ID,Hash of all of the data elements used for member matching
+PC,PC001,char(6),char,6,Submitter,Submitter ID. Report the SHPDA defined and maintained unique identifier. This must match the Submitter ID reported in HD002.
+PC,PC002,int,int,,Health Plan ID,"CMS Health Plan ID (HPID). Do not report any value here until HPID is fully implemented. This is a unique identifier as outlined by the Centers for Medicare and Medicaid Services (CMS) for Plans or Sub plans. When implemented, this must match the CMS Health Plan ID reported in HD003."
+PC,PC003,char(2),char,2,Insurance Type Code / Product,"Insurance Type / Product Identification Code. Report the code that defines the type of insurance under which this Member's claim line was processed.
+EXAMPLE: HM = Health Maintenance Organization."
+PC,PC004,varchar(35),varchar,35,Payer Claim Control Number,Payer Claim Control Number. Report the unique identifier used internally by the Reporter to track the claim. This number must apply to the entire claim.
+PC,PC005,varchar(4),varchar,4,Line Counter,Service Line Number. Report the line number for this service within the claim. The Line Counter begins with 1 and is incremented by 1 for each additional service line of a claim. Do not start with 0 or include alphas or special characters.
+PC,PC005A,varchar(4),varchar,4,Version Number,Line Version Number. Report the version number of this claim service line. The version number begins with 0 and is incremented by 1 for each subsequent version of that service line.
+PC,PC006,varchar(30),varchar,30,Insured Group or Policy Number,Insured Group / Policy Number. Report the insured group or policy number. Do not report the number that uniquely identifies the Subscriber or Member.
+PC,PC007,int,int,,Subscriber SSN,Subscriber's Social Security Number. Report the Subscriber's 9-digit SSN here. Do not use hyphen.
+PC,PC008,varchar(30),varchar,30,Plan Specific Contract Number,Plan Specific Contract Number. Report the Reporter-assigned contract number for the Subscriber. Do not include values in this element that will distinguish one Member of the family from another. This should be the contract number for the Subscriber and all of the dependents.
+PC,PC009,varchar(20),varchar,20,Member Suffix or Sequence Number,Member's Sequence Number. Report the unique number of the Member within the contract.
+PC,PC010,int,int,,Member SSN,Member's Social Security Number. Report the Member's 9-digit SSN. Do not use hyphen.
+PC,PC011,char(2),char,2,Individual Relationship Code,Individual Relationship Code. Report the value that defines the Member's relationship to the Subscriber. EXAMPLE: 18 = Self.
+PC,PC012,char(1),char,1,Member Gender,"Member's Gender. Report the Member's gender as found on the claim in alpha format.
+EXAMPLE: F = Female."
+PC,PC013,int,int,,Member Date of Birth,Member's Date of Birth. Report the date of birth of the Member in CCYYMMDD format.
+PC,PC014,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+PC,PC015,char(2),char,2,Member State,Member's State / Province. Report the State of the Member's residence using the two-character abbreviation as defined by the United States Postal Service. 
+PC,PC016,varchar(9),varchar,9,Member Zip Code,Member's Zip Code. Report the 5- or 9-digit Zip Code of the Member's residence as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+PC,PC017,int,int,,Date Service Approved (AP Date),"Date Service Approved by Payer. Report the date that the payer approved this claim line for payment in CCYYMMDD format. This element was designed to capture date other than the Paid date. If Approved Date and Paid Date are the same, then the date here should match Paid Date reported in PC063."
+PC,PC018,varchar(30),varchar,30,Pharmacy Number,Pharmacy's Identification Number. Report either the NCPDP or NABP number of the dispensing pharmacy. 
+PC,PC019,int,int,,Pharmacy Tax ID Number,Pharmacy EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the pharmacy. Do not use hyphen or alpha prefix.
+PC,PC020,varchar(100),varchar,100,Pharmacy Name,Name of Pharmacy. Report the name of the pharmacy.
+PC,PC021,int,int,,Pharmacy NPI,Pharmacy's National Provider Identifier. Report the National Provider Identifier (NPI) of the pharmacy. 
+PC,PC022,varchar(30),varchar,30,Pharmacy Location City,Pharmacy's City Name. Report the city name of pharmacy's location.
+PC,PC023,char(2),char,2,Pharmacy Location State,Pharmacy's State / Province. Report the State where the dispensing pharmacy is located using the two-character abbreviation as defined by the United States Postal Service. 
+PC,PC024,varchar(9),varchar,9,Pharmacy Location Zip Code,Pharmacy's Zip Code. Report the 5- or 9-digit Zip Code as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+PC,PC024A,char(3),char,3,Pharmacy Location Country Code,"Pharmacy's Country Code. Report the three-character country code as defined by ISO 3166-1, Alpha 3. "
+PC,PC025,int,int,,Claim Status,"Claim Line Status Code. Report the Claim Status Code that defines the payment status of this claim line.
+EXAMPLE: 01 = Processed as primary."
+PC,PC026,char(11),char,11,Drug Code,National Drug Code (NDC). Report the NDC Code as defined by the FDA in 11-digit format (5-4-2) without hyphenation. 
+PC,PC027,varchar(80),varchar,80,Drug Name,Name of the Drug as Supplied. Report the name of the drug that aligns to the National Drug Code. Do not report generic names with brand name National Drug Codes. 
+PC,PC028,int,int,,New Prescription or Refill,Prescription Status Indicator. Report the status of prescription by numeric value.
+PC,PC029,int,int,,Generic Drug Indicator,"Generic Drug Indicator. Report if the drug dispensed is generic.
+EXAMPLE: 1 = Yes, the drug reported is a generic."
+PC,PC030,int,int,,Dispense as Written Code,"Dispense As Written (DAW) / Product Selection Code. Report the value that defines how the drug was dispensed.
+EXAMPLE: 0 = Not dispensed as written."
+PC,PC031,int,int,,Compound Drug Indicator,"Compound Drug Indicator. Report if the drug dispensed is a compound drug.
+EXAMPLE: 1 = Yes, drug is a compound."
+PC,PC032,int,int,,Date Prescription Filled,Prescription Filled Date. Report the date the pharmacy filled AND dispensed prescription to the Member in CCYYMMDD Format.
+PC,PC033,varchar(20),varchar,20,Quantity Dispensed,Claim Line Units Dispensed. Report the number of metric units of medication dispensed. Decimal allowed in this field.
+PC,PC034,varchar(4),varchar,4,Days Supply,Prescription Days Supply. Report the number of days the prescription will last if taken as prescribed.
+PC,PC035,varchar(10),varchar,10,Charge Amount,"Total Charges for the Claim Line. Report the total amount the provider / dispensing facility billed the insurance carrier for this claim line service. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC036,varchar(10),varchar,10,Paid Amount,"Total Paid for the Claim Line. Report the total amount paid for the claim line. Report 0 if line is paid as part of another procedure / claim line. Do not report any value if the line is denied. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC037,varchar(10),varchar,10,Ingredient Cost / List Price,"Ingredient Cost Paid. Report the amount of the List Price or Ingredient Cost. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC038,varchar(10),varchar,10,Postage Amount Claimed,"Postage Amount. Report the amount of postage for this claim line. Report 0 if postage does not apply. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC039,varchar(10),varchar,10,Dispensing Fee,"Dispensing Fee Amount. Report the amount of the dispensing fee. Report 0 if fee does not apply. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC040,varchar(10),varchar,10,Copay Amount,"Member Copay Amount. Report the Copay amount that the Member is responsible to pay. Copay is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Copay applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC041,varchar(10),varchar,10,Coinsurance Amount,"Member Coinsurance Amount. Report the Coinsurance amount that the Member is responsible to pay. Coinsurance is a calculated percentage amount for this claim line service that the Member is responsible to pay. Report 0 if no Coinsurance applies. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC042,varchar(10),varchar,10,Deductible Amount,"Member Deductible Amount. Report the Deductible amount that the Member is responsible to pay. Deductible is a preset, fixed amount for this claim line service that the Member is responsible to pay. Report 0 if no Deductible applies to service. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC043,varchar(30),varchar,30,Prescribing Provider ID,Prescribing Provider Identification Number. Report the Reporter-assigned identification number of the Prescribing Provider.
+PC,PC044,varchar(25),varchar,25,Prescribing Provider First Name,"Prescribing Provider's First Name. Report the Prescribing Provider's first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC045,varchar(25),varchar,25,Prescribing Provider Middle Name,"Prescribing Provider's Middle Name or Initial. Report the Prescribing Provider's middle name or initial here. If Prescribing Provider's middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC046,varchar(60),varchar,60,Prescribing Provider Last Name,"Prescribing Provider's Last Name. Report the Prescribing Provider's last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC047,char(20),char,20,Prescribing Provider DEA Number,Prescribing Provider's DEA Number. Report the DEA number of the Prescribing Provider.
+PC,PC048,int,int,,Prescribing Provider NPI,"Prescribing Provider's National Provider Identifier. Report the National Provider Identifier (NPI) of the Prescribing Provider. This element is looking to capture the NPI of an individual provider, not a group. "
+PC,PC049,varchar(30),varchar,30,Prescribing Provider Plan Number,Prescribing Provider's Plan Identification Number. Report the Prescribing Provider's Reporter-assigned Plan Number.
+PC,PC050,varchar(30),varchar,30,Prescribing Provider License Number,"Prescribing Provider's License Number. Report the state license number for the Prescribing Provider identified in PC043. For a doctor, this is the medical license, for a non-doctor this is the practice license. Do not zero-fill. If not available, or not applicable, such as for a group or corporate entity, do not report any value here."
+PC,PC050A,char(2),char,2,Prescribing Provider License Number State,Prescribing Provider's License State / Province. Report the State that issued the Prescribing Provider's license using the two-character abbreviation as defined by the United States Postal Service. 
+PC,PC051,varchar(60),varchar,60,Prescribing Provider Street Address,Prescribing Provider's Street Address. Report the Prescribing Provider's street address.
+PC,PC052,varchar(60),varchar,60,Prescribing Provider Street Address 2,"Prescribing Provider's Street Address 2. Report the Prescribing Provider's street address that may contain office number, suite, or other secondary information besides the street."
+PC,PC053,varchar(30),varchar,30,Prescribing Provider City Name,Prescribing Provider's City Name. Report the Prescribing Provider's city name.
+PC,PC054,char(15),char,15,Prescribing Provider State,Prescribing Provider's State / Province. Report the State of the Prescribing Provider using the two-character abbreviation as defined by the United States Postal Service. 
+PC,PC055,varchar(9),varchar,9,Prescribing Provider Zip Code,Prescribing Provider's Zip Code. Report the 5- or 9-digit Zip Code of the Prescribing Provider as defined by the United States Postal Service. When submitting the 9-digit Zip Code do not include hyphen. 
+PC,PC056,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+PC,PC057,int,int,,Mail Order Pharmacy,"Mail Order Option Indicator. Report if the pharmacy is a mail order pharmacy.
+EXAMPLE: 1 = Yes, pharmacy is a mail order pharmacy."
+PC,PC058,varchar(20),varchar,20,Script Number,Prescription Number. Report the unique prescription number.
+PC,PC059,int,int,,Member PCP NPI,Member's PCP National Provider Identifier. Report the National Provider Identifier (NPI) of the Member's PCP. 
+PC,PC060,int,int,,Single / Multiple Source Indicator,"Drug Source Indicator. Report the value that defines the availability of the pharmaceutical.
+EXAMPLE: 1 = Multi-source brand."
+PC,PC061,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+PC,PC062,int,int,,Billing Provider Tax ID Number,Billing Provider's EIN / Federal Tax ID Number. Report the EIN / Federal Tax ID of the Billing Provider. Do not use hyphen or alpha prefix.
+PC,PC063,int,int,,Paid Date,Paid Date of the Claim Line. Report the date that appears on the check and/or remit and/or explanation of benefits and corresponds to any and all types of payment in CCYYMMDD format. This can be the same date as AP Date (PC017).
+PC,PC064,int,int,,Date Prescription Written,Date of Prescription. Report the date that was written on the prescription or called-in by the Prescribing Provider's office in CCYYMMDD format.
+PC,PC065,varchar(10),varchar,10,Coordination of Benefits / TPL Liability Amount,"Secondary Carrier Amount Due. Report the amount that another carrier / insurer is liable for after Reporter has processed this claim line. Report 0 if there is no COB / TPL amount. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC066,varchar(10),varchar,10,Other Insurance Paid Amount,"Primary / Prior Carrier Paid Amount. Report the amount that a prior payer has paid for this claim line. Indicates the Reporter is 'secondary' to the prior payer. Only report 0 if the Prior Payer paid 0 towards this claim line, else do not report any value here. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC067,varchar(10),varchar,10,Medicare Paid Amount,"Medicare Paid Amount. Report the amount Medicare paid towards this claim line. Only report 0 here if Medicare paid 0. If Medicare did not pay towards this claim line do not report any value here. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC068,varchar(10),varchar,10,Allowed Amount,"Allowed Amount. Report the maximum amount contractually allowed, and that a carrier will pay to a provider for a particular procedure or service. This will vary by provider contract and most often it is less than or equal to the fee charged by the provider. Report 0 when the claim line is denied. Do not code decimal or round up / down to whole dollars, code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC069,varchar(10),varchar,10,Member Total Out of Pocket Amount,"Total Member Out of Pocket Amount. Report the total amount the Member is responsible to pay to the provider as part of their costs for services. This is the sum of copay, coinsurance, deductible, and other charges the Member is responsible for. Report 0 if there are no out of pocket expenses. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC070,int,int,,Rebate Indicator,"Drug Rebate Eligibility Indicator. Report the value that defines the drug rebate status.
+EXAMPLE: 1 = Yes, drug is eligible for a rebate to any entity."
+PC,PC071,varchar(10),varchar,10,State Sales Tax,"State Sales Tax. Report the amount of state sales tax applied to this claim line. Report 0 if state sales tax does not apply. Do not code decimal or round up / down to whole dollars. Code zero cents (00) when applicable.
+
+EXAMPLE: 100.00 is reported as 10000; 100.50 is reported as 10050."
+PC,PC072,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+PC,PC073,int,int,,Formulary Code,"Formulary Inclusion Identifier. Report the value that defines the formulary code status.
+EXAMPLE: 1 = Yes, drug is on the formulary."
+PC,PC074,int,int,,Route of Administration,"Route of Administration. Report pharmaceutical Route of Administration indicator that defines method of drug administration.
+EXAMPLE: 11 = Oral."
+PC,PC075,varchar(3),varchar,3,Drug Unit of Measure,"Units of Measure. Report the value that defines the unit of measure for drug dispensed.
+EXAMPLE: EA = Each."
+PC,PC101,varchar(60),varchar,60,Subscriber Last Name,"Subscriber’s Last Name. Report the Subscriber’s last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC102,varchar(35),varchar,35,Subscriber First Name,"Subscriber’s First Name. Report the Subscriber’s first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC103,varchar(25),varchar,25,Subscriber Middle Name,"Subscriber’s Middle Name or Initial. Report the Subscriber’s middle name or initial. If Subscriber’s middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC104,varchar(60),varchar,60,Member Last Name,"Member’s Last Name. Report the Member’s last name. Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC105,varchar(25),varchar,25,Member First Name,"Member’s First Name. Report the Member’s first name. First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC106,varchar(25),varchar,25,Member Middle Name,"Member’s Middle Name or Initial. Report the Member’s middle name or initial. If Member’s middle name is available, report middle name. Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ‘okinas, and kahakōs, and be reported in upper case. Name should be contracted where punctuation is removed, do not report spaces."
+PC,PC107,varchar(50),varchar,50,Carrier Specific Unique Member ID,Member's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Member.
+PC,PC108,varchar(50),varchar,50,Carrier Specific Unique Subscriber ID,Subscriber's Unique ID. Report the identifier the Reporter uses internally to uniquely identify the Subscriber.
+PC,PC109,varchar(50),varchar,50,Filler,Filler. SHPDA reserves this field for future use. Do not populate with any data.
+PC,PC110,char(1),char,1,Claim Line Type,"Claim Line Type Code. Report the Claim Line Type Code that defines the claim line status in terms of adjudication.
+EXAMPLE: O = Original."
+PC,PC111,varchar(35),varchar,35,Former Claim Number,"Previous Claim Number. Report the Claim Control Number (PC004) that was originally sent in a prior filing that this line corresponds to. When reported, this data cannot equal its own PC004."
+PC,PC112,int,int,,Medicare Indicator,"Indicator - Medicare Payment Applied. Report the value that defines if Medicare paid for this claim line.
+
+EXAMPLE: 1 = Yes, Medicare paid for part or all of services.
+
+1 - Yes
+2 - No
+3 - Unknown
+4 - Other"
+PC,PC113,int,int,,Pregnancy Indicator,Indicator - Pregnancy is applied. Report the value for pregnancy
+PC,PC114,varchar(7),varchar,7,Medicare Indicator,"Indicator - Medicare Payment Applied. Report the value that defines if Medicare paid for this claim line.
+EXAMPLE: 1 = Yes, Medicare paid for part or all of services."
+PC,PC115,int,int,,Medicare Indicator,Indicator - Medicare Payment Applied. Report the value that defines if Medicare paid for this claim line.
+PC,PC116,int,int,,Denied Flag,"Denied Claim Line Indicator. Report the denial status of the claim line.
+EXAMPLE: 1 = Yes, Claim Line was denied."
+PC,PC117,varchar(30),varchar,30,Denial Reason,"Denial Reason Code. Report the code that defines the reason for denial of the claim line. Either report the Claim Adjustment Reason Code or Carrier-defined Denial Reason Code. If Carrier-defined Reason Code is submitted, Carrier must submit all Denial Reason Codes in separate table to SHPDA. "
+PC,PC118,int,int,,Payment Arrangement Type,"Payment Arrangement Type. Report the value that defines the contracted payment methodology for this claim line.
+EXAMPLE: 02 = Fee for Service."
+PC,PC119,char(9),char,9,EUTF HB Number, 
+PC,PC120,int,int,,APCD ID Code,"Member Enrollment Type. Report the value that describes the member's / subscriber's enrollment into one of the predefined categories; aligns enrollment to appropriate editing and thresholds.
+EXAMPLE: 3 = EUTF Enrollee."
+PC,PC121,int,int,,Claim Line Paid Flag,"Claim Line Paid Indicator. Report the paid status of the claim line.
+EXAMPLE: 1 = Yes, Claim Line was paid."
+PC,PC122,varchar(20),varchar,20,Medicaid ID,Medicaid-Assigned Member ID. Report the unique ID that Medicaid uses to identify a member. This ID must be on all lines of eligibility for Med-QUEST and Medicaid MCOs. This element is required for Med-QUEST carriers only. Non-Med-QUEST carriers should not report any value here.
+PC,PC899,char(2),char,2,Record Type,File Type Identifier. Report PC here. This validates the type of file and the data contained within the file. This must match HD004.
+PC,PC999,bigint,bigint,,File ID,HHDC assigned ID of the file submitted by the payer.
+PV,PV001,char(6),char,6,Submitter,Submitter ID.  Report the SHPDA defined and maintained unique identifier.  This must match the Submitter ID reported in HD002.
+PV,PV002,varchar(30),varchar,30,Provider ID,"Provider's Identification Number.  Report the Reporter assigned, unique Provider identification number used internally by the Reporter for every Service Provider (persons, facilities or other entities involved in claims transactions) that it has in its system(s).  This element may or may not contain the provider NPI."
+PV,PV003,int,int,,Tax ID,Provider's EIN / Federal Tax ID Number.  Report the EIN/Federal Tax ID of the Provider.  Do not use hyphen or alpha prefix.
+PV,PV004,char(6),char,6,UPIN ID,"Provider's UPIN Number.  Report the UPIN for the Provider identified in PV002.  To report other Medicare Identifiers, use PV036."
+PV,PV005,char(25),char,25,DEA ID,"Provider's DEA Number.  Report the DEA number of the individual provider, group, or facility defined by PV002.  If not available or applicable, do not report any value here."
+PV,PV006,varchar(25),varchar,25,License ID,"Provider's License Number.  Report the state license number for the provider identified in PV002. For a doctor, this is the medical license for a non-doctor this is the practice license.  Do not use zero-fill.  If not available, or not applicable, such as for a group or corporate entity, do not report any value here.  "
+PV,PV006A,char(2),char,2,License ID State,Provider's License State / Province.  Report the State that issued the Provider's license using the two-character abbreviation as defined by the United States Postal Service.  See External Code Source.
+PV,PV007,varchar(30),varchar,30,Medicaid ID,"Provider's Med-QUEST-assigned Number.  Report the Medicaid number for the provider identified in PV002.  Do not use zero-fill.  Do not report any value if not available, or not applicable, such as for a group or corporate entity. "
+PV,PV008,varchar(70),varchar,70,Provider Last Name,"Provider's Last Name.  Report the Provider's last name.  Last name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case.  Name should be contracted where punctuation is removed, do not report spaces.  Do not report any value here for facility or non-individual provider records.  Report non-person entities in PV012 Entity Name."
+PV,PV009,varchar(25),varchar,25,Provider First Name,"Provider's First Name.  Report the Provider's first name.   First name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case.  Name should be contracted where punctuation is removed, do not report spaces.  Do not report any value here for facility or non-individual provider records.  Report non-person entities in PV012 Facility Name."
+PV,PV010,varchar(25),varchar,25,Provider Middle Initial,"Provider's Middle Name or Initial.  Report the Provider's middle name or initial.  If Provider's middle name is available, report middle name.  Middle name should exclude all punctuation, including but not limited to, hyphens, apostrophes, ʻokinas, and kahakōs, and be reported in upper case.  Name should be contracted where punctuation is removed, do not report spaces.  Do not report any value here for facility or non-individual provider records.  Report non-person entities in PV012 Facility Name."
+PV,PV011,int,int,,Provider Suffix,"Provider Name Suffix.  Report the individuals name-suffix when applicable here.  Used to capture the generation of the individual clinician (e.g., Jr. Sr., III).  Do not report degree acronyms here.  Do not report any value here for facility or non-individual provider records.  Report non-person entities in PV012 Facility Name.  "
+PV,PV012,varchar(100),varchar,100,Entity Name,Group / Facility Name.  Report the Provider's Entity Name when PV034 does not equal 1.  This should only be populated for facilities or groups. Limited punctuation may be included.
+PV,PV013,int,int,,Entity Code,Provider Entity Code.  Report the value that defines the entity provider type.  
+PV,PV014,char(1),char,1,Provider Gender,"Provider's Gender.  Report Provider's gender as found on certification, contract, and/or license in alpha format."
+PV,PV015,int,int,,Provider Date of Birth,"Provider's Date of Birth.  Report the Provider's date of birth in CCYYMMDD Format.  This only applies to providers identified as Person.  Do not report any value here for non-person entities, e.g. Professional Groups, Medical Sites."
+PV,PV016,varchar(80),varchar,80,Provider Street Address,"Provider's Street Address.  Report the physical street address where provider sees plan Members.  If only mailing address is available, please send the mailing address in this element in addition to putting it in the mailing address element.  If the provider sees Members at two or more locations, the provider should have a unique record for each to capture each site where the provider practices.  "
+PV,PV017,varchar(60),varchar,60,Provider Street Address 2,"Provider's Street Address 2.  Report the physical street address where provider sees plan members.  If only mailing address is available, please send the mailing address in this element in addition to putting it in the mailing address element.  If the provider sees Members at two or more locations, the provider should have a unique record for each to capture each site where the provider practices.  "
+PV,PV018,varchar(30),varchar,30,Provider City Name,"Provider's City Name.  Report the city name where provider sees Members.  If only mailing address is available, please send the mailing address in this element in addition to putting it in the mailing address element.  If the provider sees Members at two or more locations, the provider should have a unique record for each to capture each site where the provider practices. "
+PV,PV019,char(15),char,15,Provider State ,"Provider's State / Province.  Report the State of the site in which the provider sees plan Members.  When only a mailing address is available, populate with Mailing State here as well as PV026.  If the provider sees Members at two or more locations, the provider should have a unique record for each location to capture each site where the provider practices.  See External Code Source."
+PV,PV020,char(3),char,3,Provider Country Code,"Provider's Country Code.  Report the three-character country code as defined by ISO 3166-1, Alpha 3.  See External Code Source."
+PV,PV021,varchar(9),varchar,9,Provider Zip Code,Provider's Zip Code.  Report the 5- or 9-digit Zip Code of the Provider as defined by the United States Postal Service.  When submitting the 9-digit Zip Code do not include hyphen.  See External Code Source.
+PV,PV022,char(10),char,10,Provider Taxonomy,"Provider's Taxonomy Code.  Report the WPC taxonomy code that defines this provider.  Taxonomy values allow for the reporting of clinicians, assistants, and technicians, where applicable, as well as physicians, nurses, medical groups, facilities, etc.  See External Code Source."
+PV,PV023,varchar(75),varchar,75,Provider Mailing Address,Provider's Mailing Street Address.  Report the mailing street address of the Provider / Entity in PV002.
+PV,PV024,varchar(60),varchar,60,Provider Mailing Address 2,Provider's Mailing Street Address 2.  Report the mailing street address of the Provider / Entity in PV002.
+PV,PV025,varchar(30),varchar,30,Provider Mailing City Name,Provider's Mailing City Name.  Report the city of the mailing address of the Provider / Entity in PV002.
+PV,PV026,char(15),char,15,Provider Mailing State,Provider's Mailing State.  Report the state of the mailing address of the Provider / Entity in PV002.  See External Code Source.
+PV,PV027,char(3),char,3,Provider Mailing Country Code,"Provider's Mailing Country Code.  Report the mailing three-character country code of as defined by ISO 3166-1, Alpha 3 of the Provider / Entity in PV002.  See External Code Source."
+PV,PV028,varchar(9),varchar,9,Provider Mailing Zip Code,Provider's Mailing Zip Code.  Report the 5- or 9-digit mailing Zip Code of the Provider as defined by the United States Postal Service.  When submitting the 9-digit Zip Code do not include hyphen.  See External Code Source.
+PV,PV029,varchar(10),varchar,10,Provider Type Code,"Provider Type Code.  Report the Provider Type code associated with the individual provider or facility.  The Reporter must provide the SHPDA with Reference tables. This element distinguishes clinicians, facilities, and other.  Clinicians are physicians and other practitioners who can perform an E&M service (thereby start an episode of care).  Facilities can sometimes start episodes (i.e. patient goes to ER at onset of symptoms).  Providers classified as 'other' never start episodes. The SHPDA may use this element to perform further clinical and analytic grouping.  Entities not seeing patients should have a classification of 'Other'."
+PV,PV030,char(15),char,15,Primary Specialty Code,Specialty Code.  Report the standard CMS Primary Specialty code of the Provider.  See External Code Source.
+PV,PV031,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV032,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV033,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV034,int,int,,Provider ID Code,Provider Identification Code.  Report the value that defines type of entity associated with PV002.  The value reported here drives intake edits for quality purposes.  
+PV,PV035,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV036,varchar(30),varchar,30,Medicare ID,"Provider's Medicare Number, other than UPIN.  Report the Medicare ID (OSCAR, Certification, Other, Unspecified, NSC or PIN) of the provider or entity in PV002.  Do not report UPIN here, see PV004."
+PV,PV037,int,int,,Begin Date,Provider Start Date.  Report the date the provider or facility becomes eligible / contracted to perform services for plan Members in CCYYMMDD Format.
+PV,PV038,int,int,,End Date,Provider End Date.  Report the date the provider or facility is no longer eligible to perform services for plan Members in CCYYMMDD Format.  Do not report any value here for providers that are still actively eligible to provide services.
+PV,PV039,int,int,,National Provider ID,National Provider Identifier (NPI) of the Provider.  Report the NPI of the Provider / Clinician / Facility / Organization defined in this record.
+PV,PV040,int,int,,National Provider ID - 2,National Provider Identifier (NPI) of the Provider.  Report the Secondary or Other NPI of the Provider / Clinician / Facility / Organization defined in this record.
+PV,PV041,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV042,varchar(10),varchar,10,Proprietary Specialty Code,Specialty Code.  Report the Reporter's proprietary specialty code for the provider here.  Known additional specialty code for a provider should be populated in elements PV043 and PV044.  Value comes from a Reporter Defined Table only.
+PV,PV043,varchar(10),varchar,10,Other Specialty Code - 2,Other Specialty Code - 2.  See mapping notes for primary specialty code in PV030.  Known additional specialty code for a provider should be populated in this element.  Value can come from either a Reporter Table or the External Code Source.
+PV,PV044,varchar(10),varchar,10,Other Specialty Code - 3,Specialty Code.  See mapping notes for primary specialty code in PV030.  Known additional specialty code for a provider should be populated in this element.  Value can come from either a Reporter Defined Table or the External Code Source.
+PV,PV045,int,int,,Pay for Performance Flag,Provider Contract Payment Indicator.  Report the value that defines the element.  Pay-for-performance bonuses or year-end withhold returns based on performance for at least one service performed by this provider within the month.       
+PV,PV046,int,int,,Non-Claims Flag,Provider Contract Payment Indicator.  Report the value that defines if the provider is eligible to receive other payments not flowing through the claims system.  Non-Claims payments that occur at least once within the month must be reported.   
+PV,PV047,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV048,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV049,int,int,,New Patients Flag,New Patients Accepted Indicator.  Report the value that defines if the provider is accepting new patients as of the date the file was created for this submission.
+PV,PV050,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV051,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV052,int,int,,Multiple Office Provider Flag,Multiple Office Provider Indicator.  Report the value that defines if the provider has multiple offices.
+PV,PV053,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV054,varchar(15),varchar,15,PCMH ID,Patient Centered Medical Home (PCMH) Identification Number.  Report the identifier of the patient-centered medical home the provider is linked-to here.  The value in this element must have a corresponding Provider ID (PV002) in this or a previously submitted provider file.
+PV,PV055,int,int,,PCP Flag,Indicator - Provider is a PCP.  Report the value that defines the element.  
+PV,PV056,varchar(30),varchar,30,Provider Affiliation,"Provider Affiliation Code.  Report the Provider ID for any affiliation the provider has with another entity or parent company.  If the provider is associated only with self, record the same value here as PV002."
+PV,PV057,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV058,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV059,varchar(50),varchar,50,Filler,Filler.  SHPDA reserves this field for future use.  Do not populate with any data.
+PV,PV060,int,int,,Office Type,Office Type Code.  Report the value that defines the provider's service setting.  
+PV,PV061,int,int,,Prescribing Provider Flag,Indicator - Prescribing Authority.  Report if the provider has prescribing privileges.
+PV,PV062,int,int,,Provider Affiliation Start Date,Provider Start Date.  Report the start date of provider's relationship with parent entity / group in PV056 (Provider Affiliation) in CCYYMMDD Format.  Providers that are self-affiliated (or no affiliation) should have the same value reported here as in PV037.
+PV,PV063,int,int,,Provider Affiliation End Date,"Provider End Date.  Report the end date of provider's relationship with parent entity / group in PV056 (Provider Affiliation) in CCYYMMDD Format.  Do not report any value here if the affiliation is still active, or if there is no known affiliation in PV056.  Self-affiliations should report the same value here as in PV038."
+PV,PV064,int,int,,PPO Indicator,Indicator - Provider PPO Contract.  Report the value that defines the element.  
+PV,PV899,char(2),char,2,Record Type,File Type Identifier.  Report PV here.  This validates the type of file and the data contained within the file.  This must match HD004. 
+PV,PV999,bigint,bigint,,File ID,HHDC assigned ID of the file submitted by the payer.

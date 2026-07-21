@@ -1,0 +1,717 @@
+﻿FIELD NAME,FIELD DESCRIPTION,"COLUMN
+LENGTH","COLUMN
+START","COLUMN
+END",SPECIFICATION
+Sub_ID,Health Plan NCQA HEDIS Submission ID,5,1,5,The unique plan identifier assigned by NCQA for summary-level data submission. This must match the NCQA HEDIS submission ID used in the health plan's NCQA IDSS submission.
+MemID,HAWI Client ID,10,6,15,"Enter the Med-QUEST assigned member ID. For the member ID, use the member's Hawaii HAWI assigned client number, which contains 10 digits. Ensure that all 10 digits are reported, adding leading zeros, if necessary."
+Last_Name,Subscriber Last Name,50,16,65,Enter the member's last name. The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.
+First_Name,Subscriber First Name,50,66,115,Enter the member's first name. The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file.
+DOB,Member Birth Date,8,116,123,"The birth date must contain 8 digits with year, month, and day.
+Enter:
+CCYYMMDD (e.g., September 20, 1983 would be 19830920) 
+The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file."
+Gender,Gender,1,124,124,"Enter:
+'F' if this member is female
+'M' if this member is male
+The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file."
+Race_Eth,Race or Ethnicity Code,1,125,125,"Enter:
+'7' if this member is UN (Unknown/Unspecified) race/ethnicity group
+'A' if this member is of CH (Chinese), FI (Filipino), JA (Japanese), KO (Korean), or OA (Other Asians) race/ethnicity groups
+'E' if this member is of the MI (Mixed) or OT (Other) race/ethnicity groups
+'H' if this member is of the HI (Hispanic) or PR (Puerto Rican) race/ethnicity groups
+'I' if this members is of the AI (American Indian) race/ethnicity group
+'J' if this member is of the HA (Hawaiian Native) race/ethnicity group
+'N' if this member is of the BL (Black not of Hispanic origin) race/ethnicity group
+'O' if this member is of the WH (White not of Hispanic origin) race/ethnicity group
+'P' if this member is of the OP (Other Pacific Islanders) or SA (Samoan) race/ethnicity group
+The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file."
+Language,Language Code,3,126,128,"Enter:
+'CHI' if the member's primary spoken language code is C (Chinese, Cantonese)
+'ZHO' if the member's primary spoken language code is M (Chinese, Mandarin)
+'ENG' if the member's primary spoken language code is E (English)
+'HAW' if the member's primary spoken language is H (Hawaiian)
+'ILO' if the member's primary spoken language code is I (Filipino, Ilocano)
+'JPN' if the member's primary spoken language is J (Japanese)
+'KMH' if the member's primary spoken language is B (Cambodian)
+'KOR' if the member's primary spoken language is K (Korean)
+'LAO' if the member's primary spoken language is L (Laotian)
+'PHI' if the member's primary spoken language is F (Filipino, Other)
+'SGN' if the member's primary spoken language is D (Sign Language)
+'SMO' if the member's primary spoken language is N (Samoan)
+'SPA' if the member's primary spoken language is S (Spanish)
+'TGL' if the member's primary spoken language is G (Filipino, Tagalog)
+'TON' if the member's primary spoken language is T (Tongan)
+'UND' if the member's primary spoken language is P (South Pacific [other]) or O (Other)
+'VIE' if the member's primary spoken language is V (Vietnamese)
+The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file."
+ZIP_Code,Subscriber Postal Zone or ZIP Code,9,129,137,"Enter the member's residence ZIP Code, using the nine-digit ZIP Code when available. The demographics listed here must match the data provided by MQD to the health plan in its 834 transaction file."
+Rate_Code,Rate Code,10,138,147,This should match the rate code information contained in the Insured Group or Policy Number from the REF02 element in the Loop 2000 REF segment from the 834 transaction file.
+Contract_Type,Contract Type,10,148,157,This should match the contract type information contained in the Insured Group or Policy Number from the REF02 element in the Loop 2000 REF segment from the 834 transaction file.
+D_AMM_ACUTE,Eligible population for AMM: Effective Acute Phase Treatment—Total,1,158,158,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_AMM_ACUTE,Numerator for AMM: Effective Acute Phase Treatment—Total,1,159,159,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_AMM_CONT,Eligible population for AMM: Effective Continuation Phase Treatment—Total,1,160,160,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_AMM_CONT,Numerator for AMM: Effective Continuation Phase Treatment—Total,1,161,161,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_BHA_14,Eligible population for BHA,1,162,162,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_BHA_14,Numerator for BHA: Within 14 Days of Enrollment,1,163,163,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_BHA_15,Eligible population for BHA,1,164,164,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_BHA_15,Numerator for BHA: Within 15-30 Days of Enrollment,1,165,165,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_BHA_31,Eligible population for BHA,1,166,166,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_BHA_31,Numerator for BHA: Within 31-60 Days of Enrollment,1,167,167,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_FUA_7,Eligible population for FUA: 7-Day Follow-Up—Total,2,168,169,Enter the number of ED visits with a principal diagnosis of AOD abuse during the measurement period.
+N_FUA_7,Numerator for FUA: 7-Day Follow-Up—Total,2,170,171,"Enter the number of ED visits with a principal diagnosis of AOD abuse that were followed up by a visit for AOD abuse during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUA: 7-Day Follow-Up—Total field."
+D_FUA_30,Eligible population for FUA: 30-Day Follow-Up—Total,2,172,173,Enter the number of ED visits with a principal diagnosis of AOD abuse during the measurement period.
+N_FUA_30,Numerator for FUA: 30-Day Follow-Up—Total,2,174,175,"Enter the number of ED visits with a principal diagnosis of AOD abuse that were followed up by a visit for AOD abuse during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUA: 30-Day Follow-Up—Total field."
+D_FUH_7,Eligible population for FUH: 7-Day Follow-Up—Total,2,176,177,Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm during the measurement period.
+N_FUH_7,Numerator for FUH: 7-Day Follow-Up—Total,2,178,179,"Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm that were followed up by a visit for mental illness during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUH: 7-Day Follow-Up—Total field."
+D_FUH_30,Eligible population for FUH: 30-Day Follow-Up—Total,2,180,181,Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm during the measurement period.
+N_FUH_30,Numerator for FUH: 30-Day Follow-Up—Total,2,182,183,"Enter the number of discharges for hospitalizations for treatment of mental illness or intentional self-harm that were followed up by a visit for mental illness during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUH: 30-Day Follow-Up—Total field."
+D_FUM_7,Eligible population for FUM: 7-Day Follow-Up—Total,2,184,185,Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm during the measurement period.
+N_FUM_7,Numerator for FUM: 7-Day Follow-Up—Total,2,186,187,"Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm that were followed up by a visit for mental during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUM: 7-Day Follow-Up—Total field"
+D_FUM_30,Eligible population for FUM: 30-Day Follow-Up—Total,2,188,189,Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm during the measurement period.
+N_FUM_30,Numerator for FUM: 30-Day Follow-Up—Total,2,190,191,"Enter the number of ED visits with a principal diagnosis of mental illness or intentional self-harm that were followed up by a visit for mental during the measurement period. If information is missing for a member, then enter 0 in this field. Do not leave blank.
+Note: The value entered in this field will be less than or equal to the value entered for the Eligible Population for FUM: 30-Day Follow-Up—Total field"
+D_IET_INIT,Eligible population for IET: Initiation of AOD Treatment—Total,1,192,192,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_IET_INIT,Numerator for IET: Initiation of AOD Treatment—Total,1,193,193,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_IET_ENGAGE,Eligible population for IET: Engagement of AOD Treatment—Total,1,194,194,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_IET_ENGAGE,Numerator for IET: Engagement of AOD Treatment—Total,1,195,195,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_SAA,Eligible population for SAA,1,196,196,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_SAA,Numerator for SAA,1,197,197,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_AMBA_ED,Denominator for AMB: ED Visits—Total,2,198,199,Enter the number of member months for the member during the measurement period.
+N_AMBA_ED,Numerator for AMB: ED Visits—Total,3,200,202,Enter the count of ED visits for the member during the measurement year.
+D_AMBA_OP,Denominator for AMB: Outpatient Visits—Total,2,203,204,Enter the number of member months for the member during the measurement period.
+N_AMBA_OP,Numerator for AMB: Outpatient Visits—Total,3,205,207,Enter the count of outpatient visits for the member during the measurement year.
+D_ENPA,Member Months for ENPA: Total—Total,2,208,209,Enter the number of member months for the member during the measurement period.
+D_MPTA_ANY,Member Months for MPTA: Any Service—Total—Total,2,210,211,Enter the number of member months for the member during the measurement period.
+N_MPTA_ANY,Numerator of MPTA: Any Service—Total—Total,1,212,212,"Enter:
+'1' if this member received any mental health service during the measurement year.
+'0' if this member did not receive any mental health service during the measurement year."
+D_MPTA_IP,Member Months for MPTA: Inpatient—Total—Total,2,213,214,Enter the number of member months for the member during the measurement period.
+N_MPTA_IP,Numerator of MPTA: Inpatient—Total—Total,1,215,215,"Enter:
+'1' if this member received an inpatient mental health service during the measurement year.
+'0' if this member did not receive an inpatient mental health service during the measurement year."
+D_MPTA_OP_PH,Member Months for MPTA: Intensive Outpatient or Partial Hospitalization—Total—Total,2,216,217,Enter the number of member months for the member during the measurement period.
+N_MPTA_OP_PH,Numerator of MPTA: Intensive Outpatient or Partial Hospitalization—Total—Total,1,218,218,"Enter:
+'1' if this member received an intensive outpatient or partial hospitalization mental health service during the measurement year.
+'0' if this member did not receive an intensive outpatient or partial hospitalization mental health service during the measurement year."
+D_MPTA_OP,Member Months for MPTA: Outpatient—Total—Total,2,219,220,Enter the number of member months for the member during the measurement period.
+N_MPTA_OP,Numerator of MPTA: Outpatient—Total—Total,1,221,221,"Enter:
+'1' if this member received an outpatient mental health service during the measurement year.
+'0' if this member did not receive an outpatient mental health service during the measurement year."
+D_MPTA_ED,Member Months for MPTA: ED—Total—Total,2,222,223,Enter the number of member months for the member during the measurement period.
+N_MPTA_ED,Numerator of MPTA: ED—Total—Total,1,224,224,"Enter:
+'1' if this member received an ED mental health service during the measurement year.
+'0' if this member did not receive an ED mental health service during the measurement year."
+D_MPTA_TELE,Member Months for MPTA: Telehealth—Total—Total,2,225,226,Enter the number of member months for the member during the measurement period.
+N_MPTA_TELE,Numerator of MPTA: Telehealth—Total—Total,1,227,227,"Enter:
+'1' if this member received telehealth mental health service during the measurement year.
+'0' if this member did not receive a telehealth mental health service during the measurement year."
+D_AAP,Eligible population for AAP: Total,1,228,228,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_AAP,Numerator for AAP: Total,1,229,229,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_ADD_INT,Eligible population for ADD: Initiation Phase,1,230,230,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_ADD_INT,Numerator for ADD: Initiation Phase,1,231,231,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_ADD_CM,Eligible population for ADD: Continuation and Maintenance Phase,1,232,232,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_ADD_CM,Numerator for ADD: Continuation and Maintenance Phase,1,233,233,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_AMR,Eligible population for AMR: Total,1,234,234,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_AMR,Numerator for AMR: Total,1,235,235,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_APM_GLUCOSE,Eligible population for APM: Blood Glucose Testing—Total,1,236,236,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_APM_GLUCOSE,Numerator for APM: Blood Glucose Testing—Total,1,237,237,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_APM_CHOLESTEROL,Eligible population for APM: Cholesterol Testing—Total,1,238,238,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_APM_CHOLESTEROL,Numerator for APM: Cholesterol Testing—Total,1,239,239,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_APM_GLUC_CHOL,Eligible population for APM: Blood Glucose and Cholesterol Testing—Total,1,240,240,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_APM_GLUC_CHOL,Numerator for APM: Blood Glucose and Cholesterol Testing—Total,1,241,241,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_APP,Eligible population for APP: Total,1,242,242,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_APP,Numerator for APP: Total,1,243,243,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_BCS,Eligible population for BCS: Total,1,244,244,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_BCS,Numerator for BCS: Total,1,245,245,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CCP_LARC_3_15,Eligible population for CCP: LARC—3 Days—Total (15-44 years),1,246,246,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CCP_LARC_3_15,Numerator for CCP: LARC—3 Days—Total (15-44 years),1,247,247,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CCP_LARC_60_15,Eligible population for CCP: LARC—60 Days—Total (15-44 years),1,248,248,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CCP_LARC_60_15,Numerator for CCP: LARC—60 Days—Total (15-44 years),1,249,249,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CCP_MMEC_3_15,Eligible population for CCP: Most or Moderately Effective Contraception—3 Days—Total (15-44 years),1,250,250,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CCP_MMEC_3_15,Numerator for CCP: Most or Moderately Effective Contraception—3 Days—Total (15-44 years),1,251,251,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CCP_MMEC_60_15,Eligible population for CCP: Most or Moderately Effective Contraception—60 Days—Total (15-44 years),1,252,252,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CCP_MMEC_60_15,Numerator for CCP: Most or Moderately Effective Contraception—60 Days—Total (15-44 years),1,253,253,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CCW_LARC_15,Eligible population for CCW: LARC—Total (15-44 years),1,254,254,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CCW_LARC_15,Numerator for CCW: LARC—Total (15-44 years),1,255,255,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CCW_MMEC_15,Eligible population for CCW: Most Effective or Moderately Effective Method of Contraception—Total (15-44 years),1,256,256,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CCW_MMEC_15,Numerator for CCW: Most Effective or Moderately Effective Method of Contraception—Total (15-44 years),1,257,257,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CDF_12,Eligible population for CDF: Members with an Outpatient Visit During the Measurement Year—Total (12+ Years),1,258,258,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CDF_12,Numerator for CDF: Members with a Positive Screen for Depression During an Outpatient Visit Using a Standardized Tool with a Follow-up Plan Documented -AND- Members with a Negative Screen for Depression During an Outpatient Visit Using a Standardized Tool— Total (12+ Years),1,259,259,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_CHL,Eligible population for CHL: Total,1,260,260,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_CHL,Numerator for CHL: Total,1,261,261,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_COB,Eligible population for COB-AD: Total,1,262,262,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_COB,Numerator for COB-AD: Total,1,263,263,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_OHD,Eligible population for OHD-AD: Total,1,264,264,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_OHD,Numerator for OHD-AD: Total,1,265,265,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_OUD,Eligible population for OUD-AD: Total,1,266,266,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_OUD,Numerator for OUD-AD: Total,1,267,267,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_OUD_BUP,Eligible population for OUD-AD: Buprenorphine,1,268,268,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_OUD_BUP,Numerator for OUD-AD: Buprenorphine,1,269,269,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_OUD_NAL,Eligible population for OUD-AD: Oral Naltrexone,1,270,270,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_OUD_NAL,Numerator for OUD-AD: Oral Naltrexone,1,271,271,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_OUD_LAI_NAL,"Eligible population for OUD-AD: Long-Acting, Injectable Naltrexone",1,272,272,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_OUD_LAI_NAL,"Numerator for OUD-AD: Long-Acting, Injectable Naltrexone",1,273,273,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_OUD_METHADONE,Eligible population for OUD-AD: Methadone,1,274,274,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_OUD_METHADONE,Numerator for OUD-AD: Methadone,1,275,275,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_SSD,Eligible population for SSD,1,276,276,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_SSD,Numerator for SSD,1,277,277,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_W30_6,Eligible population for W30: 15 Months—6+ Well-Care Visits,1,278,278,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_W30_6,Numerator for W30: 15 Months—6+ Well-Care Visits,1,279,279,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_W30_2,Eligible population for W30: 30 Months—2+ Well-Care Visits,1,280,280,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_W30_2,Numerator for W30: 30 Months—2+ Well-Care Visits,1,281,281,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_WCV,Eligible population for WCV: Total,1,282,282,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+N_WCV,Numerator for WCV: Total,1,283,283,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_ABA,Eligible Population for ABA-AD: Total,1,284,284,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_ABA,Denominator for ABA-AD: Total,1,285,285,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. If the measure was reported using administrative data only, then enter '0' for all members for this field."
+N_ABA,Numerator for ABA-AD: Total,1,286,286,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CBP,Eligible Population for CBP,1,287,287,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CBP,Denominator for CBP,1,288,288,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CBP,Numerator for CBP,1,289,289,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CCS,Eligible Population for CCS,1,290,290,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CCS,Denominator for CCS,1,291,291,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CCS,Numerator for CCS,1,292,292,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CDC_EYE_EXAM,Eligible Population for CDC: Eye Exam (Retinal) Performed—Total,1,293,293,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CDC_EYE_EXAM,Denominator for CDC: Eye Exam (Retinal) Performed—Total,1,294,294,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CDC_EYE_EXAM,Numerator for CDC: Eye Exam (Retinal) Performed—Total,1,295,295,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CDC_A1C_CONTROL_8,Eligible Population for CDC: HbA1c Control (<8.0%)—Total,1,296,296,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CDC_A1C_CONTROL_8,Denominator for CDC: HbA1c Control (<8.0%)—Total,1,297,297,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CDC_A1C_CONTROL_8,Numerator for CDC: HbA1c Control (<8.0%)—Total,1,298,298,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CDC_A1C_CONTROL_9,Eligible Population for CDC: HbA1c Poor Control (>9.0%)—Total,1,299,299,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CDC_A1C_CONTROL_9,Denominator for CDC: HbA1c Poor Control (>9.0%)—Total,1,300,300,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CDC_A1C_CONTROL_9,Numerator for CDC: HbA1c Poor Control (>9.0%)—Total,1,301,301,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CDC_A1C_TEST,Eligible Population for CDC: HbA1c Testing—Total,1,302,302,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CDC_A1C_TEST,Denominator for CDC: HbA1c Testing—Total,1,303,303,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CDC_A1C_TEST,Numerator for CDC: HbA1c Testing—Total,1,304,304,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CDC_BP_CONTROL,Eligible Population for CDC: Blood Pressure Control (<140/90 mm Hg)—Total,1,305,305,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CDC_BP_CONTROL,Denominator for CDC: Blood Pressure Control (<140/90 mm Hg)—Total,1,306,306,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CDC_BP_CONTROL,Numerator for CDC: Blood Pressure Control (<140/90 mm Hg)—Total,1,307,307,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_DTAP,Eligible Population for CIS,1,308,308,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_DTAP,Denominator for CIS,1,309,309,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_DTAP,Numerator for CIS: DTaP,1,310,310,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_IPV,Eligible Population for CIS,1,311,311,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_IPV,Denominator for CIS,1,312,312,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_IPV,Numerator for CIS: IPV,1,313,313,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_MMR,Eligible Population for CIS,1,314,314,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_MMR,Denominator for CIS,1,315,315,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_MMR,Numerator for CIS: MMR,1,316,316,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_HIB,Eligible Population for CIS,1,317,317,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_HIB,Denominator for CIS,1,318,318,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_HIB,Numerator for CIS: HiB,1,319,319,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_HEPB,Eligible Population for CIS,1,320,320,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_HEPB,Denominator for CIS,1,321,321,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_HEPB,Numerator for CIS: Hepatitis B,1,322,322,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_VZV,Eligible Population for CIS,1,323,323,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_VZV,Denominator for CIS,1,324,324,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_VZV,Numerator for CIS: VZV,1,325,325,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_PNEU,Eligible Population for CIS,1,326,326,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_PNEU,Denominator for CIS,1,327,327,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_PNEU,Numerator for CIS: Pneumococcal Conjugate,1,328,328,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_HEPA,Eligible Population for CIS,1,329,329,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_HEPA,Denominator for CIS,1,330,330,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_HEPA,Numerator for CIS: Hepatitis A,1,331,331,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_ROTA,Eligible Population for CIS,1,332,332,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_ROTA,Denominator for CIS,1,333,333,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_ROTA,Numerator for CIS: Rotavirus,1,334,334,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_FLU,Eligible Population for CIS,1,335,335,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_FLU,Denominator for CIS,1,336,336,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_FLU,Numerator for CIS: Influenza,1,337,337,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_2,Eligible Population for CIS,1,338,338,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_2,Denominator for CIS,1,339,339,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_2,Numerator for CIS: Combination 2,1,340,340,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_3,Eligible Population for CIS,1,341,341,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_3,Denominator for CIS,1,342,342,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_3,Numerator for CIS: Combination 3,1,343,343,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_4,Eligible Population for CIS,1,344,344,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_4,Denominator for CIS,1,345,345,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_4,Numerator for CIS: Combination 4,1,346,346,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_5,Eligible Population for CIS,1,347,347,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_5,Denominator for CIS,1,348,348,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_5,Numerator for CIS: Combination 5,1,349,349,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_6,Eligible Population for CIS,1,350,350,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_6,Denominator for CIS,1,351,351,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_6,Numerator for CIS: Combination 6,1,352,352,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_7,Eligible Population for CIS,1,353,353,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_7,Denominator for CIS,1,354,354,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_7,Numerator for CIS: Combination 7,1,355,355,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_8,Eligible Population for CIS,1,356,356,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_8,Denominator for CIS,1,357,357,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_8,Numerator for CIS: Combination 8,1,358,358,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_9,Eligible Population for CIS,1,359,359,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_9,Denominator for CIS,1,360,360,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_9,Numerator for CIS: Combination 9,1,361,361,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_CIS_10,Eligible Population for CIS,1,362,362,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_CIS_10,Denominator for CIS,1,363,363,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_CIS_10,Numerator for CIS: Combination 10,1,364,364,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_DEV,Eligible Population for DEV-CH: Total,1,365,365,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_DEV,Denominator for DEV-CH: Total,1,366,366,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. If the measure was reported using administrative data only, then enter '0' for all members for this field."
+N_DEV,Numerator for DEV-CH: Total,1,367,367,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_IMA_MENI,Eligible Population for IMA,1,368,368,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_IMA_MENI,Denominator for IMA,1,369,369,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_IMA_MENI,Numerator for IMA: Meningococcal,1,370,370,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_IMA_TDAP,Eligible Population for IMA,1,371,371,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_IMA_TDAP,Denominator for IMA,1,372,372,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_IMA_TDAP,Numerator for IMA: Tdap,1,373,373,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_IMA_HPV,Eligible Population for IMA,1,374,374,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_IMA_HPV,Denominator for IMA,1,375,375,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_IMA_HPV,Numerator for IMA: HPV,1,376,376,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_IMA_1,Eligible Population for IMA,1,377,377,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_IMA_1,Denominator for IMA,1,378,378,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_IMA_1,"Numerator for IMA: Combination 1 (Meningococcal, Tdap)",1,379,379,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_IMA_2,Eligible Population for IMA,1,380,380,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_IMA_2,Denominator for IMA,1,381,381,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. "
+N_IMA_2,"Numerator for IMA: Combination 2 (Meningococcal, Tdap, HPV)",1,382,382,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_PPC_PRE,Eligible Population for PPC: Timeliness of Prenatal Care,1,383,383,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_PPC_PRE,Denominator for PPC: Timeliness of Prenatal Care,1,384,384,"Enter:
+The number of times this member is in the denominator
+'0' if this member is not in the denominator. "
+N_PPC_PRE,Numerator for PPC: Timeliness of Prenatal Care,1,385,385,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_PPC_POST,Eligible Population for PPC: Postpartum Care,1,386,386,"Enter:
+The number of times this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_PPC_POST,Denominator for PPC: Postpartum Care,1,387,387,"Enter:
+The number of times this member is in the denominator
+'0' if this member is not in the denominator. "
+N_PPC_POST,Numerator for PPC: Postpartum Care,1,388,388,"Enter:
+The number of times this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_WCC_BMI,Eligible Population for WCC: BMI Percentile Documentation—Total,1,389,389,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_WCC_BMI,Denominator for WCC: BMI Percentile Documentation—Total,1,390,390,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. If the measure was reported using administrative data only, then enter '0' for all members for this field."
+N_WCC_BMI,Numerator for WCC: BMI Percentile Documentation—Total,1,391,391,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_WCC_NUTR,Eligible Population for WCC: Counseling for Nutrition—Total,1,392,392,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_WCC_NUTR,Denominator for WCC: Counseling for Nutrition—Total,1,393,393,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. If the measure was reported using administrative data only, then enter '0' for all members for this field."
+N_WCC_NUTR,Numerator for WCC: Counseling for Nutrition—Total,1,394,394,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+EP_WCC_PHYS,Eligible Population for WCC: Counseling for Physical Activity—Total,1,395,395,"Enter:
+'1' if this member is in the eligible population
+'0' if this member is not in the eligible population"
+D_WCC_PHYS,Denominator for WCC: Counseling for Physical Activity—Total,1,396,396,"Enter:
+'1' if this member is in the denominator
+'0' if this member is not in the denominator. If the measure was reported using administrative data only, then enter '0' for all members for this field."
+N_WCC_PHYS,Numerator for WCC: Counseling for Physical Activity—Total,1,397,397,"Enter:
+'1' if this member is in the numerator
+'0' if this member is not in the numerator OR the information for this member is missing"
+D_IPUA_DIS,Member Months for IPU: Total Inpatient—Total,2,398,399,Enter the number of member months for the member during the measurement period.
+N_IPUA_DIS,Discharges for IPU: Total Inpatient—Total,3,400,402,Enter the number of inpatient discharges for the member during the measurement period.
+D_IPUA_DAY,Member Months for IPU: Total Inpatient—Total,2,403,404,Enter the number of member months for the member during the measurement period.
+N_IPUA_DAY,Days for IPU: Total Inpatient—Total,3,405,407,Enter the number of days associated with the identified discharges.
+D_AIF_STS,Member Months for LTSS-AIF: Short-Term Stay—Total,2,408,409,Enter the number of member months for the member during the measurement period.
+N_AIF_STS,Numerator for LTSS-AIF: Short-Term Stay—Total,2,410,411,Enter the number of short-term Institutional Facility Admissions from a community resident during the measurement period.
+D_AIF_MTS,Member Months for LTSS-AIF: Medium-Term Stay—Total,2,412,413,Enter the number of member months for the member during the measurement period.
+N_AIF_MTS,Numerator for LTSS-AIF: Medium-Term Stay—Total,2,414,415,Enter the number of medium-term Institutional Facility Admissions from a community resident during the measurement period.
+D_AIF_LTS,Member Months for LTSS-AIF: Long-Term Stay—Total,2,416,417,Enter the number of member months for the member during the measurement period.
+N_AIF_LTS,Numerator for LTSS-AIF: Long-Term Stay—Total,2,418,419,Enter the number of long-term Institutional Facility Admissions from a community resident during the measurement period.
+D_PQI01_DIA_SHORT,Member Months for PQI01-AD: Total,2,420,421,Enter the number of member months for the member during the measurement period.
+N_PQI01_DIA_SHORT,Numerator for PQI01-AD: Total,2,422,423,Enter the number of inpatient hospital admissions during the measurement period.
+D_PQI05_COPD_ASTH,Member Months for PQI05-AD: Total,2,424,425,Enter the number of member months for the member during the measurement period.
+N_PQI05_COPD_ASTH,Numerator for PQI05-AD: Total,2,426,427,Enter the number of inpatient hospital admissions during the measurement period.
+D_PQI08,Member Months for PQI08-AD: Total,2,428,429,Enter the number of member months for the member during the measurement period.
+N_PQI08,Numerator for PQI08-AD: Total,2,430,431,Enter the number of inpatient hospital admissions during the measurement period.
+D_PQI15_ASTH_YNG,Member Months for PQI15-AD,2,432,433,Enter the number of member months for the member during the measurement period.
+N_PQI15_ASTH_YNG,Numerator for PQI15-AD,2,434,435,Enter the number of inpatient hospital admissions during the measurement period.
+D_PQI92_PREV_QUAL,Member Months for PQI92,2,436,437,Enter the number of member months for the member during the measurement period.
+N_PQI92_PREV_QUAL,Numerator for PQI92,2,438,439,Enter the number of inpatient hospital admissions during the measurement period.
+D_ILOS_DIS,Admissions for LTSS-ILOS,1,440,440,Enter the number of admissions from a long-term institutional facility for the member during the measurement period.
+N_ILOS_DIS,Discharges to the Community for LTSS-ILOS,1,441,441,Enter the number of discharges from an institutional facility to the community during the measurement period.
+D_ILOS_EXP_DIS,Admissions for LTSS-ILOS,1,442,442,Enter the number of admissions from a long-term institutional facility for the member during the measurement period.
+N_ILOS_EXP_DIS,Expected Discharge Probability for LTSS-ILOS,12,443,454,"Enter a whole number followed by a decimal point and up to 10 digits after the decimal point. If the calculated value does not have ten digits after the decimal, pad the value with trailing zeros (e.g., if the value is 0.1283 then enter 0.1283000000). If a member has more than one admission, then sum the expected discharge probabilities across all admissions and place that value in this field. If information is missing for a member, then enter 0.0000000000 in this field. Do not leave blank."
+D_TRAN_SUCC,Admissions for LTSS-TRAN,1,455,455,Enter the number of admissions from a long-term institutional facility for the member during the measurement period.
+N_TRAN_SUCC,Successful Transitions to the Community for LTSS-TRAN,1,456,456,Enter the number of successful transitions to the community during the measurement period.
+D_TRAN_EXP,Admissions for LTSS-TRAN,1,457,457,Enter the number of admissions from a long-term institutional facility for the member during the measurement period.
+N_TRAN_EXP,Expected Transition Probability for LTSS-TRAN,12,458,469,"Enter a whole number followed by a decimal point and up to 10 digits after the decimal point. If the calculated value does not have ten digits after the decimal, pad the value with trailing zeros (e.g., if the value is 0.1283 then enter 0.1283000000). If a member has more than one admission, then sum the expected transition probabilities across all admissions and place that value in this field. If information is missing for a member, then enter 0.0000000000 in this field. Do not leave blank."
+D_PCR_OUT,Member in Plan Population for PCR: Total,1,470,470,"Enter:
+'1' if this member is in the plan population based on age as of January 1 of the measurement year
+'0' if this member is not int the plan population based on age as of January 1 of the measurement year"
+N_PCR_OUT,Member in Outlier Population for PCR: Total,1,471,471,"Enter:
+'1' if this member is in the outlier population based on age as of January 1 of the measurement year and having four or more index hospital stays between January 1 and December 1 of the measurement year
+'0' if this member is not in the outlier population"
+D_PCR_OBS,Index Stays for PCR: Total,1,472,472,"Enter:
+'1' if this member had one index stay between January 1 through December 1 of the measurement year
+'2' if this member had two index stays between January 1 through December 1 of the measurement year
+'3' if this member had three index stays between January 1 through December 1 of the measurement year
+'0' if this member has no index stays between January 1 through December 1 of the measurement year OR if this information for this member is missing. 
+Note: All members in the Outlier Population should have '0' index stays listed."
+N_PCR_OBS,Observed 30-Day Readmissions for PCR: Total,1,473,473,"Enter:
+'1' if this member had one index stay with a readmission within 30 days
+'2' if this member had two index stays with readmissions within 30 days
+'3' if this member had three index stays with readmissions within 30 days
+'0' if this member has no index stays with readmissions within 30 days OR if this information for this member is missing. 
+Note: The value entered in this field will be less than or equal to the value entered for the Index Stays for PCR: Total field."
+D_PCR_EXP,Index Stays for PCR: Total,1,474,474,"Enter:
+'1' if this member had one index stay between January 1 through December 1 of the measurement year
+'2' if this member had two index stays between January 1 through December 1 of the measurement year
+'3' if this member had three index stays between January 1 through December 1 of the measurement year
+'0' if this member has no index stays between January 1 through December 1 of the measurement year OR if this information for this member is missing. 
+Note: All members in the Outlier Population should have '0' index stays listed."
+N_PCR_EXP,Expected 30-Day Readmission for PCR: Total,12,475,486,"Enter a whole number followed by a decimal point and up to 10 digits after the decimal point. If the calculated value does not have ten digits after the decimal, pad the value with trailing zeros (e.g., if the value is 0.1283 then enter 0.1283000000). If a member has more than one index stay, then sum the expected readmissions across all stays and place that value in this field. If information is missing for a member, then enter 0.0000000000 in this field. Do not leave blank."
+R_PCR_VAR,Variance for PCR: Total,12,487,498,"Enter a whole number followed by a decimal point and up to 10 digits after the decimal point. If the calculated value does not have ten digits after the decimal, pad the value with trailing zeros (e.g., if the value is 0.1283 then enter 0.1283000000). If a member has more than one index stay, then sum the variance across all index stays and place that value in this field. If information is missing for a member, then enter 0.0000000000 in this field. Do not leave blank."
+PLAN,Plan Name,20,499,518,"Enter:
+'AlohaCare'
+'HMSA' 
+'Kaiser Permanente'
+'Ohana'
+'United'"
+POPULATION,Population,3,519,521,"Enter:
+'CCS'
+'QI'"
