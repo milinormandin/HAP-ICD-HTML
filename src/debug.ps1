@@ -30,11 +30,19 @@ function Remove-HTML-Files {
     
 }
 
+function Remove-Main-PDF {
+
+    Remove-Item ".\main.pdf"
+    Write-Output 'Removed main.pdf from root folder.'
+    
+}
+
 # Set path to the parent folder of where the script is being called from 
 $currentPath = Split-Path -Parent $PSScriptRoot
 Set-Location $currentPath
 
 Remove-HTML-Files
+Remove-Main-PDF
 
 
 
