@@ -3,39 +3,47 @@
     Description:    Main entrypoint for scripts to compile Typst files to HTML and PDF.
     Date:           2026-06-29
 ===========================================================================#>
-# $currentpath = "C:\Users\ana\Desktop\Analysis\HAP\HAP_ICD_MASTER_TYPST"
-# Set-Location $currentpath
+
+# Set path to root of project
 $currentPath = Split-Path -Parent $PSScriptRoot
 Set-Location $currentPath
 
-$outputPath = ""
-$output = ""
-$icdfolder = ""
-$indexoutput = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Test</title><link rel="stylesheet" href="./src/style.css"></head><body><ul>'
+$typFileFullPath = ""
+$compileHtmlFilesContent = ""
+$icdFolder = ""
+$htmlIndexContent = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Test</title><link rel="stylesheet" href="./src/style.css"></head><body><ul>'
 
 
 
-Get-ChildItem -Path $currentpath -Directory | ForEach-Object {
-    $icdfolder = $_.Name
+Get-ChildItem -Path $currentPath -Directory | ForEach-Object {
+    $icdFolder = $_.Name
 
     Get-ChildItem -Path "$_/*" -Filter "*.typ" | ForEach-Object {
-        $outputPath = $_.FullName
-        $htmloutfile = $outputPath.Replace('.typ', '.html')
-        $htmlfile = $_.Name.Replace('typ', 'html')
-        $output += "typst compile --features html --format html $outputPath $htmloutfile `n"
-        $indexoutput += '<li><a href="' + "$icdfolder\$htmlfile" + '">' + $htmloutfile + '</a></li>'
+        $typFileFullPath = $_.FullName
+        $htmlIcdFullPath = $typFileFullPath.Replace('.typ', '.html')
+        $htmlIcdFileName = $_.Name.Replace('typ', 'html')
+        $compileHtmlFilesContent += "typst compile --features html --format html $typFileFullPath $htmlIcdFullPath `n"
+        $htmlIndexContent += '<li><a href="' + "$icdFolder\$htmlIcdFileName" + '">' + $htmlIcdFullPath + '</a></li>'
 
     }
 }
-$indexoutput += '</ul></body></html>'
-$indexoutput > index.html
-$scriptOutputFileName = "compile_html_files.ps1"
+$htmlIndexContent += '</ul></body></html>'
+$compileHtmlFilesFileName = "compile_html_files.ps1"
+$htmlIndexContent > index.html
+# Generate new PS1 script containing Typist HTML compile commands for each ICD folder
+$compileHtmlFilesContent > $compileHtmlFilesFileName; 
+Write-Output "Generated ${compileHtmlFilesFileName}"
 
-# Generate the new ps1 file and run subsequent ps1 scripts
-$output | Set-Content (Join-Path $PSScriptRoot $scriptOutputFileName); 
-&(Join-Path $PSScriptRoot $scriptOutputFileName);
+
+# Execute newly created PS1 script
+&(Join-Path $PSScriptRoot $compileHtmlFilesFileName);
+Write-Output "Created ICD HTML Files"
+# Execute script to inject css tag into generated HTML files
 &(Join-Path $PSScriptRoot "insert_css_ref.ps1");
+Write-Output "Injected CSS into HTML Files"
+# Compile final ICD PDF
 typst compile main.typ
+Write-Output "Generated main.typ"
 
 # TODO
 # - improve clarity
@@ -52,8 +60,8 @@ typst compile main.typ
 # PR Review Process 
 # 1. reviewer manually reviews the content of the changes
 # 2. run main.ps1
-#     - exports new output files HTML/pdf
-#     - runs tests ensure the validity of the output files
+#     - exports new compileHtmlFilesContent files HTML/pdf
+#     - runs tests ensure the validity of the compileHtmlFilesContent files
 # 3. reviewer merge to main
 
 

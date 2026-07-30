@@ -1,6 +1,6 @@
 <#===========================================================================
     Author:         Mili Normandin
-    Description:    Helper functions for debugging ps1 script development. Uncomment function calls below individually or in tandem as needed.
+    Description:    Helper functions for debugging ps1 script development.
     Date:           2026-07-21
 ===========================================================================#>
 
