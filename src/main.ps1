@@ -3,52 +3,69 @@
     Description:    Main entrypoint for scripts to compile Typst files to HTML and PDF.
     Date:           2026-06-29
 ===========================================================================#>
+# Set static variables
 
 # Set path to root of project
 $currentPath = Split-Path -Parent $PSScriptRoot
-Set-Location $currentPath
+# Define log file
+$logFile = (Join-Path $PSScriptRoot "main.log")
 
-$typFileFullPath = ""
-$compileHtmlFilesContent = ""
-$icdFolder = ""
-$htmlIndexContent = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Test</title><link rel="stylesheet" href="./src/style.css"></head><body><ul>'
-
-
-
-Get-ChildItem -Path $currentPath -Directory | ForEach-Object {
-    $icdFolder = $_.Name
-
-    Get-ChildItem -Path "$_/*" -Filter "*.typ" | ForEach-Object {
-        $typFileFullPath = $_.FullName
-        $htmlIcdFullPath = $typFileFullPath.Replace('.typ', '.html')
-        $htmlIcdFileName = $_.Name.Replace('typ', 'html')
-        $compileHtmlFilesContent += "typst compile --features html --format html $typFileFullPath $htmlIcdFullPath `n"
-        $htmlIndexContent += '<li><a href="' + "$icdFolder\$htmlIcdFileName" + '">' + $htmlIcdFullPath + '</a></li>'
-
-    }
+<#
+Write string and timestamp to log file
+#>
+function WriteLog {
+    Param ([string]$LogString = "")
+    $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
+    $LogMessage = "$Stamp $LogString"
+    Add-content $logFile -value $LogMessage -Encoding UTF8
 }
-$htmlIndexContent += '</ul></body></html>'
-$compileHtmlFilesFileName = "compile_html_files.ps1"
-$htmlIndexContent > index.html
-# Generate new PS1 script containing Typist HTML compile commands for each ICD folder
-$compileHtmlFilesContent > $compileHtmlFilesFileName; 
-Write-Output "Generated ${compileHtmlFilesFileName}"
 
+<#
+Generates the following HTML files:
+1. index.html - Located in project root. Main entrypoint for all ICD HTML pages. Required for Github pages deployment.
+2. HTML file for each .typ file within the ICD folders  
+#>
+function GenerateHTMLFiles {
+    $typFileFullPath = ""
+    $icdFolder = ""
+    $htmlIndexContent = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Test</title><link rel="stylesheet" href="./src/style.css"></head><body><ul>'
+    $compileHtmlFilesContent = ""
+    $compileHtmlFilesFileName = "compile_html_files.ps1"
 
-# Execute newly created PS1 script
-&(Join-Path $PSScriptRoot $compileHtmlFilesFileName);
-Write-Output "Created ICD HTML Files"
-# Execute script to inject css tag into generated HTML files
-&(Join-Path $PSScriptRoot "insert_css_ref.ps1");
-Write-Output "Injected CSS into HTML Files"
-# Compile final ICD PDF
+    Get-ChildItem -Path $currentPath -Directory | ForEach-Object {
+        $icdFolder = $_.Name
+
+        Get-ChildItem -Path "$_/*" -Filter "*.typ" | ForEach-Object {
+            $typFileFullPath = $_.FullName
+            $htmlIcdFullPath = $typFileFullPath.Replace('.typ', '.html')
+            $htmlIcdFileName = $_.Name.Replace('typ', 'html')
+            $compileHtmlFilesContent += "typst compile --features html --format html $typFileFullPath $htmlIcdFullPath `n"
+            $htmlIndexContent += '<li><a href="' + "$icdFolder\$htmlIcdFileName" + '">' + $htmlIcdFullPath + '</a></li>'
+
+        }
+    }
+    $htmlIndexContent += '</ul></body></html>'
+
+    $htmlIndexContent > index.html
+    # Generate new PS1 script containing Typist HTML compile commands for each typ file within the ICD folders
+    $compileHtmlFilesContent | Set-Content (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
+    WriteLog "Generated $compileHtmlFilesFileName"
+    & (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
+    WriteLog "Compiled ICD HTML Files"
+    & (Join-Path $PSScriptRoot "insert_css_ref.ps1")
+    WriteLog "Inserted CSS reference into HTML Files"
+}
+
+WriteLog
+GenerateHTMLFiles
 typst compile main.typ
-Write-Output "Generated main.typ"
+WriteLog "Compiled main.typ"
+
 
 # TODO
-# - improve clarity
+# [X] improve clarity
+# [X] logging
 # - unit testing
-# - logging
 # - existence of:  
 #     - main pdf
 #     - .\index.html
