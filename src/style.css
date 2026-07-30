@@ -1,10 +1,27 @@
+:root {
+    /* HAP Theme Colors */
+    --color-primary: #2F591A;      /* Forest */
+    --color-secondary: #2E8B57;    /* Sea Green */
+    --color-accent: #FAD47D;       /* Gold */
+
+    --color-text: #333333;
+    --color-text-muted: #555555;
+
+    --color-background: #FFFFFF;
+    --color-surface: #E7E4D5;      /* Sand */
+    --color-hover: #C3DAB9;        /* Soft Green */
+
+    --color-border: #555555;
+    --color-header-text: #FFFFFF;
+}
+
 body {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #333333;
-    background-color: #FFFFFF;
-    padding: 0 1rem;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    padding: 0;
     white-space: normal;
 }
 
@@ -12,7 +29,7 @@ h3 {
     font-family: "Trebuchet MS", Arial, sans-serif;
     font-size: 28px !important;
     font-weight: 700;
-    color: #2F591A;
+    color: var(--color-primary);
 }
 
 /* Standard table styling */
@@ -20,18 +37,18 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 1rem 0;
-    background-color: #FFFFFF;
+    background-color: var(--color-background);
 }
 
 table td {
     padding: 0.75rem 1rem;
-    border: 1px solid #555555;
+    border: 1px solid var(--color-border);
     text-align: left;
     vertical-align: top;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #333333;
+    color: var(--color-text);
 }
 
 table td:first-child {
@@ -41,16 +58,16 @@ table td:first-child {
 /* Highlighted text */
 table mark {
     padding: 0.1rem 0.25rem;
-    color: #333333;
-    background-color: #FAD47D;
+    color: var(--color-text-muted);
+    background-color: var(--color-accent);
     border-radius: 2px;
 }
 
 /* Header row */
 table tr:first-child td {
     font-family: "Trebuchet MS", Arial, sans-serif;
-    background-color: #2F591A;
-    color: #FFFFFF;
+    background-color: var(--color-primary);
+    color: var(--color-header-text);
     font-weight: 700;
     text-align: center;
 }
@@ -60,12 +77,18 @@ table tr:first-child td strong {
     font-weight: inherit;
 }
 
-/* Optional alternating row background */
+/* Alternating row background */
 table tr:nth-child(even):not(:first-child) td {
-    background-color: #E7E4D5;
+    background-color: var(--color-surface);
 }
 
-/* Optional hover state */
-/* table tr:not(:first-child):hover td {
-    background-color: #C3DAB9;
+/* table tr:not(:first-child) td {
+    background-color: var(--color-surface);
 } */
+
+/* Optional hover state */
+/*
+table tr:not(:first-child):hover td {
+    background-color: var(--color-hover);
+}
+*/
