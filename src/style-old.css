@@ -1,0 +1,49 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400; /* Regular */
+    padding: 0 1rem;
+    white-space: normal;
+}
+
+h3 {
+    font-size: 28px !important;
+    font-weight: 600;
+}
+
+/* Standard table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #242424;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 400; /* Regular */
+}
+
+table td:first-child {
+    width: 35%;
+}
+
+table mark {
+    padding: 0.1rem 0.25rem;
+    background-color: #fef3c7;
+    border-radius: 2px;
+}
+
+/* Header row */
+table tr:first-child td {
+    background-color: #242424;
+    color: #ffffff;
+    font-weight: 600; /* Semibold */
+    text-align: center;
+}
+
+/* Keep <strong> from becoming bold */
+table tr:first-child td strong {
+    font-weight: inherit;
+}

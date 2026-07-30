@@ -1,6 +1,6 @@
 <#===========================================================================
     Author:         Ana Taualupe, Mili Normandin
-    Description:    Main entrypoint for scripts to compile Typst files to HTML and PDF.
+    Description:    Compiles Typst files to HTML and PDF.
     Date:           2026-06-29
 ===========================================================================#>
 # Set static variables
@@ -56,6 +56,7 @@ function GenerateHTMLFiles {
     WriteLog "Inserted CSS reference into HTML Files"
 }
 
+# Main logic
 WriteLog
 GenerateHTMLFiles
 typst compile main.typ
@@ -65,6 +66,8 @@ WriteLog "Compiled main.typ"
 # TODO
 # [X] improve clarity
 # [X] logging
+# [] change log to append instead of overwrite
+# [] add log folder
 # - unit testing
 # - existence of:  
 #     - main pdf
