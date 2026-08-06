@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--color-text);
@@ -26,7 +26,6 @@ body {
 }
 
 h3 {
-    font-family: "Trebuchet MS", Arial, sans-serif;
     font-size: 28px !important;
     font-weight: 700;
     color: var(--color-primary);
@@ -45,7 +44,6 @@ table td {
     border: 1px solid var(--color-border);
     text-align: left;
     vertical-align: top;
-    font-family: Verdana, Geneva, sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--color-text);
@@ -65,7 +63,6 @@ table mark {
 
 /* Header row */
 table tr:first-child td {
-    font-family: "Trebuchet MS", Arial, sans-serif;
     background-color: var(--color-primary);
     color: var(--color-header-text);
     font-weight: 700;
