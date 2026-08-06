@@ -73,19 +73,3 @@ table tr:first-child td {
 table tr:first-child td strong {
     font-weight: inherit;
 }
-
-/* Alternating row background */
-table tr:nth-child(even):not(:first-child) td {
-    background-color: var(--color-surface);
-}
-
-/* table tr:not(:first-child) td {
-    background-color: var(--color-surface);
-} */
-
-/* Optional hover state */
-/*
-table tr:not(:first-child):hover td {
-    background-color: var(--color-hover);
-}
-*/
