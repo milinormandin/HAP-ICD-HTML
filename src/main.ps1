@@ -11,6 +11,10 @@ $currentPath = Split-Path -Parent $PSScriptRoot
 $logFile = (Join-Path $PSScriptRoot "main.log")
 
 <#
+Supporting functions
+#>
+
+<#
 Write string and timestamp to log file
 #>
 function WriteLog {
@@ -56,7 +60,9 @@ function GenerateHTMLFiles {
     WriteLog "Inserted CSS reference into HTML Files"
 }
 
-# Main logic
+<#
+Main logic
+#>
 WriteLog
 GenerateHTMLFiles
 typst compile main.typ
