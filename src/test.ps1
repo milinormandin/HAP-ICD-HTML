@@ -11,20 +11,22 @@
     Date:           2026-07-30
 ===========================================================================#>
 $path = $PSScriptRoot
-# Set static variables
-$lastRun = [datetime](Get-Content $path/main.log -Head 1)
-if ($lastRun -eq [datetime]"2026/07/29 17:59:23") {
-    "Same time"
-}
-else {
-    "Different time"
-}
-$lastRun
+$logFolder = "$path\log"
+
+$latestLogFile = (Get-ChildItem $logFolder -Filter "*.log" | Sort-Object LastWriteTime | Select-Object -last 1).FullName
+
+$lastRun = [datetime](Get-Content $latestLogFile -Head 1)
+
+# if ($lastRun -eq [datetime]"2026/08/07 16:22:36") {
+#     "Same time"
+# }
+# else {
+#     "Different time"
+# }
+# $lastRun
+
 # Set path to root of project
 $currentPath = Split-Path -Parent $PSScriptRoot
-
-# Define log file
-$logFile = (Join-Path $PSScriptRoot "main.log")
 
 # Check that html ts is greater than ts of last script run
 Get-ChildItem -Path $currentPath -Recurse -Filter "*.html" | Where-Object { $_.FullName -notmatch '\\(GRAPHICS (TRANSPARENT)|icd_xxx_template|src|)\\' } | ForEach-Object {

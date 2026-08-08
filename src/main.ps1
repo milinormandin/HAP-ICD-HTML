@@ -110,10 +110,14 @@ function GenerateHTMLFiles {
 -----------------------------/// Main logic ///-----------------------------
 #>
 
+# DO NOT DELETE OR MOVE THIS LINE. Must be first line written to log. Tests rely on this line
+WriteLog ""
+
+WriteLog "$($MyInvocation.MyCommand.Name) script start"
+
 <#
 ICD HTML files generation
 #>
-WriteLog "$($MyInvocation.MyCommand.Name) script start"
 try {
     GenerateHTMLFiles
     WriteLog "Compiled HTML ICD files successfully."
