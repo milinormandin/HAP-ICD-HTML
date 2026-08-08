@@ -9,11 +9,10 @@ MQD submits an MMA Request file to CMS containing member enrollment and eligibil
 #figure(
   table(
     columns: (auto, 1fr), align: (left, left), stroke: 0.5pt,
-    [*Attribute*], [*Details*],
-    [System - Title], [CMS MMA -  MMA File of Dual Eligible Beneficiaries],
-    [Abbreviation], [CMS MMA],
-    [Point of Contact (Source)], [Holly Bryant / hbryant\@dhs.hawaii.org],
-    [Point of Contact (MQD)], [Holly Bryant / hbryant\@dhs.hawaii.org],
-    [Vendor], [MQD, AHCCCS]
+    [*System - Title*], [CMS MMA — MMA File of Dual Eligible Beneficiaries],
+    [*Abbreviation*], [CMS MMA],
+    [*Point of Contact (Source)*], [Holly Bryant / hbryant\@dhs.hawaii.org],
+    [*Point of Contact (MQD)*], [Holly Bryant / hbryant\@dhs.hawaii.org],
+    [*Vendor*], [MQD, AHCCCS]
   ), caption: [Interface Specification Overview - CMS MMA]
 )

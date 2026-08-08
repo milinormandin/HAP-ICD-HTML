@@ -26,7 +26,7 @@
   heading(level: 3, tname)
   let desc = get-description(tname)
   if desc != none { desc }
-  set text(size: 8pt, font: "Times New Roman")
+  set text(size: 8pt)
   table(
     columns: (2fr, 0.75fr, 0.75fr, 1fr, 3fr),
     align: left,
@@ -37,7 +37,7 @@
       [#wb(r.at(3))],
       [#r.at(15)],
       [#r.at(16)],
-      [#r.at(6)],
+      [#r.at(6)#if r.at(17).trim() != "" { "(" + r.at(17) + ")" }],
       [#wb(r.at(5))],
     )).flatten(),
   )

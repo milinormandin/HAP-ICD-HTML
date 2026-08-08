@@ -26,17 +26,16 @@
   heading(level: 3, tname)
   let desc = get-description(tname)
   if desc != none { desc }
-  set text(size: 8pt, font: "Times New Roman")
+  set text(size: 8pt)
   table(
-    columns: (3fr, 1fr, 0.75fr, 2.5fr),
+    columns: (3fr, 1fr, 2.5fr),
     align: left,
     stroke: 0.5pt,
     fill: (_, y) => if y == 0 { header-fill } else if calc.odd(y) { row-alt-fill } else { white },
-    [*Column Name*], [*Data Type*], [*Data Length*], [*Description*],
+    [*Column Name*], [*Data Type*], [*Description*],
     ..cols.map(r => (
       [#wb(r.at(2))],
-      [#r.at(4)],
-      [#r.at(7)],
+       [#r.at(4)#if r.at(7).trim() != "" { "(" + r.at(7) + ")" }],
       [#wb(r.at(3))],
     )).flatten(),
   )

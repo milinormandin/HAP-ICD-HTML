@@ -1,0 +1,41 @@
+﻿Field Name,Definition,Notes,Source
+prov_id,MQD Provider ID,,HOKU
+app_id,HOKU Application ID,Populated for all providers converted from HPMMIS to HOKU,HOKU
+prov_name,Provider Name,,HOKU
+npi,Provider NPI,,HOKU
+enroll_type,HOKU Enrollment Type,,HOKU
+app_type,HOKU Application Type,"Only populated for app_type ""Individual/Sole Proprietor""",HOKU
+app_start_dt,Original Application Start Date,"If provider converted from HPMMIS, original HPMMIS Start Date",HOKU
+app_sub_dt,Date HOKU Registration Submited,"If this field is populated, hoku_status = ""In Review"", ""Approved"", or ""Denied""",HOKU
+last_review_dt,Date Application Last Reviewed,"If this field is populated, someone has started working on this application",HOKU
+hoku_status,HOKU Registration Status,"""Not Started"" = provider has not started HOKU Registration
+""In Process"" = provider has not submitted HOKU Registration
+""In Review - Provider Submitted"" = provider submitted HOKU Registration, MQD reviewing
+""In Review - State Submitted"" = State submitted HOKU Registration, MQD reviewing
+""Approved"" = provider HOKU Registration approved
+""Denied"" = provider HOKU Registration denied",HOKU
+prov_type,MQD Assigned Provider Type,,HPMMIS
+prov_type_desc,MQD Assigned Provider Type Description,,HPMMIS
+ssn,Provider SSN,,HPMMIS
+prov_status,HPMMIS Enrollment Status,,HPMMIS
+prov_status_desc,HPMMIS Enrollment Status Description,,HPMMIS
+addr_1,Provider Correspondence Address Line 1,,HPMMIS
+addr_2,Provider Correspondence Address Line 2,,HPMMIS
+city,Provider Correspondence City,,HPMMIS
+state,Provider Correspondence State,,HPMMIS
+state_desc,Provider Correspondence State Description,,HPMMIS
+zip,Provider Correspondence Zip Code,,HPMMIS
+bus_phone,Provider Business Phone Number,,HPMMIS
+fax_phone,Provider Fax Number,,HPMMIS
+email,Provider Email Address,,HPMMIS
+tier,Outreach Tier,"Based on prov_type and prov_status; if ""Wave 2"", will focus on in future outreach waves",Calculated
+assigned_hp,Assigned Outreach Health Plan ,Based on in-network providers as identified by Health Plans or number of encounters (pended or approved) associated with Health Plan,Calculated
+deadline,Deadline associated with Outreach Tier,"Based on outreach tier, the associated deadline for that provider to register with HOKU",Calculated
+in_review_ever,In Review Ever?,"Based on previous extracts, was the provider's HOKU Application ever in ""In Review""? ",Calculated
+extension_requested,Extension Requested,"If a health plan submitted an extension request to the provider's deadline to submit HOKU application, ""Y"", else ""N""",Calculated
+extension_requested_dt,Extension Requested Date,Date health plan submitted extension request to State,Calculated
+extension_granted,Extension Granted,"If State granted extension request for provider ""Y"", else ""N""",Calculated
+extension_note,Extension Note,"Reason State did not grant extension if extension_granted = ""N""",Calculated
+term,Terminated,"If health plan identified provider as terminated for any reason, ""Y"", else ""N""",Calculated
+met_req_or_extend,Met Requirement or Extended,"If the provider submitted their HOKU application by the identified deadline or the State granted an extension request, ""Y"", else ""N""",Calculated
+nfpp,NFPP provider,"If provider was identified through NFPP process (CCFFH providers eligible for bonus payment if enrolled), ""Y"", else ""N""",Calculated

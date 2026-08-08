@@ -1,0 +1,20 @@
+﻿Primary Care Report APC File,,,
+Variable,Format,Length / Format Detail,Values
+HP_ID,CHAR,6,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  "
+Primary Care Definition,CHAR,MAX,
+Category,CHAR,MAX,
+Non-ABD and Non-Expansion,NUM,MAX,"Note. Please do not submit with $ , or %"
+Expansion,NUM,MAX,"Note. Please do not submit with $ , or %"
+ABD Non-Dual,NUM,MAX,"Note. Please do not submit with $ , or %"
+ABD Dual,NUM,MAX,"Note. Please do not submit with $ , or %"
+Quest-Integration,NUM,MAX,"Note. Please do not submit with $ , or %"

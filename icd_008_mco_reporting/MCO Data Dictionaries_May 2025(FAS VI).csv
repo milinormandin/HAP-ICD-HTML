@@ -1,0 +1,42 @@
+﻿FAS VI,,,,,
+Variable,Format,Length / Format Detail,Values,Missing/NA,Description
+HP_ID,CHAR,7,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing: HP_ID Unknown,
+Date of complaint,DATE,MM/DD/YYYY,,12/31/2299: Date of complaint unknown,
+Source of complaint,CHAR,17,"Member
+Provider
+Health Plan Staff
+Other",Missing: Source of complaint unknown,
+Source of complaint explanation (if other),CHAR,MAX,,"NA: Source complaint is not other
+Missing: Source complaint is other but source is unknown",
+Date Referral sent to the State,DATE,MM/DD/YYYY,,12/31/2299: Date referral sent to state unknown,
+Type,CHAR,40,"Fraud
+Overbilling
+Upcoding
+Unbundling
+Billing for services furnished by others
+Other",Missing: Type Unknown,
+Type explanation (if other),CHAR,MAX,,"NA: Type is not other
+Missing: Type is other but source is unknown",
+Dollar Amount paid to the provider for QUEST members over the last 3 calendar years,NUM,MAX,"If no dollar amounts paid, 0", -999: Dollar Amount unknown,"Note. Please do not submit with $ or ,"
+Dollar Amount paid to the provider for QUEST members during the period of alledged misconduct,NUM,MAX,"If no dollar amounts paid, 0", -999: Dollar Amount unknown,"Note. Please do not submit with $ or ,"
+Overpayments Identified associated with case,NUM,MAX,"If no overpayments, 0", -999: Dollar Amount unknown,"Note. Please do not submit with $ or ,"
+Brief summary of the nature of the incident,CHAR,MAX,,Missing: Summary unknown,
+Brief synopsis of the preliminary investigation undertaken,CHAR,MAX,,"NA: No preliminary investigation
+Missing: Synopsis unknown",
+Administrative disposition of the case,CHAR,32,"Ongoing investigation
+Closed on direction of the State
+Other ",Missing: Disposition unknown,
+Administrative disposition of the case explanation (if other),CHAR,MAX,,,
+Brief summary of action(s) taken following the referral to include disciplinary action imposed,CHAR,MAX,,"NA: No action taken
+Missing: Action taken, but summary unknown",
+Number of business days between Date of Complaint to Date of Referral (Note: column will calculate automatically),NUM,,Autocalculated field,,

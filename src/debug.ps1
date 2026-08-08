@@ -10,11 +10,11 @@ function Remove-HTML-Files {
     # Delete html files in root dir
 
     Get-ChildItem -Path $currentpath -Filter "*.html" | ForEach-Object {
-            $outputPath = $_.FullName
-            Remove-Item -Path $outputPath
-            Write-Output 'Removed all HTML files from root folder.'
+        $outputPath = $_.FullName
+        Remove-Item -Path $outputPath
+        Write-Output 'Removed all HTML files from root folder.'
 
-        }
+    }
 
     
     # Delete html files in ICD Folders
@@ -32,8 +32,30 @@ function Remove-HTML-Files {
 
 function Remove-Main-PDF {
 
-    Remove-Item ".\main.pdf"
-    Write-Output 'Removed main.pdf from root folder.'
+    try {
+        Remove-Item ".\main.pdf"
+        if ($LASTEXITCODE -ne 0) {
+            throw [System.IO.FileNotFoundException]::new()
+        }
+        Write-Output 'Removed main.pdf from root folder.'
+            
+    }
+    catch {
+        <#Do this if a terminating exception happens#>
+        Write-Output $PSItem.ToString()
+    }
+    
+}
+
+function Remove-Main-Logs {
+
+    Get-ChildItem -Path "$PSScriptRoot\log" | ForEach-Object {
+        $outputPath = $_.FullName
+        Remove-Item -Path $outputPath
+
+
+    }
+    Write-Output 'Removed all files from log folder.'
     
 }
 
@@ -43,6 +65,7 @@ Set-Location $currentPath
 
 Remove-HTML-Files
 Remove-Main-PDF
+# Remove-Main-Logs
 
 
 

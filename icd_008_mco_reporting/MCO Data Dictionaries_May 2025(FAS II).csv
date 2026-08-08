@@ -1,0 +1,65 @@
+﻿FAS II,,,,,
+Variable,Format,Length / Format Detail,Values,Missing/NA,Description
+HP_ID,CHAR,7,"
+ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing: HP ID unknown,
+Date SIU Case Opened,DATE,MM/DD/YYYY,,12/31/2299: Date Unknown,
+Source of Complaint,CHAR,8,"Provider
+Member
+Vendor
+Employee
+Other",Missing: Source of complaint unknown,
+Source of Complaint Explanation (if other),CHAR,MAX,,"NA: Source of complaint is not other
+Missing: Source of complaint is other, but explanation unknown",
+Case Subject,CHAR,8,"Provider
+Member
+Vendor
+Employee
+Other",Missing: Case subject unknown,
+Case Subject Explanation (if other),CHAR,MAX,,"NA: Case subject is not other
+Missing: Case subject is other, but explanation unknown",
+Subject Name,CHAR,500,,Missing: Subject name unknown,
+Subject Medicaid ID,CHAR,7,,"NA: Subject does not have a Medicaid ID
+Missing: MQD ID Unknown",
+Subject NPI,CHAR,10,,"NA: Subject does not have an NPI
+Missing: NPI Unknown",
+Case Type,CHAR,40,"Fraud
+Overbilling
+Upcoding
+Unbundling
+Billing for services furnished by others
+Other",Missing: Case Type Unknown,
+Case Type Explanation (if other),CHAR,MAX,,"NA: Case type is not other
+Missing: Case type is other, but explanation unknown",
+Case Summary,CHAR,MAX,,Missing: Case Summary Unknown,
+Total Overpayments Identified,NUM,MAX,"For true zero, enter 0.", -999: Overpayment Amt Unknown,"Note. Please do not submit with $ or ,"
+Total Overpayments Recoverred,NUM,MAX,"For true zero, enter 0.", -999: Overpayment Amt Recovered Unknown,"Note. Please do not submit with $ or ,"
+Case Resolved,CHAR,12,"Resolved
+Not Resolved",Missing: Resolution status unknown,
+Date Case Resolved,DATE,MM/DD/YYYY,,"12/31/2200: Case unresolved
+12/31/2299: Date Unknown",
+Case Resolution,CHAR,MAX,"Referred to the State
+Adverse Action Taken (specify)
+Closed due to unfounded allegation
+Other","NA: Case unresolved
+Missing: Resolution Unknown",
+Case Resolution Explanation (if adverse action taken or other),CHAR,MAX,,"NA: Resolution is not other or adverse action not taken
+Missing: Resolution is other but explanation unknown",
+Suspected FWA determined?,CHAR,7,"Yes
+No",Missing: Unknown,
+Date Health Plan determined suspected FWA,DATE,MM/DD/YYYY,,"12/31/2200: No suspected FWA
+12/31/2299: Date Unknown",
+Date Health Plan referred to State,DATE,MM/DD/YYYY,,"12/31/2200: Not referred to state
+12/31/2299: Referred to state, but date unknown",
+"If Suspected FWA determined and Case not referred to the State, provide justification",CHAR,MAX,,"NA: No suspected FWA or FWA case was referred to the state
+Missing: Suspected FWA and case not referred to state, but justification unknown",
+Days between FWA Determination and Referral,NUM,,Autocalculated,,

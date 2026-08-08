@@ -1,0 +1,401 @@
+﻿Source,Source File,Table Name,Column,Column Alias (Common Name),Column Comment (Description),Data Type,Data Format,Is Nullable,Is Primary Key,Is Foreign Key,Foreign Key Table,History,Is PII,Start Position,End Position,Max length,Symmetry Indicator,Precision,Comment,Valid Values,Logic,Column Order,Lineage,GAP,Findings 
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Activities Data Format (ALDF) ,Date of Activity ,, ,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Mandatory   ,MM/DD/YYYY ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Activities Data Format (ALDF) ,Name(s) of staff who conducted activity ,,The first and last names of the staff who conducted the activity listed ,CHAR ,,,,,,,,,,40 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Activities Data Format (ALDF) ,Goal of activity  ,, ,CHAR ,,,,,,,,,,200 ,,,Mandatory ,"Service over-utilization 
+Prescription drug utilization 
+Outlier analysis 
+Upcoding 
+Impossible hours 
+Other (specify) ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Activities Data Format (ALDF) ,"Summary of how activity was conducted (e.g. what tools used, description of providers examined) ",, ,CHAR ,,,,,,,,,,1000 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Activities Data Format (ALDF) ,Results of activity ,,A summary of findings or new analyses that resulted from the activity ,CHAR ,,,,,,,,,,1000 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Activities Data Format (ALDF) ,Did this activity result in an SIU Case or Referral to the State? ,,"If the results from the activity identified potential fraud or abuse, was a referral sent to the State? ",CHAR ,,,,,,,,,,3 ,,,Mandatory ,"Yes 
+No ",,,,,
+MCO Reporting,Accreditation Status (ASR) ,Attachments  ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Description ,, ,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Total Number of Servicing Providers ,, ,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Servicing Providers Eligible for PCP Enhancement Payment ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Amounts Owed Based on Medicaid Payment Schedule ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Amount Paid Based on PCP Enhancement Payment Methodology ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Enhancement Payments Made ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Part B: PCP Enhancement Payments Program ,Total ,,Auto-calculated field ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Accreditation Status (ASR) ,Section I: Accreditation Status ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section I: Aggregate Metric (Advancing Primary Care and PCP Enhancement) ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section I: Aggregate Prior Authorizations Data ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,DHS Language Group ,, ,CHAR , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Type of Service ,, ,CHAR , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Number of NEW Requests ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Number of Outstanding Requests ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Number of Requests Fulfilled (Regardless if Member Received Service) ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Number of Requests that Resulted in Member Receiving Service ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Median Business Days to Fulfill Requests ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Maximum Business Days to Fulfill Requests ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Number Fulfilled within 5 Business Days of Request ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,Number Fulfilled on Date Requested ,, ,INT , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,% Requests Fulfilled ,, , , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,% Fulfilled Within 5 Business Days ,, , , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section I: Aggregate-Level Data File (ALDF,% Fulfilled On Date Requested ,, , , , ,,,,,,,,,,,,,,,,,
+MCO Reporting,Over-Utilization and Under-Utilization of Services (OUS) ,Section I: ALDF,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Quality Assurance and Performance Improvement (QAPI) ,Section I: Performance Measures Submission ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Date SIU Case Opened  ,,,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Mandatory   , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Source of Complaint ,, ,CHAR ,,,,,,,,,,200 ,,,Mandatory ,"Member 
+Provider 
+Other Health Plan Staff 
+Other (specify) ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Case Subject ,, ,CHAR ,,,,,,,,,,200 ,,,Mandatory ,"Provider 
+Member 
+Vendor 
+Employee 
+Other (specify) ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Subject Name ,,"Name of provider, member, vendor, employee, or other 
+ 
+If multiple subjects, enter all names separated by a  comma ",CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Subject Medicaid ID ,,"Med-QUEST Provider ID or Med-QUEST Member ID; use ""N/A"" if subject does not have a Med-QUEST ID 
+ 
+If multiple subjects, enter all IDs separated by a  comma ",CHAR ,,,,,,,,,,100 ,,,Mandatory  , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Subject NPI ,,"National Provider Identifier; use ""N/A"" if subject does not have an NPI 
+ 
+If multiple subjects, enter all NPIs separated by a  comma ",CHAR ,,,,,,,,,,100 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Case Type ,, ,CHAR ,,,,,,,,,,200 ,,,Mandatory ,"Fraud 
+Overbilling 
+Upcoding 
+Unbundling 
+Billing for services furnished by others 
+Other (specify) ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Case Summary ,, ,CHAR ,,,,,,,,,,10000 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Total Overpayments Identified ,Total  Amount of overpayments identified in dollars,Report in dollars ,NUM ,,,,,,,,,,20 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Total Overpayments Recovered ,,Report in dollars ,NUM ,,,,,,,,,,20 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Case Resolved? ,, ,CHAR ,,,,,,,,,,12 ,,,Mandatory ,"Resolved 
+Not Resolved ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Date Case Resolved ,,MM/DD/YYYY; leave blank if case not resolved ,DATE ,,,,,,,,,,10 ,,,Optional , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Case Resolution ,, ,CHAR ,,,,,,,,,,200 ,,,Mandatory ,"Referred to the State 
+Adverse Action Taken (specify) 
+Closed due to unfounded allegation 
+Other (specify) ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),Suspected FWA determined? ,, ,CHAR ,,,,,,,,,,3 ,,,Mandatory if case resolved ,"Yes 
+No ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),"Date Health Plan determined suspected FWA, if applicable ",,MM/DD/YYYY; leave blank if case not resolved ,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Mandatory if Suspected FWA determined , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),"Date Health Plan referred to State, if applicable ",,MM/DD/YYYY; leave blank if case not resolved ,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Optional , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section II Health Plan SIU Case Activity (MLDF + PLDF),"If Suspected FWA determined and Case not referred to the State, provide justification ",,"Use ""N/A"" if case referred to State ",CHAR ,,,,,,,,,,200 ,,,Mandatory , ,,,,,
+MCO Reporting,Accreditation Status (ASR) ,Section II: Licensure Status ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,HP_ID ,,"QUEST ASSIGNED HEALTH PLAN IDENTIFIER; 
+ALOHAC  = AlohaCare – Non-ABD Clients 
+HMSAAA  = HMSA – Non-ABD Clients 
+KAISER = Kaiser – Non-ABD Clients 
+OHANAA = Ohana (Wellcare) – Non-ABD Clients 
+UNITED = UnitedHealthcare – Non-ABD Clients 
+OHANBH = Ohana (Wellcare) – Behavioral Health 
+XALOHA = AlohaCare – ABD Clients 
+XHMSAA = HMSA – ABD Clients 
+XKAISR = Kaiser – ABD Clients 
+XOHANA = Ohana (Wellcare) – ABD Clients 
+XUNITD = UnitedHealthcare – ABD Clients ",CHAR ,,,,,,,,,,6 ,,,Critical ," 
+ALOHAC  
+HMSAAA  
+KAISER  
+OHANAA  
+UNITED  
+OHANBH  
+XALOHA  
+XHMSAA  
+XKAISR   
+XOHANA   
+XUNITD   ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,EXTRACT_DATE ,,DATE OF DATA EXTRACT ,DATE ,MM/DD/YYYY ,,,,,,,,,12,,,Other , ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,REPORT_YEAR ,,REPORT YEAR ,YEAR ,YYYY ,,,,,,,,,4,,,Other , ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,EXTRACT_PREP ,,NAME OF PREPARER OF DATA EXTRACT ,CHAR ,,,,,,,,,,40 ,,,Other , ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,EX_PREP_EMAIL ,,EMAIL ADDRESS OF PREPARER OF DATA EXTRACT ,CHAR ,,,,,,,,,,40 ,,,Other , ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,ISLAND_CODE ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,2 ,,,Near-Critical ,"01 = Oahu 
+04 = Kauai 
+05 = Hawaii 
+07 = Maui 
+08 = Molokai 
+09 = Lanai 
+31 = Out of State 
+33 = Out of Country ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,HAWI_ID ,,MED-QUEST ASSIGNED BENEFICIARY IDENTIFICATION NUMBER ,CHAR ,,,,,,,,,,10 ,,,Critical ,Medicaid ID ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_REQUEST_DATE ,,"Date when service was requested, or date when service is needed (Interpretation, Translation, Other) ",DATE ,MM/DD/YYYY ,,,,,,,,,12,,,Near-Critical ,Requested Services Date ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_FULFILLED_DATE ,,Date when the health plan fulfilled the service request (not the appointment date). Date health plan secured interpreter or translator for the member. ,DATE ,MM/DD/YYYY ,,,,,,,,,12,,,Near-Critical ,Date service request was fulfilled by the health plan. ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SERVICE_REQUESTED ,,Type of Service Requested ,CHAR ,,,,,,,,,,1 ,,,Near-Critical ,"I = Interpretation 
+T = Translation ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,NUM_SVCS_REQ ,,Number of Services Requested (#Interpretations or Translations requested) ,NUM ,,,,,,,,,, ,,,Near-Critical ,Number of Services Requested ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,LANG_CODE ,,2017 PUMS Code ,NUM ,,,,,,,,,, ,,,Near-Critical ,*See Language Ref ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,LANG_DET_CODE ,,2018 Language Microdata Code ,NUM ,,,,,,,,,, ,,,Near-Critical ,*See Language Ref ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,DHS_LANG_GP ,,DHS Language Group ,CHAR ,,,,,,,,,,20 ,,,Near-Critical ,*See Language Ref ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_PROVIDED ,,Whether Service Requested was Provided (Y/N) ,CHAR ,,,,,,,,,,1 ,,,Near-Critical ,"Y = Service Provided 
+N = Service Not Provided ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_PROVIDED_DATE ,,Date when Requested Service was Provided (Leave blank if service not provided) ,DATE ,MM/DD/YYYY ,,,,,,,,,12,,,Other ,Service Provision Date  ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_PROVIDED_BY ,,Who provided the service ,CHAR ,,,,,,,,,,2 ,,,Other ,"ST = Health Plan Staff 
+CV = Community Volunteer 
+HC = Health Plan Contractor  
+OC = Other Contracted Party 
+OT = Other ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_LOCATION ,, ,CHAR ,,,,,,,,,,2 ,,,Other ,"IP = In person 
+TP = By telephone  
+WR = In writing ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_NOT_PROV_REASON ,,Reason service not provided ,CHAR ,,,,,,,,,, ,,,Other ,"Service no longer needed 
+Patient no show 
+Appointment cancelled 
+Other ",,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,SVC_NOT_PROV_RESOLV ,,Health Plan resolution of circumstances when services were not provided ,CHAR ,,,,,,,,,,500 ,,,Other ,Service not Provided Resolution ,,,,,
+MCO Reporting,Interpretation/Translated Documents (ITR) ,Section II: Member-Level Data File (MLDF) ,DAYS_TO_FULFILL_REQUEST ,,This is a locked formula field and requires no input from the health plan. ,NUM ,,,,,,,,,, ,,, ,The number of business days between the service request date (column H) and the service fulfilled date (column I). ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,HP_ID ,,"QUEST ASSIGNED HEALTH PLAN IDENTIFIER; 
+ALOHAC  = AlohaCare – Non-ABD Clients 
+HMSAAA  = HMSA – Non-ABD Clients 
+KAISER = Kaiser – Non-ABD Clients 
+OHANAA = Ohana (Wellcare) – Non-ABD Clients 
+UNITED = UnitedHealthcare – Non-ABD Clients 
+OHANBH = Ohana (Wellcare) – Behavioral Health 
+XALOHA = AlohaCare – ABD Clients 
+XHMSAA = HMSA – ABD Clients 
+XKAISR = Kaiser – ABD Clients 
+XOHANA = Ohana (Wellcare) – ABD Clients 
+XUNITD = UnitedHealthcare – ABD Clients ",CHAR ,,,,,,,,,,6 ,,,," 
+ALOHAC  
+HMSAAA  
+KAISER  
+OHANAA  
+UNITED  
+OHANBH  
+XALOHA  
+XHMSAA  
+XKAISR   
+XOHANA   
+XUNITD   ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,EXTRACT_DATE ,,DATE OF DATA EXTRACT ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,REPORT_YEAR ,,REPORT YEAR ,YEAR ,YYYY ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,EXTRACT_PREP ,,NAME OF PREPARER OF DATA EXTRACT ,CHAR ,,,,,,,,,,40 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,EX_PREP_EMAIL ,,EMAIL ADDRESS OF PREPARER OF DATA EXTRACT ,CHAR ,,,,,,,,,,40 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,ISLAND_CODE ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,2 ,,,,"01 = Oahu 
+04 = Kauai 
+05 = Hawaii 
+07 = Maui 
+08 = Molokai 
+09 = Lanai 
+31 = Out of State 
+33 = Out of Country ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,QUEST_PROVIDER_ID ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,6 ,,,,"Provider ID 
+NA=Missing ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,NATIONAL_PROVIDER_ID ,,NATIONAL PROVIDER IDENTIFIER (NPI) ,CHAR ,,,,,,,,,,<=10 ,,,,NATIONAL PROVIDER ID (NPI) ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,PROV_NAME ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,40 ,,,,Registered business name or Provider's Last/First Name ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,HAWI_ID ,,MED-QUEST ASSIGNED BENEFICIARY IDENTIFICATION NUMBER ,NUM ,,,,,,,,,,10 ,,,,Medicaid ID ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Member_Last ,,Member Last Name related to prior authorization denial ,CHAR ,,,,,,,,,,50 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Member_First ,,Member First Name related to prior authorization denial ,CHAR ,,,,,,,,,,50 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Member_DOB ,,Date of Birth of Member ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,PA_Request_Date ,,Date of prior authorization request ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,PA_Request_Type ,,What is the type of PA request? ,NUM ,,,,,,,,,,1 ,,,,"1 = Standard 
+2 = Expedited 
+3 = Retrospective ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Treatment_Focus_BH ,,Was this PA related to BH services? ,CHAR ,,,,,,,,,,1 ,,,,"Y=Yes 
+N=No ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,PA_Decision ,,Was the PA approved or denied? ,CHAR ,,,,,,,,,,1 ,,,,"A = Approved 
+D =Denied ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,PA_Request_Expedited_Time ,,"For expedited requests only, time of day of request ",Time ,XX:XX ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Request_Extension ,,Was an extension requested? ,CHAR ,,,,,,,,,,1 ,,,,"Y=Yes 
+N=No ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Request_Extension_Party ,,Who requested the extension? ,NUM ,,,,,,,,,,1 ,,,,"1 = Health Plan 
+2 = Member 
+3 = Provider 
+4 = Other ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Date_Request_Extension ,,Date extension was requested ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Extension_Decision ,,Was extension approved? ,CHAR ,,,,,,,,,,1 ,,,,"Y=Yes 
+N=No ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,ICD10Code ,,ICD-10 Code ,CHAR ,,,,,,,,,,100 ,,,,XX.XXXXXX ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,CPT_HCPCS ,,CPT/HCPCS Code  ,CHAR ,,,,,,,,,,100 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Service_Cat ,,Provider Service Category ,NUM ,,,,,,,,,,2 ,,,,"01=At Risk Services 
+02=Autism Services 
+03=Diagnostic Testing 
+04=Durable Medical Supplies/Medical Equipment 
+05=Home and Community Based Services 
+06 = Home Health Services 
+07 = Inpatient Hospital Services 
+08=Outpatient Hospital Services 
+09=Physician Services 
+10=Preventative Services 
+11=Rehabilitation Services 
+12=Transportation Services 
+13 = Behavioral Health 
+14 = Other Services ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,HC_Dec_Code ,,Health Care Decision Reason Code (Denials) ,CHAR ,,,,,,,,,,2 ,,,,"0F=Not Medically Necessary 
+0L=Exceeds Plan Maximums 
+0M=Non-covered Service 
+07=Administrative Cancellation 
+08 = Partial Approval 
+09=Out of Network 
+27=Member Not Enrolled in Plan ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Service_Location ,,Where would the service take place? ,NUM ,,,,,,,,,,2 ,,,,"01 = Pharmacy 
+02 = Telehealth Provided Other than in Patient’s Home 
+03 = School 
+04 = Homeless Shelter 
+05 = Indian Health Service Free-standing Facility 
+06 = Indian Health Service Provider-based Facility 
+07 = Tribal 638 Free-standing Facility 
+08 = Tribal 638 Provider-based Facility 
+09 = Prison/Correctional Facility 
+10 = Telehealth Provided in Patient’s Home 
+11 = Office 
+12 = Home 
+13 = Assisted Living Facility 
+14 = Group Home 
+15 = Mobile Unit 
+16 = Temporary Lodging 
+17 = Walk-in Retail Health Clinic 
+18 = Place of Employment-Worksite 
+19 = Off Campus-Outpatient Hospital 
+20 = Urgent Care Facility 
+21 = Inpatient Hospital 
+22 = On Campus-Outpatient Hospital 
+23 = Emergency Room – Hospital 
+24 = Ambulatory Surgical Center 
+25 = Birthing Center 
+26 = Military Treatment Facility 
+27 = Outreach Site/ Street 
+31 = Skilled Nursing Facility 
+32 = Nursing Facility 
+33 = Custodial Care Facility 
+34 = Hospice 
+41 = Ambulance - Land 
+42 = Ambulance – Air or Water 
+49 = Independent Clinic 
+50 = Federally Qualified Health Center 
+51 = Inpatient Psychiatric Facility 
+52 = Psychiatric Facility-Partial Hospitalization 
+53 = Community Mental Health Center 
+54 = Intermediate Care Facility/ Individuals with Intellectual Disabilities 
+55 = Residential Substance Abuse Treatment Facility 
+56 = Psychiatric Residential Treatment Center 
+57 = Non-residential Substance Abuse Treatment Facility 
+58 = Non-residential Opioid Treatment Facility 
+60 = Mass Immunization Center 
+61 = Comprehensive Inpatient Rehabilitation Facility 
+62 = Comprehensive Outpatient Rehabilitation Facility 
+65 = End-Stage Renal Disease Treatment Facility 
+71 = Public Health Clinic 
+72 = Rural Health Clinic 
+81 = Independent Laboratory 
+99 = Other ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Service_Context ,,What type of service? ,NUM ,,,,,,,,,,1 ,,,,"01= Transition 
+02=Continuation 
+03=New Service ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Date_Decision ,,Date decision was made ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Time_Decision ,,"For expedited requests only, time of day decision was made ",TIME ,XX:XX ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,HC_Dec_Desc ,,Detailed Description of Reason for Denial ,CHAR ,,,,,,,,,,2000 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,DATE_Prov_Notif ,,Date of written provider notification ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Time_Prov_Notif ,,"For expedited requests only, time of day of written provider notification ",TIME ,XX:XX ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Date_Mem_Notif ,,Date of written member notification ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Time_Mem_Notif ,,"For expedited requests only, the time of day of written member notification ",Time ,,,,,,,,,, ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Delays_Desc ,,Description of any delays related to notification of member and/or provider of decision ,CHAR ,,,,,,,,,,300 ,,,, ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Appeal  ,,Appeal or Consideration Requested ,NUM ,,,,,,,,,,1 ,,,,"Y=Yes 
+N=No ",,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section II: Member-level Data File (MLDF) ,Appeal_Reso ,,Resolution of Appeal ,NUM ,,,,,,,,,,1 ,,,,"1=In Progress 
+2=Overturned 
+3=Upheld 
+4=Withdrawn ",,,,,
+MCO Reporting,Quality Assurance and Performance Improvement (QAPI) ,Section II: QAPI Plan and Progress Report ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Over-Utilization and Under-Utilization of Services (OUS) ,Section II: Qualitative attestation ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Primary Care Definition ,, ,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Category ,, ,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Non-ABD and Non-Expansion ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Expansion ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,ABD Non-Dual ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,ABD Dual ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Quest-Integration ,, ,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Primary Care Definition 1 (Primary Care Visits) ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Primary Care Definition 2a (Beneficial Primary Care Services) ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Primary Care Definition 2b (Low Value Primary Care Services) ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,Primary Care Definition 3 (Primary Care Supports) ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,% Spend on Primary Care Visits ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,% Spend on Beneficial Primary Care Services ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,% Spend on Primary Care (Visits + Beneficial Services) ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,% Spend on Low Value Primary Care Services ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section II: Qualitative Questions (Advancing Primary Care and PCP Enhancement) ,% Spend on Primary Care Supports ,,Auto-calculated field , ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,HP_ID ,,"QUEST ASSIGNED HEALTH PLAN IDENTIFIER; 
+ALOHAC  = AlohaCare – Non-ABD Clients 
+HMSAAA  = HMSA – Non-ABD Clients 
+KAISER = Kaiser – Non-ABD Clients 
+OHANAA = Ohana (Wellcare) – Non-ABD Clients 
+UNITED = UnitedHealthcare – Non-ABD Clients 
+OHANBH = Ohana (Wellcare) – Behavioral Health 
+XALOHA = AlohaCare – ABD Clients 
+XHMSAA = HMSA – ABD Clients 
+XKAISR = Kaiser – ABD Clients 
+XOHANA = Ohana (Wellcare) – ABD Clients 
+XUNITD = UnitedHealthcare – ABD Clients ",CHAR ,,,,,,,,,,6 ,,,,"ALOHAC  
+HMSAAA  
+KAISER  
+OHANAA  
+UNITED  
+OHANBH  
+XALOHA  
+XHMSAA  
+XKAISR   
+XOHANA   
+XUNITD   ",,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,EXTRACT_DATE ,,DATE OF DATA EXTRACT ,DATE ,YYYYMMDD ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,REPORT_YEAR ,,REPORT YEAR ,YEAR ,YYYY ,,,,,,,,,,,,, ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,EXTRACT_PREP ,,NAME OF PREPARER OF DATA EXTRACT ,CHAR ,,,,,,,,,,40 ,,,, ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,EX_PREP_EMAIL ,,EMAIL ADDRESS OF PREPARER OF DATA EXTRACT ,CHAR ,,,,,,,,,,40 ,,,, ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,ISLAND CODE ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,2 ,,,,"01 = Oahu 
+04 = Kauai 
+05 = Hawaii 
+07 = Maui 
+08 = Molokai 
+09 = Lanai 
+31 = Out of State 
+33 = Out of Country ",,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,QUEST PROVIDER ID ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,6 ,,,,Provider ID ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,PROV_NAME ,,As defined in the HPS File (see HPMMIS Provider Manual) ,CHAR ,,,,,,,,,,40 ,,,,Registered business name or Provider's Last/First Name ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,PROVIDER_TYPE ,,Appendix 3E - Provider Type Definitions; As defined in the HPS File. ,CHAR ,,,,,,,,,,2 ,,,,Code classifying the provider by type of services rendered. ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,SPECIALITY_CODE ,,Appendix 3B - Provider Specialty Codes.  ,CHAR ,,,,,,,,,,3 ,,,,Provider Specialty Code ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,HAWI_ID ,,MED-QUEST ASSIGNED BENEFICIARY IDENTIFICATION NUMBER ,NUM ,,,,,,,,,,10 ,,,,Medicaid ID ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,MA_BEGIN_DATE ,,Date when Member Attribution to Provider began ,DATE ,YYYYMMDD ,,,,,,,,,,,,,Member Attribution Begin Date ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,MA_END_DATE ,,Date when Member Attribution to Provider ended ,DATE ,YYYYMMDD ,,,,,,,,,,,,,Member Attribution End Date ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,MAS_BEGIN_DATE ,,Date when Member Assignment to Provider began ,DATE ,YYYYMMDD ,,,,,,,,,,,,,Member Assignment Begin Date ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,MAS_END_DATE ,,Date when Member Assignment to Provider ended ,DATE ,YYYYMMDD ,,,,,,,,,,,,,Member Assignment End Date ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,NETWORK ,,Providerʻs Network Status ,NUM ,,,,,,,,,, ,,,,"0 = Network 
+1 = Out-of-Network ",,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,PHYS_ORG ,,See Physician Org Ref tab ,CHAR ,,,,,,,,,,1 ,,,,Physician Organization ,,,,,
+MCO Reporting,Primary Care Report (PCR),Section III: Primary Care Provider-Member Attribution and Assignment Table (PCPMAAT) ,PHYS_ORG_OTHER ,,See definition within Report Manual ,CHAR ,,,,,,,,,,40 ,,,,Other Physician Organization ,,,,,
+MCO Reporting,Prior Authorization - Medical (PAM) ,Section III: Prior Authorizations Procedures ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,Quality Assurance and Performance Improvement (QAPI) ,Section III: QAPI Qualitative Narrative ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section III: Summary Narrative of Fraud and Abuse Activities (PLDF + ALDF) ,Date of Training ,, ,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Mandatory  ,MM/DD/YYYY ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section III: Summary Narrative of Fraud and Abuse Activities (PLDF + ALDF) ,Name(s) of SIU staff who attended training ,,"The first and last name(s) of the SIU staff who attended the training, even if the staff member is no longer part of the SIU team ",CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section III: Summary Narrative of Fraud and Abuse Activities (PLDF + ALDF) ,Name(s) of organization or staff who hosted training ,, ,CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section III: Summary Narrative of Fraud and Abuse Activities (PLDF + ALDF) ,Topic(s) of training ,, ,CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,Quality Assurance and Performance Improvement (QAPI) ,Section IV: Provider/Enrollee Satisfaction Survey  ,,,,,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,Reporting Period ,,,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,VOS Category of Service ,,,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,Number of Members who Received Category of Service during Reporting Period ,,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,Number of Members mailed VOS during the Reporting Period ,,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,Number of Members who responded to VOS ,,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,Number of VOS responses that resulted in SIU Case or Referral to the State ,,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section IV: Verification of Services (ALDF) ,Percent of all Members who received VOS ,,, ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section V: Electronic Visit Verification (ALDF) ,Reporting Period ,,,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section V: Electronic Visit Verification (ALDF) ,"""Number of EVV visits that were manually edited to pass Sandata EVV validation (by Qtr. DoS)"" ",,,CHAR ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section V: Electronic Visit Verification (ALDF) ,"""Number of manually edited EVV visits the health plan reviewed (by Qtr. DoS)"" ",,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section V: Electronic Visit Verification (ALDF) ,"""Number of EVV visits identified as potential Fraud or Abuse prior to opening an SIU Case (by Qtr. DoS)"" ",,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ",Section V: Electronic Visit Verification (ALDF) ,"""Number of SIU Cases opened resulting from EVV visit review   (by Qtr. DoS)"" ",,,INT ,,,,,,,,,,,,,,,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Date of complaint ,,,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Mandatory   ,MM/DD/YYYY ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Source of complaint ,, ,CHAR ,,,,,,,,,,50 ,,,Mandatory ,"Member 
+Provider 
+Health Plan Staff ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Source of complaint explanation (if other) ,, ,CHAR ,,,,,,,,,,50 ,,,Mandatory if Source of Complaint equals Other , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Date Referral sent to the State ,, ,DATE ,MM/DD/YYYY ,,,,,,,,,10 ,,,Mandatory ,MM/DD/YYYY ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Type ,, ,CHAR ,,,,,,,,,,50 ,,,Mandatory ,"Fraud 
+Overbilling 
+Upcoding 
+Unbundling 
+Billing for services furnished by others 
+Other ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Type explanation (if other) ,, ,CHAR ,,,,,,,,,,50 ,,,Mandatory if Type equals Other , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Dollar Amount paid to the provider for QUEST members over the last 3 calendar years ,,"The total amount of money the Health Plan has paid the provider for claims for QUEST members over the last three calendar years; if none, enter $0 ",NUM ,,,,,,,,,,20 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Dollar Amount paid to the provider for QUEST members during the period of alledged misconduct ,,"The total amount of money the Health Plan has paid the provider for claims for QUEST members during the time period of alleged misconduct; if none, enter $0 ",NUM ,,,,,,,,,,20 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Overpayments Identified associated with case ,,"The total amount of money associated with Overpayments identified for this provider associated with the case; if none, enter $0 ",NUM ,,,,,,,,,,20 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Brief summary of the nature of the incident ,, ,CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Brief synopsis of the preliminary investigation undertaken ,,"If no preliminary investigation undertaken, enter ""N/A"" ",CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Administrative disposition of the case ,, ,CHAR ,,,,,,,,,,100 ,,,Mandatory ,"Ongoing investigation 
+Closed on direction of the State 
+Other (specify) ",,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ",Brief summary of action(s) taken following the referral to include disciplinary action imposed ,,"If no action taken following the referral to State, enter ""N/A"" ",CHAR ,,,,,,,,,,500 ,,,Mandatory , ,,,,,
+MCO Reporting,"Fraud, Waste, and Abuse (FAS) ","Section VI: Specific Information on Fraud, Waste and Abuse Referrals (ALDF) ","Number of business days between Date of Complaint to Date of Referral  
+(Note: column will calculate automatically) ",,Autocalculated ,NUM ,,,,,,,,,,3 ,,,Autocalculated ,Autocalculated ,,,,,

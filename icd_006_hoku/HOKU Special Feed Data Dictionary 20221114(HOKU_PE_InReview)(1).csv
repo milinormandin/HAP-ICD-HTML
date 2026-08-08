@@ -1,0 +1,15 @@
+﻿Field Name,hoku_special_feed Name,Definition,Notes
+MMIS ID,prov_id,MQD Provider ID,
+NPI,npi,Provider NPI,
+Application SID,app_id,HOKU Application ID,
+Submitted By,N/A,Who submitted the application (Provider vs State),
+Submitted Date,app_sub_dt,Date HOKU Registration Submited,
+Source,N/A,If the application was converted from HPMMIS or new (Converted vs New),
+Enrollment Type,enroll_type,HOKU Enrollment Type,
+Application Status,hoku_status,HOKU Registration Status,
+Days Pending,N/A,The number of days between Submitted Date and Last Review Date,
+Applicant Type,app_type,HOKU Application Type,
+Provider Type Name,N/A,Description of Provider Type,"A known data issue in this file is that there are times when an application lists multiple provider types. I do not believe this aligns with what we see in HOKU. This is a data quality issue that has been discussed with CNSI, but there is currently no resolution."
+Provider Name,prov_name,Provider Name,
+Last Review Date,last_review_dt,Date Application Last Reviewed,
+Application Start Date,app_start_dt,Original Application Start Date,

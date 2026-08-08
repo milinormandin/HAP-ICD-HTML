@@ -1,0 +1,20 @@
+﻿Primary Care Report PCPE File,,,
+Variable,Format,Length / Format Detail,Values
+HP_ID,CHAR,6,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  "
+Description,CHAR,MAX,
+Total Number of Servicing Providers,NUM,MAX,
+Servicing Providers Eligible for PCP Enhancement Payment,NUM,MAX,
+Amounts Owed Based on Medicaid Payment Schedule,NUM,MAX,"Note. Please do not submit with $ or ,"
+Amount Paid Based on PCP Enhancement Payment Methodology,NUM,MAX,"Note. Please do not submit with $ or ,"
+Enhancement Payments Made,NUM,MAX,"Note. Please do not submit with $ or ,"
+,,,

@@ -1,0 +1,24 @@
+﻿FAS III ACTIVITIES,,,,,
+Variable,Format,Length / Format Detail,Values,Missing/NA,Description
+HP_ID,CHAR,7,"
+ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing: HP_ID Unknown,
+Date of Activity,DATE,MM/DD/YYYY,,12/31/2299: Date Unknown,"Note: Only one date can be reported in this field. 
+If an activity that occurrs over multiple days, only include the start date of the activity. If an acitvity for multiple individuals on different dates, please list one per line. "
+Name(s) of staff who conducted activity,CHAR,MAX,,Missing: Name of staff unknown,
+Department of staff who conducted activity,CHAR,MAX,,Missing: Department unknown,
+Goal of activity (e.g. detect over-utilization),CHAR,MAX,,Missing: Goal unknown,
+Goal of activity explanation,CHAR,MAX,,Missing: Goal explanation unknown,
+"Summary of how activity was conducted (e.g. what tools used, description of providers examined)",CHAR,MAX,,Missing: Summary unknown,
+Results of activity,CHAR,MAX,,Missing: Results unknown,
+Did this activity result in an SIU Case or Referral to the State?,CHAR,7,"Yes
+No",Missing: Unknown,

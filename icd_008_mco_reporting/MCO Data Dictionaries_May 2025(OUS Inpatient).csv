@@ -1,0 +1,38 @@
+﻿OUS Inpatient,,,,,
+Variable,Format,Length / Format Detail,Values,Description,
+HP_ID,CHAR,6,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",,
+Condition,CHAR,24,"COPD
+Heart Attack
+Heart Failure
+Pneumonia 
+CABG
+Hip/knee replacements
+Stroke
+Blood stream infections
+Urinary Tract Infections
+Total",,
+Number of Members (on the First Day of Reporting Period),NUM,MAX,,,"For columns with line level blacked out, we need to advise them to use -99."
+Number of Member Months in the Reporting Period,NUM,MAX,,Note: This should be a whole number.,
+Number of Members Hospitalized,NUM,MAX,,,
+Number of Inpatient Admissions,NUM,MAX,,,
+Number of Unplanned Inpatient Admissions,NUM,MAX,,,
+Admissions processed through ED,NUM,MAX,,,
+Number of discharges,NUM,MAX,,,
+Number of readmissions,NUM,MAX,,,
+Number of unplanned readmissions within 30 days,NUM,MAX,,,
+Total Inpatient Days,NUM,MAX,,,
+Number of deaths,NUM,MAX,,,
+Discharges to Home or self-Care,NUM,MAX,,,
+Discharges to SNF for post-acute care,NUM,MAX,,,
+Discharges to home health agency for post-acute care,NUM,MAX,,,
+All other types of discharges,NUM,MAX,,,

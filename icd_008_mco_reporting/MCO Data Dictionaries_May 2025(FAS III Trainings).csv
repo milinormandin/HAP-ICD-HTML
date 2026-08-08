@@ -1,0 +1,18 @@
+﻿FAS III TRAININGS,,,,,
+Variable,Format,Length / Format Detail,Values,Missing/NA,Description
+HP_ID,CHAR,7,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing: HP_ID Unknown,
+Date of Training,DATE,MM/DD/YYYY,,12/31/2299: Date Unknown,"Note: Only one date can be reported in this field. 
+If a training that occurrs over multiple days, only include the start date of the training. If a training for multiple individuals on different dates, please list one per line. "
+Name(s) of SIU staff who attended training,CHAR,MAX,,Missing: Staff Name Unknown,
+Name(s) of organization or staff who hosted training,CHAR,MAX,,Missing: Name of organization or staff unknown,
+Topic(s) of training,CHAR,MAX,,Missing: Training topic unknown,

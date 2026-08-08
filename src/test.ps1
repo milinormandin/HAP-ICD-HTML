@@ -5,7 +5,7 @@
                     - main pdf
                     - .\index.html
                     - html sections
-                    check that timestamps of generated files match the last run
+                    check that timestamps of generated files match the last successful run
                     - create timestamp variable from first line in main.log
                     - check that ts of generated files are greater than latest ts from log
     Date:           2026-07-30
@@ -26,6 +26,7 @@ $currentPath = Split-Path -Parent $PSScriptRoot
 # Define log file
 $logFile = (Join-Path $PSScriptRoot "main.log")
 
+# Check that html ts is greater than ts of last script run
 Get-ChildItem -Path $currentPath -Recurse -Filter "*.html" | Where-Object { $_.FullName -notmatch '\\(GRAPHICS (TRANSPARENT)|icd_xxx_template|src|)\\' } | ForEach-Object {
     $_.Name + " " + ($_.CreationTimeUtc).ToLocalTime()
 
@@ -36,6 +37,8 @@ Get-ChildItem -Path $currentPath -Recurse -Filter "*.html" | Where-Object { $_.F
         "Bad " + $_.Name + " " + ($_.CreationTimeUtc).ToLocalTime()
     }
 }
+
+# Check that main pdf ts is greater than ts of last script run
 
 # # Generate new PS1 script containing Typist HTML compile commands for each typ file within the ICD folders
 # $compileHtmlFilesContent | Set-Content (Join-Path $PSScriptRoot $compileHtmlFilesFileName)

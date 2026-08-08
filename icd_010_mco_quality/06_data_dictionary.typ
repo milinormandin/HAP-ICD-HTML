@@ -20,7 +20,7 @@
   if desc != none { desc }
   let data = csv(filename)
   let rows = data.slice(1)
-  set text(size: 8pt, font: "Times New Roman")
+  set text(size: 8pt)
   table(
     columns: (2fr, 3fr, 3fr),
     align: left,
@@ -51,7 +51,7 @@
   for g in groups [
     ==== #g
     #let cols = rows.filter(r => r.at(idx-group) == g)
-    #set text(size: 8pt, font: "Times New Roman")
+    #set text(size: 8pt)
     #table(
       columns: (2fr, 0.75fr, 3fr, 1.5fr),
       align: left,

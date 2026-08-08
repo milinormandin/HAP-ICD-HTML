@@ -1,0 +1,18 @@
+﻿FAS V,,,,
+Variable,Format,Length / Format Detail,Values,Missing/NA
+HP_ID,CHAR,7,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing: HP ID Unknown
+Reporting Period,CHAR,7,,Missing: Reporting period unknown
+Number of EVV visits that were manually edited to pass Sandata EVV validation (by Qtr. DoS),NUM,MAX,"For true zero, enter 0.", -999: Number unknown
+Number of manually edited EVV visits flagged as questionable (by Qtr. DoS),NUM,MAX,"For true zero, enter 0.", -999: Number unknown
+Number of EVV visits identified as potential Fraud or Abuse prior to opening an SIU Case (by Qtr. DoS),NUM,MAX,"For true zero, enter 0.", -999: Number unknown
+Number of SIU Cases opened resulting from EVV visit review (by Qtr. DoS),NUM,MAX,"For true zero, enter 0.", -999: Number unknown

@@ -3,15 +3,23 @@
     Description:    Compiles Typst files to HTML and PDF.
     Date:           2026-06-29
 ===========================================================================#>
-# Set static variables
+
+<#
+-----------------------------/// Define static variables ///-----------------------------
+#>
+
+# Standardize encoding for capturing command output
+[Console]::InputEncoding = [System.Text.Encoding]::UTF8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 # Set path to root of project
 $currentPath = Split-Path -Parent $PSScriptRoot
 # Define log file
-$logFile = (Join-Path $PSScriptRoot "main.log")
+$timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+$logFile = Join-Path $PSScriptRoot "log\main_$timestamp.log"
 
 <#
-Supporting functions
+-----------------------------/// Supporting functions ///-----------------------------
 #>
 
 <#
@@ -36,13 +44,33 @@ function GenerateHTMLFiles {
     $compileHtmlFilesContent = ""
     $compileHtmlFilesFileName = "compile_html_files.ps1"
 
-    Get-ChildItem -Path $currentPath -Directory | ForEach-Object {
+    Get-ChildItem -Path $currentPath -Directory | Where-Object { $_.FullName -notmatch 'icd_xxx_template' } | ForEach-Object {
         $icdFolder = $_.Name
 
         Get-ChildItem -Path "$_/*" -Filter "*.typ" | ForEach-Object {
             $typFileFullPath = $_.FullName
             $htmlIcdFullPath = $typFileFullPath.Replace('.typ', '.html')
             $htmlIcdFileName = $_.Name.Replace('typ', 'html')
+
+            try {
+                # Execute typst html file command
+                # Capture stderr
+                $stdErr = $($null = typst compile --features html --format html $typFileFullPath $htmlIcdFullPath) 2>&1 
+                if ($LASTEXITCODE -ne 0) {
+                    throw [System.IO.IOException]::new(
+                        "typst html compile with error message: $stdErr"
+                    )
+                }
+                WriteLog "Generated: $htmlIcdFullPath"
+            
+            }
+            catch {
+                
+                WriteLog "ERROR attempted to generate ${htmlIcdFullPath}: $($PSItem.ToString())"
+                throw
+            }
+
+            # Create ps1 file of typst html calls for reference
             $compileHtmlFilesContent += "typst compile --features html --format html $typFileFullPath $htmlIcdFullPath `n"
             $htmlIndexContent += '<li><a href="' + "$icdFolder\$htmlIcdFileName" + '">' + $htmlIcdFullPath + '</a></li>'
 
@@ -51,29 +79,76 @@ function GenerateHTMLFiles {
     $htmlIndexContent += '</ul></body></html>'
 
     $htmlIndexContent > index.html
-    # Generate new PS1 script containing Typist HTML compile commands for each typ file within the ICD folders
-    $compileHtmlFilesContent | Set-Content (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
-    WriteLog "Generated $compileHtmlFilesFileName"
-    & (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
-    WriteLog "Compiled ICD HTML Files"
-    & (Join-Path $PSScriptRoot "insert_css_ref.ps1")
-    WriteLog "Inserted CSS reference into HTML Files"
+    WriteLog "Generated index.html"
+    
+    try {
+        # Generate new PS1 script containing Typist HTML compile commands for each typ file within the ICD folders
+        $compileHtmlFilesContent | Set-Content (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
+        WriteLog "Generated $compileHtmlFilesFileName"
+        
+    }
+    catch {
+        
+        WriteLog "ERROR attempting to generate ${compileHtmlFilesFileName}: $($PSItem.ToString())"
+        throw $PSItem
+    }
+
+    try {
+        & (Join-Path $PSScriptRoot "insert_css_ref.ps1")
+        WriteLog "Inserted CSS reference into HTML Files"
+        
+    }
+    catch {
+        
+        WriteLog "ERROR inserting CSS reference into HTML files: $($PSItem.ToString())"
+        throw $PSItem
+    }
+
 }
 
 <#
-Main logic
+-----------------------------/// Main logic ///-----------------------------
 #>
-WriteLog
-GenerateHTMLFiles
-typst compile main.typ
-WriteLog "Compiled main.typ"
+
+<#
+ICD HTML files generation
+#>
+WriteLog "$($MyInvocation.MyCommand.Name) script start"
+try {
+    GenerateHTMLFiles
+    WriteLog "Compiled HTML ICD files successfully."
+        
+}
+catch {
+    
+    WriteLog "ERROR One or more errors occurred while attempting to generate HTML files."
+}
+
+<#
+main.pdf generation
+#>
+try {
+    $stdErr = $($null = typst compile main.typ) 2>&1 
+    if ($LASTEXITCODE -ne 0) {
+        throw [System.IO.IOException]::new(
+            "typst compile main.typ returned with error message: $stdErr"
+        )
+    }
+    WriteLog "Compiled main.typ successfully."
+            
+}
+catch {
+    
+    WriteLog "ERROR compiling main.typ: $($PSItem.ToString())"
+}
 
 
 # TODO
 # [X] improve clarity
 # [X] logging
-# [] change log to append instead of overwrite
-# [] add log folder
+# [X] change log to append instead of overwrite
+# [X] add log folder
+# [X] generate new log file for every run
 # - unit testing
 # - existence of:  
 #     - main pdf

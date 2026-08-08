@@ -1,0 +1,24 @@
+﻿FAS IV,,,,
+Variable,Format,Length / Format Detail,Values,Missing/NA
+HP_ID,CHAR,7,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",
+VOS Category of Service,CHAR,19,"Facility Inpatient
+Facility Outpatient
+Professional
+HCBS
+Pharmacy
+Nursing Home/Waitlist
+Total Distinct Members",Missing: Category Unknown
+Number of Members who Received Category of Service during Reporting Period,NUM,MAX,"For true zero, enter 0.", -999: Number unknown
+Number of Members mailed VOS during the Reporting Period,NUM,MAX,"For true zero, enter 0.", -999: Number unknown
+Number of Members who responded to VOS,NUM,MAX,"For true zero, enter 0.", -999: Number unknown
+Number of VOS responses that resulted in SIU Case or Referral to the State,NUM,MAX,"For true zero, enter 0.", -999: Number unknown

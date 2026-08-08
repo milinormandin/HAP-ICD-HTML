@@ -1,0 +1,58 @@
+﻿PCR Member Attribution and Assignment Table,,,,,
+Variable,Format,Length / Format Detail,Values,Missing/N/A Values,Description
+HP_ID,CHAR,7,"
+ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing = Health Plan ID unknown,"QUEST ASSIGNED HEALTH PLAN IDENTIFIER;
+ALOHAC  = AlohaCare – Non-ABD Clients
+HMSAAA  = HMSA – Non-ABD Clients
+KAISER = Kaiser – Non-ABD Clients
+OHANAA = Ohana (Wellcare) – Non-ABD Clients
+UNITED = UnitedHealthcare – Non-ABD Clients
+OHANBH = Ohana (Wellcare) – Behavioral Health
+XALOHA = AlohaCare – ABD Clients
+XHMSAA = HMSA – ABD Clients
+XKAISR = Kaiser – ABD Clients
+XOHANA = Ohana (Wellcare) – ABD Clients
+XUNITD = UnitedHealthcare – ABD Clients"
+EXTRACT_DATE,DATE,MM/DD/YYYY,,12/31/2299 = Extract date unknown,DATE OF DATA EXTRACT
+REPORT_YEAR,NUM,YYYY,, -999 = Report year unknown,REPORT YEAR
+EXTRACT_PREP,CHAR,40,,Missing = Extract prep unknown,NAME OF PREPARER OF DATA EXTRACT
+EX_PREP_EMAIL,CHAR,40,,Missing = Extract prep email unknown,EMAIL ADDRESS OF PREPARER OF DATA EXTRACT
+ISLAND CODE,CHAR,7,"01 = Oahu
+04 = Kauai
+05 = Hawaii
+07 = Maui
+08 = Molokai
+09 = Lanai
+31 = Out of State
+33 = Out of Country","
+Missing = Island code unknown",As defined in the HPS File (see HPMMIS Provider Manual)
+QUEST PROVIDER ID,CHAR,7,Provider ID,"NA =Provider does not have a MQD ID
+Missing = Provider has a MQD ID, but ID is unknown",As defined in the HPS File (see HPMMIS Provider Manual)
+PROV_NAME,CHAR,40,Registered business name or Provider's Last/First Name, Missing: Provider name unknown,As defined in the HPS File (see HPMMIS Provider Manual)
+PROVIDER_TYPE,CHAR,7,Code classifying the provider by type of services rendered., Missing: Provider type unknown,Appendix 3E - Provider Type Definitions; As defined in the HPS File.
+SPECIALITY_CODE,CHAR,7,Provider Specialty Code, Missing: Provider specialty code unknown,Appendix 3B - Provider Specialty Codes. 
+HAWI_ID,CHAR,10,Medicaid ID,Missing: Hawi ID unkown,MED-QUEST ASSIGNED BENEFICIARY IDENTIFICATION NUMBER
+MA_BEGIN_DATE,DATE,MM/DD/YYYY,Member Attribution Begin Date,"12/31/2200: Member is not attributed to a provider
+12/31/2299: Attribution begin date unknown",Date when Member Attribution to Provider began
+MA_END_DATE,DATE,MM/DD/YYYY,Member Attribution End Date,"12/31/2200: Member is not attributed to a provider
+12/31/2299: Attribution end date unknown",Date when Member Attribution to Provider ended
+MAS_BEGIN_DATE,DATE,MM/DD/YYYY,Member Assignment Begin Date,"12/31/2200: Member is not assigned to a provider
+12/31/2299: Member assignment begin date unknown",Date when Member Assignment to Provider began
+MAS_END_DATE,DATE,MM/DD/YYYY,Member Assignment End Date,"12/31/2200: Member is not assigned to a provider
+12/31/2299: Member assignment end date unknown",Date when Member Assignment to Provider ended
+NETWORK,NUM,4,"0 = Network
+1 = Out-of-Network", -999: network status unknown,Providerʻs Network Status
+PHYS_ORG,CHAR,7,Physician Organization,"NA: Provider not part of physican organization
+Missing: Provider is part of a physician organization, but PO is unknown",See Physician Org Ref tab
+PHYS_ORG_OTHER,CHAR,MAX,Other Physician Organization,"NA: No additional/other provider organization
+Missing: Additional/other physician organization not known",See definition within Report Manual

@@ -1,0 +1,37 @@
+﻿Pam Procedural Code Workbook,,,,,
+Column,Format,Length / Format Detail,Values,Missing/NA,Description
+HP_ID,CHAR,7,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing = Health Plan ID unknown,Health plan identifier
+Year_Qtr,CHAR,7,,Missing = Year and quarter unknown,Year and Quarter. For ex. Q1 2025
+Service_Category,CHAR,20,"At Risk Services
+Autism Services
+Diagnostic Testing
+DME/Medical Supplies
+HCBS
+Home Health
+Inpatient Hosp
+Outpatient Hosp
+Physician Services
+Preventative Services
+Rehab Services
+Transport Services
+Behavioral Health
+Other",Missing = Service category unknown,Service category the procedure code falls under
+Procedure_Code,CHAR,7,,Missing = Procedure code unknown,Procedure code. Note: Please list only one procedure code per line
+Procedure_Code_Type,CHAR,7,"CPT
+HCPCS",Missing = Procedure code typye unknown,Is this a CPT or HCPCS code?
+Proc_Code_Description,CHAR,MAX,,Missing = Procedure code description unknown,What service is this procedure code for?
+Proc_Code_Change,CHAR,7,"Y = Yes
+N = No",Missing = Unknown if procedure code was added or deleted this quarter,Was this procedure code added or deleted this quarter?
+New_Proc_Code,CHAR,7,"A = Added
+D = Deleted
+NA = Procedure code was not added or deleted during the reporting period.",Missing = Unknown if procedure code was added or deleted or unknown if procedure code was added or deleted.,"If this procedure code was added or deleted this quarter, was it added or deleted?"

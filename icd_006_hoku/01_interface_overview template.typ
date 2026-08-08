@@ -10,7 +10,6 @@
   table(
     columns: (auto, 1fr), align: (left, left), stroke: 0.5pt,
     [*Attribute*], [*Details*],
-    
     [System - Title], [Hawaii Online Kahu Utility],
     [Abbreviation], [HOKU],
     [Point of Contact (Source)], [Bin Shi / c.bin.shi\@acentra.com],

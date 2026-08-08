@@ -6,11 +6,10 @@ This section describes the source system and its high-level function. This data 
 #figure(
   table(
     columns: (auto, 1fr), align: (left, left), stroke: 0.5pt,
-    [*Attribute*], [*Details*],
-    [System - Title], [WIP Medicare Advantage],
-    [Abbreviation], [WIPMA],
-    [Point of Contact (Source)], [Name / Email],
-    [Point of Contact (MQD)], [Name / Email],
-    [Vendor], [Vendor Name]
+    [*System - Title*], [WIP Medicare Advantage],
+    [*Abbreviation*], [WIPMA],
+    [*Point of Contact (Source)*], [Name / Email],
+    [*Point of Contact (MQD)*], [Name / Email],
+    [*Vendor*], [Vendor Name]
   ), caption: [Interface Specification Overview - WIP Medicare Advantage]
 )

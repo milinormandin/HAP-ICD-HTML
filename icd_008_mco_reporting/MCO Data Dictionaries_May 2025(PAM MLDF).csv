@@ -1,0 +1,172 @@
+﻿Prior Authorization Medical Member-level Data File,,,,,
+Variable,Format,Length / Format Detail,Values,Missing/N/A Values,Description
+HP_ID,CHAR,7,"
+ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  ",Missing = Health Plan ID unknown,"QUEST ASSIGNED HEALTH PLAN IDENTIFIER;
+ALOHAC  = AlohaCare – Non-ABD Clients
+HMSAAA  = HMSA – Non-ABD Clients
+KAISER = Kaiser – Non-ABD Clients
+OHANAA = Ohana (Wellcare) – Non-ABD Clients
+UNITED = UnitedHealthcare – Non-ABD Clients
+OHANBH = Ohana (Wellcare) – Behavioral Health
+XALOHA = AlohaCare – ABD Clients
+XHMSAA = HMSA – ABD Clients
+XKAISR = Kaiser – ABD Clients
+XOHANA = Ohana (Wellcare) – ABD Clients
+XUNITD = UnitedHealthcare – ABD Clients"
+EXTRACT_DATE,DATE,MM/DD/YYYY,,12/31/2299 = Extract date unknown,DATE OF DATA EXTRACT
+REPORT_YEAR,NUM,YYYY,, -999 = Report year unknown,REPORT YEAR
+EXTRACT_PREP,CHAR,40,,Missing = Extract prep unknown,NAME OF PREPARER OF DATA EXTRACT
+EX_PREP_EMAIL,CHAR,40,,Missing = Extract prep email unknown,EMAIL ADDRESS OF PREPARER OF DATA EXTRACT
+ISLAND_CODE,CHAR,7,"01 = Oahu
+04 = Kauai
+05 = Hawaii
+07 = Maui
+08 = Molokai
+09 = Lanai
+31 = Out of State
+33 = Out of Country","
+Missing = Island code unknown",As defined in the HPS File (see HPMMIS Provider Manual)
+QUEST_PROVIDER_ID,CHAR,7,Provider ID,"NA =Provider does not have an MQD ID
+Missing = Provider has a MQD ID, but MQD ID is unknown",As defined in the HPS File (see HPMMIS Provider Manual)
+NATIONAL_PROVIDER_ID,CHAR,10,NATIONAL PROVIDER ID (NPI),"NA = Provider does not have an NPI
+Missing = Provider has an NPI, but NPI is unknown",NATIONAL PROVIDER IDENTIFIER (NPI)
+PROV_NAME,CHAR,40,Registered business name or Provider's Last/First Name,Missing =Provider name unknown,As defined in the HPS File (see HPMMIS Provider Manual)
+HAWI_ID,CHAR,10,Medicaid ID,Missing = Hawi ID unkown,MED-QUEST ASSIGNED BENEFICIARY IDENTIFICATION NUMBER
+Member_Last,CHAR,50,,Missing = Member last name unknown,Member Last Name related to prior authorization denial
+Member_First,CHAR,50,,Missing = Member first name unknown,Member First Name related to prior authorization denial
+Member_DOB,DATE,MM/DD/YYYY,,12/31/2299 = Member DOB unknown,Date of Birth of Member
+PA_Request_Date,DATE,MM/DD/YYYY,,12/31/2299 =PA request date unknown,Date of prior authorization request
+PA_Request_Type,NUM,4,"1 = Standard
+2 = Expedited
+3 = Retrospective", -999 = PA request type unknown,What is the type of PA request?
+Treatment_Focus_BH,CHAR,7,"Y=Yes
+N=No",Missing = Unknown whether PA was related to BH Services,Was this PA related to BH services?
+PA_Decision,CHAR,7,"A = Approved
+D =Denied","NA = PA Decision has not been reached
+Missing: PA Decision has been reached, but status unknown",Was the PA approved or denied?
+PA_Request_Expedited_Time,TIME,XX:XX,,"88:88 =There was not an expedited request
+99:99 = There was an expedited request, but time unkonwn","For expedited requests only, time of day of request"
+Request_Extension,CHAR,7,"Y=Yes
+N=No",Missing = Unknown if extension was requested,Was an extension requested?
+Request_Extension_Party,NUM,4,"1 = Health Plan
+2 = Member
+3 = Provider
+4 = Other"," -99 = There was no extension request
+ -999 = There was an extension request, but who requested is unknown",Who requested the extension?
+Date_Request_Extension,DATE,MM/DD/YYYY,,"12/31/2200 = There was no extension request
+12/31/2299 = There was an extension request, but date is unknown",Date extension was requested
+Extension_Decision,CHAR,7,"Y=Yes
+N=No","NA = There was no extension request
+Missing = There was an extension request, but decision unknown",Was extension approved?
+ICD10Code,CHAR,MAX,XX.XXXXXX,Missing = ICD10 code Unknown,ICD-10 Code
+CPT_HCPCS,CHAR,MAX,,Missing = CPT/HCPCS code Unknown,CPT/HCPCS Code 
+Service_Cat,NUM,4,"01=At Risk Services
+02=Autism Services
+03=Diagnostic Testing
+04=Durable Medical Supplies/Medical Equipment
+05=Home and Community Based Services
+06 = Home Health Services
+07 = Inpatient Hospital Services
+08=Outpatient Hospital Services
+09=Physician Services
+10=Preventative Services
+11=Rehabilitation Services
+12=Transportation Services
+13 = Behavioral Health
+14 = Other Services", -999 = Provider service category unknown,Provider Service Category
+HC_Dec_Code,CHAR,7,"0F=Not Medically Necessary
+0L=Exceeds Plan Maximums
+0M=Non-covered Service
+07=Administrative Cancellation
+08 = Partial Approval
+09=Out of Network
+27=Member Not Enrolled in Plan","NA = PA was not denied
+Missing = PA was denied, but decision reason unknown",Health Care Decision Reason Code (Denials)
+Service_Location,NUM,4,"01 = Pharmacy
+02 = Telehealth Provided Other than in Patient’s Home
+03 = School
+04 = Homeless Shelter
+05 = Indian Health Service Free-standing Facility
+06 = Indian Health Service Provider-based Facility
+07 = Tribal 638 Free-standing Facility
+08 = Tribal 638 Provider-based Facility
+09 = Prison/Correctional Facility
+10 = Telehealth Provided in Patient’s Home
+11 = Office
+12 = Home
+13 = Assisted Living Facility
+14 = Group Home
+15 = Mobile Unit
+16 = Temporary Lodging
+17 = Walk-in Retail Health Clinic
+18 = Place of Employment-Worksite
+19 = Off Campus-Outpatient Hospital
+20 = Urgent Care Facility
+21 = Inpatient Hospital
+22 = On Campus-Outpatient Hospital
+23 = Emergency Room – Hospital
+24 = Ambulatory Surgical Center
+25 = Birthing Center
+26 = Military Treatment Facility
+27 = Outreach Site/ Street
+31 = Skilled Nursing Facility
+32 = Nursing Facility
+33 = Custodial Care Facility
+34 = Hospice
+41 = Ambulance - Land
+42 = Ambulance – Air or Water
+49 = Independent Clinic
+50 = Federally Qualified Health Center
+51 = Inpatient Psychiatric Facility
+52 = Psychiatric Facility-Partial Hospitalization
+53 = Community Mental Health Center
+54 = Intermediate Care Facility/ Individuals with Intellectual Disabilities
+55 = Residential Substance Abuse Treatment Facility
+56 = Psychiatric Residential Treatment Center
+57 = Non-residential Substance Abuse Treatment Facility
+58 = Non-residential Opioid Treatment Facility
+60 = Mass Immunization Center
+61 = Comprehensive Inpatient Rehabilitation Facility
+62 = Comprehensive Outpatient Rehabilitation Facility
+65 = End-Stage Renal Disease Treatment Facility
+71 = Public Health Clinic
+72 = Rural Health Clinic
+81 = Independent Laboratory
+99 = Other
+", -999 = Service location unknown,Where would the service take place?
+Service_Context,NUM,4,"01= Transition
+02=Continuation
+03=New Service", -999 = Type of service unknown,What type of service?
+Date_Decision,DATE,MM/DD/YYYY,,"12/31/2200 = PA decision has not been reached
+12/31/2299 = PA decision was reached, but date unknown",Date decision was made
+Time_Decision,TIME,XX:XX,,"88:88 = Not an expedited request or PA decision has not been reached
+99:99 = PA decision was reached, but time unknown","For expedited requests only, time of day decision was made"
+HC_Dec_Desc,CHAR,MAX,,"NA = PA was not denied
+Missing = PA was denied, but reason unknown",Detailed Description of Reason for Denial
+DATE_Prov_Notif,DATE,MM/DD/YYYY,,"12/31/2200 = Provider was not notified
+12/31/2299 = Provider was notified, but date unknown",Date of written provider notification
+Time_Prov_Notif,TIME,XX:XX,,"88:88 = Not an expedited request or provider was not notified
+99:99 = Provider was notified, but date unknown","For expedited requests only, time of day of written provider notification"
+Date_Mem_Notif,DATE,MM/DD/YYYY,,"12/31/2200 = Member was not notified
+12/31/2299 = Member was notified, but date unknown",Date of written member notification
+Time_Mem_Notif,TIME,XX:XX,,"88:88 = Not an expedited request or member was not notified
+99:99 = Member was notified, but time unknown","For expedited requests only, the time of day of written member notification"
+Delays_Desc,CHAR,MAX,,"NA = No delays in notification
+Missing = Delays in notification, but reason unknown",Description of any delays related to notification of member and/or provider of decision
+Appeal,CHAR,7,"Y=Yes
+N=No",Missing = Unknown if there was an appeal or consideration request,Appeal or Consideration Requested
+Appeal_Reso,NUM,4,"1=In Progress
+2=Overturned
+3=Upheld
+4=Withdrawn"," -99 = There was not an appeal
+ -999 = There was an appeal, but resolution status unknown",Resolution of Appeal

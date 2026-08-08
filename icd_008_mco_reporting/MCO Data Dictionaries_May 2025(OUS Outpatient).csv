@@ -1,0 +1,34 @@
+﻿OUS Inpatient,,,
+Variable,Format,Length / Format Detail,Values
+HP_ID,CHAR,6,"ALOHAC 
+HMSAAA 
+KAISER 
+OHANAA 
+UNITED 
+OHANBH 
+XALOHA 
+XHMSAA 
+XKAISR  
+XOHANA  
+XUNITD  "
+Populations,CHAR,11,"2-17 years
+18-39 years
+40-64 years
+65+ years"
+Total Number of Members,NUM,MAX,
+Total Number of Member-Months,NUM,MAX,Note: This should be a whole number.
+Number of Members with One or More ED Visits,NUM,MAX,
+Number of Members with Two or More ED Visits,NUM,MAX,
+Number of Members with Four or More ED Visits in the prior 4 rolling quarters,NUM,MAX,
+Total Number of ED Visits,NUM,MAX,
+Total Number of ED Visits that resulted in Hospitalizations,NUM,MAX,
+"ED visits with a principal diagnosis related to mental health, alcohol, or substance abuse",NUM,MAX,
+ED visits with a principal diagnosis of dental conditions,NUM,MAX,
+ED visits with a principal diagnosis of asthma,NUM,MAX,
+Members with one or more visits to PCP in the prior 4 rolling quarters,NUM,MAX,
+Members with an ED visit without a visit to the member's PCP in the prior 4 rolling quarters,NUM,MAX,
+Members with two or more ED visits without a visit to the member's PCP in the prior 4 rolling quarters,NUM,MAX,
+Members whose PCP has changed once in the past 4 rolling quarters,NUM,MAX,
+Members whose PCP has changed more than once in the past 4 rolling quarters,NUM,MAX,
+Members needing or utilizing BH services,NUM,MAX,
+Members utilizing outpatient BH services,NUM,MAX,

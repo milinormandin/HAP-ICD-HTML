@@ -1,10 +1,10 @@
 == Security and Privacy Constraints
 
-#table(
-  columns: (auto, 1fr), align: (left, left), stroke: 0.5pt,
-  [*Constraint*], [*Requirement*],
-  [Security and Privacy Scope], [Public PII],
-  [Reason], [N/A (All HOKU Provider Extract Data is Considered Sensitive)],
-  [Highest HAP PHI Classification Level], [],
-  [Retention Requirements], [60 Days]
+#figure(
+  table(
+    columns: (auto, 1fr), align: (left, left), stroke: 0.5pt,
+    [*PHI Level Role Name*], [Limited PHI Level 3 Provider],
+    [*HAP Alignment*], [HIPAA Sensitivity Level 3],
+    [*SFTP Retention Period*], [60 Days],
+  ), caption: [Security and Privacy Constraints - HOKU PE File]
 )
