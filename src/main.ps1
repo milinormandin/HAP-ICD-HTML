@@ -35,7 +35,9 @@ function WriteLog {
 <#
 Generates the following HTML files:
 1. index.html - Located in project root. Main entrypoint for all ICD HTML pages. Required for Github pages deployment.
-2. HTML file for each .typ file within the ICD folders  
+2. HTML file for each .typ file within the ICD folders
+
+Returns a hashmap containing the counts of the total ICD typ files found and the total count of ICD typ files successfully compiled to HTML
 #>
 function GenerateHTMLFiles {
     $typFileFullPath = ""
@@ -43,6 +45,10 @@ function GenerateHTMLFiles {
     $htmlIndexContent = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Test</title><link rel="stylesheet" href="./src/style.css"></head><body><ul>'
     $compileHtmlFilesContent = ""
     $compileHtmlFilesFileName = "compile_html_files.ps1"
+    $results = @{
+        successfulIcdFileCount = 0
+        totalIcdTypFileCount   = 0
+    }
 
     Get-ChildItem -Path $currentPath -Directory | Where-Object { $_.FullName -notmatch 'icd_xxx_template' } | ForEach-Object {
         $icdFolder = $_.Name
@@ -61,6 +67,9 @@ function GenerateHTMLFiles {
                         "typst html compile with error message: $stdErr"
                     )
                 }
+                else {
+                    $results.successfulIcdFileCount += 1
+                }
                 WriteLog "Generated: $htmlIcdFullPath"
             
             }
@@ -72,6 +81,7 @@ function GenerateHTMLFiles {
             # Create ps1 file of typst html calls for reference
             $compileHtmlFilesContent += "typst compile --features html --format html $typFileFullPath $htmlIcdFullPath `n"
             $htmlIndexContent += '<li><a href="' + "$icdFolder\$htmlIcdFileName" + '">' + $htmlIcdFullPath + '</a></li>'
+            $results.totalIcdTypFileCount += 1
 
         }
     }
@@ -102,7 +112,7 @@ function GenerateHTMLFiles {
         WriteLog "ERROR inserting CSS reference into HTML files: $($PSItem.ToString())"
         # throw $PSItem
     }
-
+    return $results
 }
 
 <#
@@ -117,15 +127,8 @@ WriteLog "$($MyInvocation.MyCommand.Name) script start"
 <#
 ICD HTML files generation
 #>
-try {
-    GenerateHTMLFiles
-    WriteLog "Compiled HTML ICD files successfully."
-        
-}
-catch {
-    
-    WriteLog "ERROR One or more errors occurred while attempting to generate HTML files."
-}
+$results = GenerateHTMLFiles
+WriteLog "Successfully generated HTML for $($results.successfulIcdFileCount)/$($results.totalIcdTypFileCount) .typ ICD files"
 
 <#
 main.pdf generation
