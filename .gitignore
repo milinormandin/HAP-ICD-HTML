@@ -1,3 +1,4 @@
 .claude/
 notes.md
 main.pdf
+src/log/*.log

@@ -67,7 +67,6 @@ function GenerateHTMLFiles {
             catch {
                 
                 WriteLog "ERROR attempted to generate ${htmlIcdFullPath}: $($PSItem.ToString())"
-                throw
             }
 
             # Create ps1 file of typst html calls for reference
@@ -90,7 +89,7 @@ function GenerateHTMLFiles {
     catch {
         
         WriteLog "ERROR attempting to generate ${compileHtmlFilesFileName}: $($PSItem.ToString())"
-        throw $PSItem
+        # throw $PSItem
     }
 
     try {
@@ -101,7 +100,7 @@ function GenerateHTMLFiles {
     catch {
         
         WriteLog "ERROR inserting CSS reference into HTML files: $($PSItem.ToString())"
-        throw $PSItem
+        # throw $PSItem
     }
 
 }
