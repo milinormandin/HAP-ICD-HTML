@@ -128,7 +128,7 @@ WriteLog "$($MyInvocation.MyCommand.Name) script start"
 ICD HTML files generation
 #>
 $results = GenerateHTMLFiles
-WriteLog "Successfully generated HTML for $($results.successfulIcdFileCount)/$($results.totalIcdTypFileCount) .typ ICD files"
+WriteLog "Generated HTML for $($results.successfulIcdFileCount)/$($results.totalIcdTypFileCount) .typ ICD files"
 
 <#
 main.pdf generation
