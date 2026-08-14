@@ -3,7 +3,7 @@
     Description:    Verifies that new html and main.pdf files were generated 
                     check existence of:  
                     - main pdf
-                    - .\index.html
+                    - .\main.pdf
                     - html sections
                     check that timestamps of generated files match the last successful run
                     - create timestamp variable from first line in main.log
@@ -15,37 +15,50 @@ $logFolder = "$path\log"
 
 $latestLogFile = (Get-ChildItem $logFolder -Filter "*.log" | Sort-Object LastWriteTime | Select-Object -last 1).FullName
 
-$lastRun = [datetime](Get-Content $latestLogFile -Head 1)
-
-# if ($lastRun -eq [datetime]"2026/08/07 16:22:36") {
-#     "Same time"
-# }
-# else {
-#     "Different time"
-# }
-# $lastRun
+$lastRunTs = [datetime](Get-Content $latestLogFile -Head 1)
 
 # Set path to root of project
 $currentPath = Split-Path -Parent $PSScriptRoot
 
+$results = @{
+    successfulFileCount = 0
+    totalFileCount      = 0
+}
+
 # Check that html ts is greater than ts of last script run
 Get-ChildItem -Path $currentPath -Recurse -Filter "*.html" | Where-Object { $_.FullName -notmatch '\\(GRAPHICS (TRANSPARENT)|icd_xxx_template|src|)\\' } | ForEach-Object {
-    $_.Name + " " + ($_.CreationTimeUtc).ToLocalTime()
 
-    if (($_.CreationTimeUtc).ToLocalTime() -gt $lastRun) {
-        "Good " + $_.Name + " " + ($_.CreationTimeUtc).ToLocalTime()
+    if (($_.LastWriteTime).ToLocalTime() -gt $lastRunTs) {
+        $results.successfulFileCount += 1
     }
     else {
-        "Bad " + $_.Name + " " + ($_.CreationTimeUtc).ToLocalTime()
+        Write-Output "CHECK!! File was not updated during last run: " + $_.Name + " " + ($_.LastWriteTime).ToLocalTime()
     }
+
+    $results.totalFileCount += 1
 }
+
+Write-Output "TEST 01: HTML file last update time check: $($results.successfulFileCount)/$($results.totalFileCount) files PASSED"
 
 # Check that main pdf ts is greater than ts of last script run
 
-# # Generate new PS1 script containing Typist HTML compile commands for each typ file within the ICD folders
-# $compileHtmlFilesContent | Set-Content (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
-# WriteLog "Generated $compileHtmlFilesFileName"
-# & (Join-Path $PSScriptRoot $compileHtmlFilesFileName)
-# WriteLog "Compiled ICD HTML Files"
-# & (Join-Path $PSScriptRoot "insert_css_ref.ps1")
-# WriteLog "Inserted CSS reference into HTML Files"
+try {
+    $mainPDF = (Get-ChildItem $currentPath -Filter "main.pdf")
+    
+    if ($null -eq $mainPDF) {
+        throw [System.IO.FileNotFoundException]::new(
+            "main.pdf not found"
+        )
+    }
+
+    if ($mainPDF.LastWriteTime.ToLocalTime() -gt $lastRunTs) {
+        Write-Output "TEST 02: main.pdf file last update time check: PASSED"
+    }
+    else {
+        Write-Output "TEST 02: main.pdf file last update time check: FAILED"
+    }
+}
+catch {
+    Write-Output "TEST 02: main.pdf file last update time check: FAILED WITH ERRORS: $($PSItem)"
+}
+

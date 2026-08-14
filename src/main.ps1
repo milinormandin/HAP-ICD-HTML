@@ -46,8 +46,8 @@ function GenerateHTMLFiles {
     $compileHtmlFilesContent = ""
     $compileHtmlFilesFileName = "compile_html_files.ps1"
     $results = @{
-        successfulIcdFileCount = 0
-        totalIcdTypFileCount   = 0
+        successfulFileCount = 0
+        totalFileCount   = 0
     }
 
     Get-ChildItem -Path $currentPath -Directory | Where-Object { $_.FullName -notmatch 'icd_xxx_template' } | ForEach-Object {
@@ -68,7 +68,7 @@ function GenerateHTMLFiles {
                     )
                 }
                 else {
-                    $results.successfulIcdFileCount += 1
+                    $results.successfulFileCount += 1
                 }
                 WriteLog "Generated: $htmlIcdFullPath"
             
@@ -81,7 +81,7 @@ function GenerateHTMLFiles {
             # Create ps1 file of typst html calls for reference
             $compileHtmlFilesContent += "typst compile --features html --format html $typFileFullPath $htmlIcdFullPath `n"
             $htmlIndexContent += '<li><a href="' + "$icdFolder\$htmlIcdFileName" + '">' + $htmlIcdFullPath + '</a></li>'
-            $results.totalIcdTypFileCount += 1
+            $results.totalFileCount += 1
 
         }
     }
@@ -128,7 +128,7 @@ WriteLog "$($MyInvocation.MyCommand.Name) script start"
 ICD HTML files generation
 #>
 $results = GenerateHTMLFiles
-WriteLog "Generated HTML for $($results.successfulIcdFileCount)/$($results.totalIcdTypFileCount) .typ ICD files"
+WriteLog "Generated HTML for $($results.successfulFileCount)/$($results.totalFileCount) .typ ICD files"
 
 <#
 main.pdf generation

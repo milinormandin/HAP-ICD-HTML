@@ -49,13 +49,13 @@ function Remove-Main-PDF {
 
 function Remove-Main-Logs {
 
-    Get-ChildItem -Path "$PSScriptRoot\log" | ForEach-Object {
+    Get-ChildItem -Path "$PSScriptRoot\log" -Filter "*.log" | ForEach-Object {
         $outputPath = $_.FullName
         Remove-Item -Path $outputPath
 
 
     }
-    Write-Output 'Removed all files from log folder.'
+    Write-Output 'Removed all log files from log folder.'
     
 }
 
